@@ -1,21 +1,21 @@
 {
-  "name": "akson",
+  "name": "Algo Mobile",
   "version": "1.0.0",
-  "description": "Composition Environment",
+  "description": "Networked Music Engine for Live Performance",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luisArandas/akson.git"
+    "url": "git+https://github.com/luisArandas/algomobile.git"
   },
   "author": "Luis Arandas",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/luisArandas/akson/issues"
+    "url": "https://github.com/luisArandas/algomobile/issues"
   },
-  "homepage": "https://github.com/luisArandas/akson#readme",
+  "homepage": "https://github.com/luisArandas/algomobile#readme",
   "dependencies": {
     "bootstrap-select": "^1.13.5",
     "express": "^4.16.4",
