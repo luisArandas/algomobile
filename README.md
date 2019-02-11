@@ -1,1 +1,2 @@
-# Algo Musical Framework for Large-Scale Interaction
+# algomobile
+Networked Music Engine for Live Performance
