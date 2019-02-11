@@ -10,90 +10,70 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/resonance-audio/build/resonance-audio.min.js"></script>
-  <script src="libraries/NexusUI.js"></script>
   <script src="libraries/webcomponents.min.js"></script>
   <script src="https://unpkg.com/@webcomponents/webcomponentsjs@^2/webcomponents-bundle.js"></script>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" type="text/css" href="css/wui.min.css" />
   <title>Algo Mobile</title>
 </head>
 
 <body>
   <script src="index.js" type="text/javascript"></script>
-  <div class="info">
-    <input type="file" id="files" />
-    <output id="list"></output>
+  <form method="post" enctype="multipart/form-data" action="/upload">
+    <input type="file" name="file">
+    <input type="submit" value="Submit">
+  </form>
+  <img src="/image.png" />
 
-    <script>
-      if (window.FileReader) {
-        function handleFileSelect(evt) {
-          var files = evt.target.files;
-          var f = files[0];
-          var reader = new FileReader();
-          reader.onload = (function(theFile) {
-            return function(e) {
-              document.getElementById('list').innerHTML = ['<img src="', e.target.result, '" title="', theFile.name, '" width="50"/>'].join('');
-            };
-          })(f);
-          reader.readAsDataURL(f);
-        }
-      } else {
-        alert('This browser does not support FileReader');
-      }
-      document.getElementById('files').addEventListener('change', handleFileSelect, false);
-    </script>
-
-    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js'></script>
-    <script src='https://threejs.org/examples/js/lights/RectAreaLightUniformsLib.js'></script>
-    <script src="libraries/three.min.js"></script>
-    <script src="libraries/tween.min.js"></script>
-    <script src="libraries/Tone9.js"></script>
-    <script src="libraries/CopyShader.js"></script>
-    <script src="libraries/LuminosityHighPassShader.js"></script>
-    <script src="libraries/OrbitControls.js"></script>
-    <script src="libraries/QuickHull.js"></script>
-    <script src="libraries/ConvexGeometry.js"></script>
-    <script src="libraries/UnrealBloomPass.js"></script>
-    <script src="libraries/GPUComputationRenderer.js"></script>
-    <script src="libraries/Bird.js"></script>
-    <script src="libraries/PixelShader.js"></script>
-    <script src="libraries/DigitalGlitch.js"></script>
-    <script src="libraries/LuminosityShader.js"></script>
-    <script src="libraries/SobelOperatorShader.js"></script>
-    <script src="libraries/EffectComposer.js"></script>
-    <script src="libraries/RenderPass.js"></script>
-    <script src="libraries/MaskPass.js"></script>
-    <script src="libraries/ShaderPass.js"></script>
-    <script src="libraries/GlitchPass.js"></script>
-    <script src="libraries/Projector.js"></script>
-    <script src="libraries/BleachBypassShader.js"></script>
-    <script src="libraries/ColorifyShader.js"></script>
-    <script src="libraries/ConvolutionShader.js"></script>
-    <script src="libraries/DotScreenShader.js"></script>
-    <script src="libraries/FilmShader.js"></script>
-    <script src="libraries/HorizontalBlurShader.js"></script>
-    <script src="libraries/SepiaShader.js"></script>
-    <script src="libraries/VerticalBlurShader.js"></script>
-    <script src="libraries/VignetteShader.js"></script>
-    <script src="libraries/BloomPass.js"></script>
-    <script src="libraries/FilmPass.js"></script>
-    <script src="libraries/DotScreenPass.js"></script>
-    <script src="libraries/TexturePass.js"></script>
-    <script src="libraries/HalftonePass.js"></script>
-    <script src="libraries/HalftoneShader.js"></script>
-    <script src="libraries/DepthLimitedBlurShader.js"></script>
-    <script src="libraries/UnpackDepthRGBAShader.js"></script>
-    <script src="libraries/WebGL.js"></script>
-    <script src="libraries/stats.min.js"></script>
-    <script src="libraries/dat.gui.min.js"></script>
-    <script src="libraries/audiokeys.js"></script>
-    <script src="libraries/AfterimageShader.js"></script>
-    <script src="libraries/AfterimagePass.js"></script>
-    <script src="libraries/Tone.Editor.js" charset="utf-8"></script>
-    <script src="libraries/wui.min.js" type="text/javascript"></script>
-    <script src="libraries/p5.js" type="text/javascript"></script>
+  <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js'></script>
+  <script src='https://threejs.org/examples/js/lights/RectAreaLightUniformsLib.js'></script>
+  <script src="libraries/three.min.js"></script>
+  <script src="libraries/tween.min.js"></script>
+  <script src="libraries/Tone9.js"></script>
+  <script src="libraries/CopyShader.js"></script>
+  <script src="libraries/LuminosityHighPassShader.js"></script>
+  <script src="libraries/OrbitControls.js"></script>
+  <script src="libraries/QuickHull.js"></script>
+  <script src="libraries/ConvexGeometry.js"></script>
+  <script src="libraries/UnrealBloomPass.js"></script>
+  <script src="libraries/GPUComputationRenderer.js"></script>
+  <script src="libraries/Bird.js"></script>
+  <script src="libraries/PixelShader.js"></script>
+  <script src="libraries/DigitalGlitch.js"></script>
+  <script src="libraries/LuminosityShader.js"></script>
+  <script src="libraries/SobelOperatorShader.js"></script>
+  <script src="libraries/EffectComposer.js"></script>
+  <script src="libraries/RenderPass.js"></script>
+  <script src="libraries/MaskPass.js"></script>
+  <script src="libraries/ShaderPass.js"></script>
+  <script src="libraries/GlitchPass.js"></script>
+  <script src="libraries/Projector.js"></script>
+  <script src="libraries/BleachBypassShader.js"></script>
+  <script src="libraries/ColorifyShader.js"></script>
+  <script src="libraries/ConvolutionShader.js"></script>
+  <script src="libraries/DotScreenShader.js"></script>
+  <script src="libraries/FilmShader.js"></script>
+  <script src="libraries/HorizontalBlurShader.js"></script>
+  <script src="libraries/SepiaShader.js"></script>
+  <script src="libraries/VerticalBlurShader.js"></script>
+  <script src="libraries/VignetteShader.js"></script>
+  <script src="libraries/BloomPass.js"></script>
+  <script src="libraries/FilmPass.js"></script>
+  <script src="libraries/DotScreenPass.js"></script>
+  <script src="libraries/TexturePass.js"></script>
+  <script src="libraries/HalftonePass.js"></script>
+  <script src="libraries/HalftoneShader.js"></script>
+  <script src="libraries/DepthLimitedBlurShader.js"></script>
+  <script src="libraries/UnpackDepthRGBAShader.js"></script>
+  <script src="libraries/WebGL.js"></script>
+  <script src="libraries/stats.min.js"></script>
+  <script src="libraries/dat.gui.min.js"></script>
+  <script src="libraries/audiokeys.js"></script>
+  <script src="libraries/AfterimageShader.js"></script>
+  <script src="libraries/AfterimagePass.js"></script>
+  <script src="libraries/Tone.Editor.js" charset="utf-8"></script>
+  <script src="libraries/wui.min.js" type="text/javascript"></script>
+  <script src="libraries/p5.js" type="text/javascript"></script>
   </div>
 </body>
 

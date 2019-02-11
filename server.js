@@ -1,43 +1,65 @@
-var express = require('express');
-var app = express();
-var server = app.listen(process.env.PORT || 5000);
+const http = require("http");
+const path = require("path");
+const fs = require("fs");
 
-app.use(express.static('public'))
+const express = require("express");
 
-console.log("It's running Akson Environment on port 5000.");
+const app = express();
+const httpServer = http.createServer(app);
 
-var socket = require('socket.io');
-var io = socket(server);
+const PORT = process.env.PORT || 5000;
 
-io.sockets.on('connection', newConnection);
+httpServer.listen(3000, () => {
+  console.log(`Server is listening on port ${PORT}`);
+});
 
-var connections = 0;
+// put the HTML file containing your form in a directory named "public" (relative to where this script is located)
+app.get("/", express.static(path.join(__dirname, "./public")));
 
-//https://github.com/guergana/socket-tone/blob/master/index.js
-//https://github.com/zoutepopcorn/audio_socket/blob/master/html/index.html
+const multer = require("multer");
 
-function newConnection(socket) {
-  connections++;
-  console.log("new connection: " + socket.id);
-  console.log("There are currently " + connections + " connections");
-  var socketid = socket.id;
-  socket.broadcast.emit('socketid', socket.id);
-  socket.broadcast.emit('socketnumber', connections);
+const handleError = (err, res) => {
+  res
+    .status(500)
+    .contentType("text/plain")
+    .end("Oops! Something went wrong!");
+};
 
-  //ao conectar (na função newConnection, e se receberes algo chamado 'mouse' faz a funcao mouseMsg)
-  //enviar só numeros <- {object, object}
+const upload = multer({
+  dest: "/path/to/temporary/directory/to/store/uploaded/files"
+  // you might also want to set some limits: https://github.com/expressjs/multer#limits
+});
 
-  socket.on('mouse', mouseMsg);
 
-  function mouseMsg(data) {
-    socket.broadcast.emit('mouse', data);
-    //goes to everyone including the actual client
-    //io.sockets.emit('mouse', data);
-    console.log(data);
-    //MUST RESTART THE SERVER
+app.post(
+  "/upload",
+  upload.single("file" /* name attribute of <file> element in your form */ ),
+  (req, res) => {
+    const tempPath = req.file.path;
+    const targetPath = path.join(__dirname, "./uploads/image.png");
+
+    if (path.extname(req.file.originalname).toLowerCase() === ".png") {
+      fs.rename(tempPath, targetPath, err => {
+        if (err) return handleError(err, res);
+
+        res
+          .status(200)
+          .contentType("text/plain")
+          .end("File uploaded!");
+      });
+    } else {
+      fs.unlink(tempPath, err => {
+        if (err) return handleError(err, res);
+
+        res
+          .status(403)
+          .contentType("text/plain")
+          .end("Only .png files are allowed!");
+      });
+    }
   }
-  socket.on('disconnect', function() {
-    connections--;
-    console.log("There are currently " + connections + " connections");
-  });
-}
+);
+
+app.get("/image.png", (req, res) => {
+  res.sendFile(path.join(__dirname, "./uploads/image.png"));
+});
