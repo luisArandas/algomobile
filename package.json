@@ -1,5 +1,5 @@
 {
-  "name": "Algo Mobile",
+  "name": "algomobile",
   "version": "1.0.0",
   "description": "Networked Music Engine for Live Performance",
   "main": "server.js",
