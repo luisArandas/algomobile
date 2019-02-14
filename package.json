@@ -1,16 +1,31 @@
 {
-  "name": "nodeuploads",
-  "version": "1.0.0",
-  "description": "Example for image uploading in Node",
-  "main": "app.js",
+  "name": "node-image-upload-imgur",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node ./bin/www"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "ejs": "^2.5.7",
-    "express": "^4.16.2",
-    "multer": "^1.3.0"
-  }
+    "body-parser": "^1.18.3",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "^4.16.4",
+    "jade": "~1.11.0",
+    "mongoose": "^4.9.3",
+    "morgan": "^1.9.1",
+    "serve-favicon": "~2.4.2"
+  },
+  "description": "Upload Image to imgur using dropzone.js",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mukulsaini/node-image-upload-imgur.git"
+  },
+  "author": "Mukul Saini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mukulsaini/node-image-upload-imgur/issues"
+  },
+  "homepage": "https://github.com/mukulsaini/node-image-upload-imgur#readme"
 }
