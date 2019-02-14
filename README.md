@@ -1,2 +1,1 @@
-# algomobile
-Networked Music Engine for Live Performance
+# Networked Music Engine for Live Performance
