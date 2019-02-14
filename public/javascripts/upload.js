@@ -13,21 +13,26 @@ console.log(window.history);
 //  OPEN SOUND CONTROL
 
 window.addEventListener("deviceorientation", function(event) {
+  //fucking works fazer beta e gamma
   document.getElementById('log').innerHTML = event.alpha;
   // process event.alpha, event.beta and event.gamma
 }, true);
 
 
 window.addEventListener("devicemotion", function(event) {
-  //document.getElementById('log').innerHTML = event.acceleration.alpha + event.acceleration.beta + event.acceleration.gamma;
-  //console.log(event.acceleration.alpha);
+  //check this for info on the api https://w3c.github.io/deviceorientation/#def-deviceorientation
   // Process event.acceleration, event.accelerationIncludingGravity,
   // event.rotationRate and event.interval
 }, true);
 
+/*window.addEventListener("compassneedscalibration", function(event) {
+    alert('Your compass needs calibrating! Wave your device in a figure-eight motion');
+    event.preventDefault();
+}, true);
+
 function submit() {
   console.log("entered text");
-}
+}*/
 
 
 function show_link(link) {
