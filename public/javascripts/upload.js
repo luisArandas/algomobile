@@ -13,21 +13,21 @@ console.log(window.history);
 //  OPEN SOUND CONTROL
 
 window.addEventListener("deviceorientation", function(event) {
+  document.getElementById('log').innerHTML = event.alpha;
   // process event.alpha, event.beta and event.gamma
 }, true);
 
 
 window.addEventListener("devicemotion", function(event) {
-  document.getElementById('log').innerHTML += event.acceleration.alpha + event.acceleration.beta + event.acceleration.gamma;
-  console.log(event.acceleration.alpha);
+  //document.getElementById('log').innerHTML = event.acceleration.alpha + event.acceleration.beta + event.acceleration.gamma;
+  //console.log(event.acceleration.alpha);
   // Process event.acceleration, event.accelerationIncludingGravity,
   // event.rotationRate and event.interval
 }, true);
 
-
-
-
-
+function submit() {
+  console.log("entered text");
+}
 
 
 function show_link(link) {
