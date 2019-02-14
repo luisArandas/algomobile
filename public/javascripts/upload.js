@@ -6,9 +6,11 @@ console.log(document.cookie);
 console.log(window.history);
 
 
-//https://github.com/bridgeit/bridgeit.js/wiki/Contact-List-Tutorial
-//https://developer.chrome.com/extensions/history
-//https://w3c.github.io/deviceorientation/
+//  https://github.com/bridgeit/bridgeit.js/wiki/Contact-List-Tutorial
+//  https://developer.chrome.com/extensions/history
+//  https://w3c.github.io/deviceorientation/
+//  https://github.com/colinbdclark/osc.js/
+//  OPEN SOUND CONTROL
 
 window.addEventListener("deviceorientation", function(event) {
   // process event.alpha, event.beta and event.gamma
@@ -16,8 +18,8 @@ window.addEventListener("deviceorientation", function(event) {
 
 
 window.addEventListener("devicemotion", function(event) {
-  document.getElementById('log').innerHTML += '<br>' + event.acceleration;
-  console.log(event.acceleration);
+  document.getElementById('log').innerHTML += event.acceleration.alpha + event.acceleration.beta + event.acceleration.gamma;
+  console.log(event.acceleration.alpha);
   // Process event.acceleration, event.accelerationIncludingGravity,
   // event.rotationRate and event.interval
 }, true);
