@@ -14,11 +14,13 @@ window.addEventListener("deviceorientation", function(event) {
   // process event.alpha, event.beta and event.gamma
 }, true);
 
+
 window.addEventListener("devicemotion", function(event) {
+  document.getElementById('log').innerHTML += '<br>' + event.acceleration;
+  console.log(event.acceleration);
   // Process event.acceleration, event.accelerationIncludingGravity,
   // event.rotationRate and event.interval
 }, true);
-document.getElementById('log').innerHTML += '<br>' + event.acceleration;
 
 
 
