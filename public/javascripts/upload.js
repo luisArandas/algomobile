@@ -14,7 +14,9 @@ console.log(window.history);
 
 window.addEventListener("deviceorientation", function(event) {
   //fucking works fazer beta e gamma
-  document.getElementById('log').innerHTML = event.alpha;
+  document.getElementById('orientationalpha').innerHTML = event.alpha;
+  document.getElementById('orientationalpha').innerHTML = event.beta;
+  document.getElementById('orientationalpha').innerHTML = event.gamma;
   // process event.alpha, event.beta and event.gamma
 }, true);
 
@@ -69,6 +71,11 @@ Dropzone.options.myId = {
   init: function() {
     this.on("success", function(file, res) {
       console.log(file);
+      console.log("url('" + res.data.link + "')");
+      //set the div image!!
+      //document.getElementById("imageupload").style.color = "blue";
+      document.getElementById("imageupload").style.backgroundImage = "url('" + res.data.link + "')";
+
       show_link(res.data.link)
       saveToDB(res.data.id, res.data.link);
     });

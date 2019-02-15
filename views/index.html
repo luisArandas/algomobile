@@ -2,14 +2,19 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Dropzone simple example</title>
+  <title>Algo Mobile</title>
   <script src="../javascripts/dropzone.js"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
   <link rel="stylesheet" href="/stylesheets/dropzone.css" />
   <link rel="stylesheet" href="/stylesheets/dropzone_edit.css" />
 </head>
 
 <body>
-  <div id="log">initial content</div>
+  <!--Main website page-->
+  <div class="imageupload" id="imageupload">testing, use at your own risk</div>
+  <div class="orientationalpha" id="orientationalpha">orientation alpha</div>
+  <div class="orientationbeta" id="orientationbeta">orientation beta</div>
+  <div class="orientationgamma" id="orientationgamma">orientation gamma</div>
 
   <form action="/action_page.php">
     experiment:<br>
@@ -20,15 +25,16 @@
 
 
 
-  <div style="width:70%; margin:0px auto; ">
-    <form id="myId" class="dropzone" enctype="multipart/form-data">
-      <span class="glyphicon glyphicon-download"></span><br />
-    </form>
-    <br>
-    <div id="image_list">
-      <span id="hide" style="display: none"> Link to uploaded images </span><a id="link" href="#" target="_blank"></a>
-    </div>
+  <form id="myId" class="dropzone" enctype="multipart/form-data">
+    <span class="glyphicon glyphicon-download"></span><br />
+  </form>
+  <br>
+  <div id="image_list">
+    <span id="hide" style="display: none"> Link to uploaded images </span>
+    <a id="link" href="#" target="_blank"></a>
   </div>
+
+
   <script src="../javascripts/upload.js">
   </script>
 </body>
