@@ -22,7 +22,6 @@ console.log(document.cookie);
 /* Printing history methods*/
 console.log(window.history);
 
-
 //  https://github.com/bridgeit/bridgeit.js/wiki/Contact-List-Tutorial
 //  https://developer.chrome.com/extensions/history
 //  https://w3c.github.io/deviceorientation/
@@ -30,17 +29,17 @@ console.log(window.history);
 //  OPEN SOUND CONTROL
 
 window.addEventListener("deviceorientation", function(event) {
-  //fucking works fazer beta e gamma
-  document.getElementById('orientationalpha').innerHTML = event.alpha;
-  document.getElementById('orientationbeta').innerHTML = event.beta;
-  document.getElementById('orientationgamma').innerHTML = event.gamma;
-  // process event.alpha, event.beta and event.gamma
+  document.getElementById('orientationalpha').innerHTML = "Orientation Alpha: " + event.alpha;
+  document.getElementById('orientationbeta').innerHTML = "Orientation Beta: " + event.beta;
+  document.getElementById('orientationgamma').innerHTML = "Orientation Gamma: " + event.gamma;
+  document.getElementById('orientationabs').innerHTML = "Orientation Abs: " + event.absolute;
 }, true);
 
-// DAR STREAMING DO LINK
-
 window.addEventListener("devicemotion", function(event) {
-  //check this for info on the api https://w3c.github.io/deviceorientation/#def-deviceorientation
+  document.getElementById('x').innerHTML = "event.acceleration.x: " + event.acceleration.x;
+  document.getElementById('y').innerHTML = "event.acceleration.y: " + event.acceleration;
+  document.getElementById('z').innerHTML = "VER: " + event.rotationRate.x;
+
   // Process event.acceleration, event.accelerationIncludingGravity,
   // event.rotationRate and event.interval
 }, true);
