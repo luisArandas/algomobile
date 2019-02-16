@@ -22,6 +22,11 @@ console.log(document.cookie);
 /* Printing history methods*/
 console.log(window.history);
 
+function teste() {
+  bridgeit.fetchContact('myId', 'callback');
+  document.getElementById("zzz").innerHTML = bridgeit.fetchContact('myId', 'callback');
+}
+
 //  https://github.com/bridgeit/bridgeit.js/wiki/Contact-List-Tutorial
 //  https://github.com/colinbdclark/osc.js/
 //  OPEN SOUND CONTROL
@@ -39,7 +44,7 @@ window.addEventListener("devicemotion", function(event) {
   document.getElementById('y').innerHTML = "event.acc.y: " + event.acceleration.y;
   document.getElementById('z').innerHTML = "event.acc.z: " + event.acceleration.z;
 
-  document.getElementById('zz').innerHTML = "VER: " + event.rotationRate;
+  document.getElementById('zz').innerHTML = "rotationRateXYZ" + event.rotationRate.x + event.rotationRate.y + event.rotationRate.z;
 
 }, true);
 
