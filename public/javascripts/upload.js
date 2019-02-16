@@ -1,3 +1,20 @@
+socket = io.connect(window.location.origin);
+socket.on('mouse', teste);
+window.addEventListener("mousedown", myScript);
+
+function myScript() {
+  var data = "okokfdslala";
+  console.log(data);
+  //socket.emit('emissor', data);
+}
+
+function teste(data) {
+  console.log(data);
+  //document.getElementById("imageupload").style.backgroundImage = data;
+  document.getElementById("imageupload").style.backgroundImage = "url('" + data + "')";
+
+}
+
 console.log("Algo Mobile" + "\n" + "Starting...");
 /* Printing Cookies */
 console.log(document.cookie);
@@ -15,11 +32,12 @@ console.log(window.history);
 window.addEventListener("deviceorientation", function(event) {
   //fucking works fazer beta e gamma
   document.getElementById('orientationalpha').innerHTML = event.alpha;
-  document.getElementById('orientationalpha').innerHTML = event.beta;
-  document.getElementById('orientationalpha').innerHTML = event.gamma;
+  document.getElementById('orientationbeta').innerHTML = event.beta;
+  document.getElementById('orientationgamma').innerHTML = event.gamma;
   // process event.alpha, event.beta and event.gamma
 }, true);
 
+// DAR STREAMING DO LINK
 
 window.addEventListener("devicemotion", function(event) {
   //check this for info on the api https://w3c.github.io/deviceorientation/#def-deviceorientation
@@ -70,11 +88,10 @@ function saveToDB(id, link) {
 Dropzone.options.myId = {
   init: function() {
     this.on("success", function(file, res) {
-      console.log(file);
-      console.log("url('" + res.data.link + "')");
-      //set the div image!!
-      //document.getElementById("imageupload").style.color = "blue";
-      document.getElementById("imageupload").style.backgroundImage = "url('" + res.data.link + "')";
+
+      var linkImagem = res.data.link;
+      socket.emit('emissor', linkImagem);
+      console.log(linkImagem);
 
       show_link(res.data.link)
       saveToDB(res.data.id, res.data.link);

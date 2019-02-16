@@ -13,7 +13,8 @@
     "jade": "~1.11.0",
     "mongoose": "^4.9.3",
     "morgan": "^1.9.1",
-    "serve-favicon": "~2.4.2"
+    "serve-favicon": "~2.4.2",
+    "socket.io": "^2.2.0"
   },
   "description": "Upload Image to imgur using dropzone.js",
   "main": "app.js",

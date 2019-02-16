@@ -10,6 +10,26 @@ var users = require('./routes/users');
 
 var app = express();
 
+//const server = require('http').createServer(app);
+
+var server = app.listen(process.env.PORT || 5000);
+const socket = require('socket.io'); //(server);
+var io = socket(server);
+
+io.sockets.on('connection', newConnection);
+
+console.log("Welcome to Algo");
+
+function newConnection(socket) {
+  socket.on('emissor', mouseMsg);
+  console.log("I got one connection");
+
+  function mouseMsg(data) {
+    socket.broadcast.emit('mouse', data);
+    console.log("URL da imagem " + data);
+  }
+}
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
