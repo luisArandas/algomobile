@@ -23,35 +23,26 @@ console.log(document.cookie);
 console.log(window.history);
 
 //  https://github.com/bridgeit/bridgeit.js/wiki/Contact-List-Tutorial
-//  https://developer.chrome.com/extensions/history
-//  https://w3c.github.io/deviceorientation/
 //  https://github.com/colinbdclark/osc.js/
 //  OPEN SOUND CONTROL
 
 window.addEventListener("deviceorientation", function(event) {
-  document.getElementById('orientationalpha').innerHTML = "Orientation Alpha: " + event.alpha;
-  document.getElementById('orientationbeta').innerHTML = "Orientation Beta: " + event.beta;
-  document.getElementById('orientationgamma').innerHTML = "Orientation Gamma: " + event.gamma;
-  document.getElementById('orientationabs').innerHTML = "Orientation Abs: " + event.absolute;
+  /* For motion information https://w3c.github.io/deviceorientation/#devicemotion */
+  document.getElementById('orientationalpha').innerHTML = "OrientAlpha: " + event.alpha;
+  document.getElementById('orientationbeta').innerHTML = "OrientBeta: " + event.beta;
+  document.getElementById('orientationgamma').innerHTML = "OrientGamma: " + event.gamma;
+  document.getElementById('orientationabs').innerHTML = "OrientAbs: " + event.absolute;
 }, true);
 
 window.addEventListener("devicemotion", function(event) {
-  document.getElementById('x').innerHTML = "event.acceleration.x: " + event.acceleration.x;
-  document.getElementById('y').innerHTML = "event.acceleration.y: " + event.acceleration;
-  document.getElementById('z').innerHTML = "VER: " + event.rotationRate.x;
+  document.getElementById('x').innerHTML = "event.acc.x: " + event.acceleration.x;
+  document.getElementById('y').innerHTML = "event.acc.y: " + event.acceleration.y;
+  document.getElementById('z').innerHTML = "event.acc.z: " + event.acceleration.z;
 
-  // Process event.acceleration, event.accelerationIncludingGravity,
-  // event.rotationRate and event.interval
+  document.getElementById('zz').innerHTML = "VER: " + event.rotationRate;
+
 }, true);
 
-/*window.addEventListener("compassneedscalibration", function(event) {
-    alert('Your compass needs calibrating! Wave your device in a figure-eight motion');
-    event.preventDefault();
-}, true);
-
-function submit() {
-  console.log("entered text");
-}*/
 
 
 function show_link(link) {

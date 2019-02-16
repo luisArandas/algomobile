@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>Algo Mobile</title>
   <script src="../javascripts/dropzone.js"></script>
+  <script type="application/x-javascript" src="http://api.bridgeit.mobi/bridgeit/bridgeit.js"></script>
   <link rel="stylesheet" href="/stylesheets/style.css" />
   <link rel="stylesheet" href="/stylesheets/dropzone.css" />
   <link rel="stylesheet" href="/stylesheets/dropzone_edit.css" />
@@ -20,7 +21,11 @@
   <div class="x" id="x">ok</div>
   <div class="y" id="y">ok2</div>
   <div class="z" id="z">ok3</div>
+  <div class="zz" id="zz">ok3</div>
 
+  <a type="button" onclick="bridgeit.fetchContact('myId','callback');">
+    Fetch a Contact
+  </a>
 
   <form action="/action_page.php">
     experiment:<br>
