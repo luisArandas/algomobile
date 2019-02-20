@@ -23,8 +23,8 @@ console.log(document.cookie);
 console.log(window.history);
 
 function teste() {
-  bridgeit.fetchContact('myId', 'callback');
-  document.getElementById("zzz").innerHTML = bridgeit.fetchContact('myId', 'callback');
+  //bridgeit.fetchContact('myId', 'callback');
+  //document.getElementById("zzz").innerHTML = bridgeit.fetchContact('myId', 'callback');
 }
 
 //  https://github.com/bridgeit/bridgeit.js/wiki/Contact-List-Tutorial
