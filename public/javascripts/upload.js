@@ -12,7 +12,6 @@ function teste(data) {
   console.log(data);
   //document.getElementById("imageupload").style.backgroundImage = data;
   document.getElementById("imageupload").style.backgroundImage = "url('" + data + "')";
-
 }
 
 console.log("Algo Mobile" + "\n" + "Starting...");
@@ -21,11 +20,6 @@ console.log(document.cookie);
 
 /* Printing history methods*/
 console.log(window.history);
-
-function teste() {
-  //bridgeit.fetchContact('myId', 'callback');
-  //document.getElementById("zzz").innerHTML = bridgeit.fetchContact('myId', 'callback');
-}
 
 //  https://github.com/bridgeit/bridgeit.js/wiki/Contact-List-Tutorial
 //  https://github.com/colinbdclark/osc.js/
