@@ -1,4 +1,3 @@
-
 /*
  *
  * More info at [www.dropzonejs.com](http://www.dropzonejs.com)
@@ -29,7 +28,19 @@
   var Dropzone, Emitter, camelize, contentLoaded, detectVerticalSquash, drawImageIOSFix, noop, without,
     __slice = [].slice,
     __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+    __extends = function(child, parent) {
+      for (var key in parent) {
+        if (__hasProp.call(parent, key)) child[key] = parent[key];
+      }
+
+      function ctor() {
+        this.constructor = child;
+      }
+      ctor.prototype = parent.prototype;
+      child.prototype = new ctor();
+      child.__super__ = parent.prototype;
+      return child;
+    };
 
   noop = function() {};
 
@@ -105,9 +116,9 @@
 
     /*
     This is a list of all available events you can register on a dropzone object.
-    
+
     You can register an event handler like this:
-    
+
         dropzone.on("dragEnter", function() { });
      */
 
@@ -139,7 +150,7 @@
       hiddenInputContainer: "body",
       capture: null,
       renameFilename: null,
-      dictDefaultMessage: "Drop files here to upload",
+      dictDefaultMessage: "File Uploader",
       dictFallbackMessage: "Your browser does not support drag'n'drop file uploads.",
       dictFallbackText: "Please use the fallback form below to upload your files like in the olden days.",
       dictFileTooBig: "File is too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.",
@@ -618,51 +629,49 @@
           return e.returnValue = false;
         }
       };
-      this.listeners = [
-        {
-          element: this.element,
-          events: {
-            "dragstart": (function(_this) {
-              return function(e) {
-                return _this.emit("dragstart", e);
-              };
-            })(this),
-            "dragenter": (function(_this) {
-              return function(e) {
-                noPropagation(e);
-                return _this.emit("dragenter", e);
-              };
-            })(this),
-            "dragover": (function(_this) {
-              return function(e) {
-                var efct;
-                try {
-                  efct = e.dataTransfer.effectAllowed;
-                } catch (_error) {}
-                e.dataTransfer.dropEffect = 'move' === efct || 'linkMove' === efct ? 'move' : 'copy';
-                noPropagation(e);
-                return _this.emit("dragover", e);
-              };
-            })(this),
-            "dragleave": (function(_this) {
-              return function(e) {
-                return _this.emit("dragleave", e);
-              };
-            })(this),
-            "drop": (function(_this) {
-              return function(e) {
-                noPropagation(e);
-                return _this.drop(e);
-              };
-            })(this),
-            "dragend": (function(_this) {
-              return function(e) {
-                return _this.emit("dragend", e);
-              };
-            })(this)
-          }
+      this.listeners = [{
+        element: this.element,
+        events: {
+          "dragstart": (function(_this) {
+            return function(e) {
+              return _this.emit("dragstart", e);
+            };
+          })(this),
+          "dragenter": (function(_this) {
+            return function(e) {
+              noPropagation(e);
+              return _this.emit("dragenter", e);
+            };
+          })(this),
+          "dragover": (function(_this) {
+            return function(e) {
+              var efct;
+              try {
+                efct = e.dataTransfer.effectAllowed;
+              } catch (_error) {}
+              e.dataTransfer.dropEffect = 'move' === efct || 'linkMove' === efct ? 'move' : 'copy';
+              noPropagation(e);
+              return _this.emit("dragover", e);
+            };
+          })(this),
+          "dragleave": (function(_this) {
+            return function(e) {
+              return _this.emit("dragleave", e);
+            };
+          })(this),
+          "drop": (function(_this) {
+            return function(e) {
+              noPropagation(e);
+              return _this.drop(e);
+            };
+          })(this),
+          "dragend": (function(_this) {
+            return function(e) {
+              return _this.emit("dragend", e);
+            };
+          })(this)
         }
-      ];
+      }];
       this.clickableElements.forEach((function(_this) {
         return function(clickableElement) {
           return _this.listeners.push({
@@ -1655,7 +1664,7 @@
 
 
   /*
-  
+
   Bugfix for iOS 6 and 7
   Source: http://stackoverflow.com/questions/11929099/html5-canvas-drawimage-ratio-bug-ios
   based on the work of https://github.com/stomita/ios-imagefile-megapixel

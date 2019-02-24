@@ -10,43 +10,47 @@
 </head>
 
 <body>
-  <!--Main website page-->
-  <div class="imageupload" id="imageupload">testing, use at your own risk</div>
-  <div class="orientationalpha" id="orientationalpha">orientation alpha</div>
-  <div class="orientationbeta" id="orientationbeta">orientation beta</div>
-  <div class="orientationgamma" id="orientationgamma">orientation gamma</div>
-  <div class="orientationabs" id="orientationabs">orientation abs</div>
-
-  <div class="x" id="x">ok</div>
-  <div class="y" id="y">ok2</div>
-  <div class="z" id="z">ok3</div>
-  <div class="zz" id="zz">ok3</div>
-  <div class="zzz" id="zzz">ok3</div>
-
-
-  <a type="button" onclick="teste();">
-    Fetch a Contact
-  </a>
-
-  <form action="/action_page.php">
-    experiment:<br>
-    <input type="text" name="firstname">
+  <div class="bodyPlace" id="bodyPlace">
+    <div class="imageupload" id="imageupload"><br><br><em>Image Uploader</em>
+    </div>
     <br>
-    <input type="submit" onclick="submit()">
-  </form>
+    <div class="myId" id="imageupload">
+      <form id="myId" class="dropzone" enctype="multipart/form-data">
+        <span class="glyphicon glyphicon-download"></span><br />
+      </form>
+    </div>
+    <div class="mobileorient" id="mobileorient"><em>Mobile Orientation
+        <div class="orientationalpha" id="orientationalpha">orientation alpha</div>
+        <div class="orientationbeta" id="orientationbeta">orientation beta</div>
+        <div class="orientationgamma" id="orientationgamma">orientation gamma</div>
+        <div class="orientationabs" id="orientationabs">orientation abs</div>
+
+        <div class="x" id="x">ok</div>
+        <div class="y" id="y">ok2</div>
+        <div class="z" id="z">ok3</div>
+        <div class="zz" id="zz">ok3</div>
+        <div class="zzz" id="zzz">ok3</div>
+        <div class="id" id="id">testeDois</div>
+    </div>
 
 
 
-  <form id="myId" class="dropzone" enctype="multipart/form-data">
-    <span class="glyphicon glyphicon-download"></span><br />
-  </form>
-  <br>
-  <div id="image_list">
-    <span id="hide" style="display: none"> Link to uploaded images </span>
-    <a id="link" href="#" target="_blank"></a>
+
+    <!--
+  The form for writing
+    <form action="/action_page.php">
+      experiment:<br>
+      <input type="text" name="firstname">
+      <br>
+      <input type="submit" onclick="submit()">
+    </form> -->
+
+
+
+
   </div>
 
+
   <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-  <script src="../javascripts/upload.js">
-  </script>
+  <script src="../javascripts/upload.js"></script>
 </body>

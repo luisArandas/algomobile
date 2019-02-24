@@ -1,19 +1,60 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgba(150,150,150,1);
+  font-style: italic;
 }
 
 a {
   color: #00B7FF;
 }
 
+.bodyPlace {
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  top: 5px;
+  height: 95%;
+  /*background-color: rgba(200,200,200,1);*/
+  text-align: center;
+  vertical-align: middle;
+}
+
 .imageupload {
-  position:absolute;
+  position: relative;
   width: 50%;
-  left: 250px;
+  left: 25%;
   top: 5px;
   height: 25%;
-  background-color: rgba(50,50,50,1);
+  background-color: rgba(200,200,200,1);
+  text-align: center;
+  vertical-align: middle;
+  border: 2px solid black;
+}
+
+.myId {
+  position: absolute;
+  width: 25%;
+  left: 1%;
+  top: 10px;
+  height: 10%;
+}
+
+#myId {
+  position: relative;
+  background-color: rgba(200,200,200,1);
+  border: 2px solid black;
+}
+
+.mobileorient {
+  position: relative;
+  width: 50%;
+  left: 25%;
+  height: 25%;
+  background-color: rgba(200,200,200,1);
+  text-align: center;
+  vertical-align: middle;
+  border: 2px solid black;
 }
 
 #myId {
