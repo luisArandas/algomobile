@@ -25,7 +25,8 @@ function newConnection(socket) {
   console.log("I got one connection");
 
   function mouseMsg(data) {
-    socket.broadcast.emit('mouse', data);
+    //socket.broadcast.emit('mouse', data);
+    io.sockets.emit('mouse', data);
     console.log("URL da imagem " + data);
   }
 }

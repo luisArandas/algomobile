@@ -20,21 +20,36 @@
       </form>
     </div>
     <div class="mobileorient" id="mobileorient"><em>Mobile Orientation
-        <div class="orientationalpha" id="orientationalpha">orientation alpha</div>
-        <div class="orientationbeta" id="orientationbeta">orientation beta</div>
-        <div class="orientationgamma" id="orientationgamma">orientation gamma</div>
-        <div class="orientationabs" id="orientationabs">orientation abs</div>
+        <div class="orientationalpha" id="orientationalpha">Orientation Alpha</div>
+        <div class="orientationbeta" id="orientationbeta">Orientation Beta</div>
+        <div class="orientationgamma" id="orientationgamma">Orientation Gamma</div>
+        <div class="orientationabs" id="orientationabs">Orientation ABS</div>
 
-        <div class="x" id="x">ok</div>
-        <div class="y" id="y">ok2</div>
-        <div class="z" id="z">ok3</div>
-        <div class="zz" id="zz">ok3</div>
-        <div class="zzz" id="zzz">ok3</div>
-        <div class="id" id="id">testeDois</div>
+        <div class="x" id="x">Motion_acc_x</div>
+        <div class="y" id="y">Motion_acc_y</div>
+        <div class="z" id="z">Motion_acc_z</div>
+        <div class="zz" id="zz">Event Rotation XYZ</div>
     </div>
 
+    <div class="content">
+      <section class="demo">
+        <span>
+          User connected to
+          <div id="loggedIn">
+            <h2>No platform</h2>
+            <br><br><br>
+          </div>
+        </span>
+      </section>
+    </div>
 
+    <br>
 
+    <div class="battery" id="battery">
+      <div id="charging">(charging state unknown)</div>
+      <div id="level">(battery level unknown)</div>
+      <div id="dischargingTime">(discharging time unknown)</div>
+    </div>
 
     <!--
   The form for writing
@@ -44,13 +59,40 @@
       <br>
       <input type="submit" onclick="submit()">
     </form> -->
-
-
-
-
   </div>
 
 
   <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
   <script src="../javascripts/upload.js"></script>
+  <script>
+    var isFirstLoggedIn = true;
+
+    function displayResult(network, loggedIn) {
+      var id = loggedIn ? 'loggedIn' : 'notLoggedIn';
+      var favicon = faviconUri(network);
+      var url = network.domain + network.redirect;
+      var el = '<a target="_blank" href="' + url + '" target="_blank" class=network><img src=' + favicon + '><span>' + network.name + '</span></a>';
+      if (loggedIn && isFirstLoggedIn) {
+        isFirstLoggedIn = false;
+        document.getElementById(id).innerHTML = el;
+      } else {
+        document.getElementById(id).innerHTML += el;
+      }
+    }
+    leakSocialMediaAccounts(displayResult);
+
+    function faviconUri(network) {
+      var favicon = network.domain + '/favicon.ico';
+      if (network.name === 'Dropbox') {
+        favicon = 'https://www.dropbox.com/static/images/favicon.ico';
+      }
+      if (network.name === 'Youtube') {
+        favicon = 'https://www.youtube.com/favicon.ico';
+      }
+      if (network.name === 'Gmail') {
+        favicon = 'https://mail.google.com/favicon.ico';
+      }
+      return favicon;
+    }
+  </script>
 </body>

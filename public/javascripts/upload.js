@@ -8,11 +8,20 @@ function myScript() {
   //socket.emit('emissor', data);
 }
 
+/* Show this
+Network Scan
+Metadata das imagens
+https://pavelk2.github.io/social-feed-example/
+http://webkay.robinlinus.com
+https://github.com/RobinLinus
+https://developers.google.com/maps/documentation/javascript/examples/map-geolocation
+https://github.com/Cycling74/n4m-examples
+*/
+
+
 function teste(data) {
   console.log(data);
-  // SEE THIS ONE http://webkay.robinlinus.com
-  // https://developers.google.com/maps/documentation/javascript/examples/map-geolocation
-  //LINUX GITHUB for other website that gives that I am connected to
+
   document.getElementById("imageupload").style.backgroundImage = "url('" + data + "')";
 }
 
@@ -43,16 +52,40 @@ window.addEventListener("devicemotion", function(event) {
 
 }, true);
 
+window.onload = function() {
+  function updateBatteryStatus(battery) {
+    document.querySelector('#charging').textContent = battery.charging ? 'Your device is charging' : 'Your device is not charging';
+    document.querySelector('#level').textContent = battery.level + "% out of 100%";
+    document.querySelector('#dischargingTime').textContent = "(DischargingTime / 60) = " + battery.dischargingTime / 60;
+  }
+
+  navigator.getBattery().then(function(battery) {
+    // Update the battery status initially when the promise resolves ...
+    updateBatteryStatus(battery);
+
+    // .. and for any subsequent updates.
+    battery.onchargingchange = function() {
+      updateBatteryStatus(battery);
+    };
+
+    battery.onlevelchange = function() {
+      updateBatteryStatus(battery);
+    };
+
+    battery.ondischargingtimechange = function() {
+      updateBatteryStatus(battery);
+    };
+  });
+};
+
 
 function saveToDB(id, link) {
-
   var http = new XMLHttpRequest();
   var url = "/image";
   var params = {
     "id": id,
     "link": link
   }
-
   http.open("POST", url, true);
   //Send the proper header information along with the request
   http.setRequestHeader("Content-type", "application/json");
@@ -237,34 +270,84 @@ var leakSocialMediaAccounts = function(callback) {
   });
 };
 
+/*
+COMPASSO
+(function() {
+    var element = document.getElementById('gyroscope');
+    var compass = document.getElementById('compass');
+    compass.hidden = true;
+
+    function handleOrientation(event) {
+        var absolute = event.absolute;
+        var alpha = event.alpha;
+        var beta = event.beta;
+        var gamma = event.gamma;
 
 
-var isFirstLoggedIn = true;
+        element.innerHTML = 'Orientation: ' + absolute
 
-function displayResult(network, loggedIn) {
-  var id = loggedIn ? 'loggedIn' : 'notLoggedIn';
-  var favicon = faviconUri(network);
-  var url = network.domain + network.redirect;
-  var el = '<a target="_blank" href="' + url + '" target="_blank" class=network><img src=' + favicon + '><span>' + network.name + '</span></a>';
-  if (loggedIn && isFirstLoggedIn) {
-    isFirstLoggedIn = false;
-    document.getElementById('id').innerHTML = el;
-  } else {
-    document.getElementById('id').innerHTML += el;
-  }
-}
-leakSocialMediaAccounts(displayResult);
 
-function faviconUri(network) {
-  var favicon = network.domain + '/favicon.ico';
-  if (network.name === 'Dropbox') {
-    favicon = 'https://www.dropbox.com/static/images/favicon.ico';
-  }
-  if (network.name === 'Youtube') {
-    favicon = 'https://www.youtube.com/favicon.ico';
-  }
-  if (network.name === 'Gmail') {
-    favicon = 'https://mail.google.com/favicon.ico';
-  }
-  return favicon;
-}
+        if (!alpha) {
+            compass.hidden = true;
+            element.innerHTML += '<br>Your device has no compass ';
+        } else {
+            compass.hidden = false;
+            element.innerHTML += '<br>alpha: ' + alpha
+        }
+
+        element.innerHTML += '<br>beta: ' + beta
+        element.innerHTML += '<br>gamma: ' + gamma + '<br>'
+            // Do stuff with the new orientation data
+        if (Math.abs(beta) + Math.abs(gamma) < 1.8) {
+            element.innerHTML += 'Your Device is probably laying on a Table';
+        } else {
+            element.innerHTML += 'Your Device is probably in your Hands';
+        }
+
+
+
+    }
+    window.addEventListener('deviceorientation', handleOrientation);
+}());
+
+
+function init() {
+        var compass = document.getElementById('compass');
+        if(window.DeviceOrientationEvent) {
+
+          window.addEventListener('deviceorientation', function(event) {
+                var alpha;
+                //Check for iOS property
+                if(event.webkitCompassHeading) {
+                  alpha = event.webkitCompassHeading;
+                  //Rotation is reversed for iOS
+                  compass.style.WebkitTransform = 'rotate(-' + alpha + 'deg)';
+                }
+                //non iOS
+                else {
+                  alpha = event.alpha;
+                  webkitAlpha = alpha;
+                  if(!window.chrome) {
+                    //Assume Android stock (this is crude, but good enough for our example) and apply offset
+                    webkitAlpha = alpha-270;
+                  }
+                }
+
+                compass.style.Transform = 'rotate(' + alpha + 'deg)';
+                compass.style.WebkitTransform = 'rotate('+ webkitAlpha + 'deg)';
+                //Rotation is reversed for FF
+                compass.style.MozTransform = 'rotate(-' + alpha + 'deg)';
+              }, false);
+        }
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <div id="compassContainer">
+      <img src="compass.png" id="compass"/>
+    </div>
+  </body>
+</html>
+
+COMPASSO
+*/
