@@ -10,6 +10,41 @@
 </head>
 
 <body>
+  <div class="entranceDiv" id="entranceDiv">okok
+    <button type="button" onClick="nextPage()">getContent</button>
+
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+    <div id="id01" class="modal">
+      <form class="modal-content animate" action="/action_page.php">
+        <div class="container" style="background-color:#101010">
+        </div>
+        <div class="imgcontainer">
+          <!--<img src="img/avatar.png" id="img" alt="Avatar" class="avatar">-->
+          <img class="imge" id="img" alt="Avatar" class="avatar">
+
+        </div>
+
+        <div class="container">
+          <label for="uname"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" required>
+
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+
+          <button type="submit">Login</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+          </label>
+        </div>
+
+        <div class="container" style="background-color:#101010">
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
   <div class="bodyPlace" id="bodyPlace">
     <div class="imageupload" id="imageupload"><br><br><em>Image Uploader</em>
     </div>
@@ -29,6 +64,7 @@
         <div class="y" id="y">Motion_acc_y</div>
         <div class="z" id="z">Motion_acc_z</div>
         <div class="zz" id="zz">Event Rotation XYZ</div>
+        <button id="send">Send Message OSC</button>
     </div>
 
     <div class="content">
@@ -63,6 +99,7 @@
 
 
   <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+  <script src="../javascripts/osc.min.js"></script>
   <script src="../javascripts/upload.js"></script>
   <script>
     var isFirstLoggedIn = true;

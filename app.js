@@ -20,6 +20,22 @@ io.sockets.on('connection', newConnection);
 
 console.log("Welcome to Algo");
 
+const OSC = require('osc-js')
+
+
+/*     OSC     */
+
+const config = {
+  udpClient: {
+    port: 9129
+  }
+}
+const osc = new OSC({
+  plugin: new OSC.BridgePlugin(config)
+})
+osc.open() // start a WebSocket server on port 8080
+
+
 function newConnection(socket) {
   socket.on('emissor', mouseMsg);
   console.log("I got one connection");

@@ -8,20 +8,68 @@ function myScript() {
   //socket.emit('emissor', data);
 }
 
-/* Show this
+/*
+Show this
 Network Scan
 Metadata das imagens
 https://pavelk2.github.io/social-feed-example/
 http://webkay.robinlinus.com
 https://github.com/RobinLinus
 https://developers.google.com/maps/documentation/javascript/examples/map-geolocation
-https://github.com/Cycling74/n4m-examples
+
+Fazer a conversão do charger
+Mobile x was in 4 pages.
+4 momentos vitais
+Integrar um sistema de login
+
+Primeiro momento registas
+Segundo hardware -> mais hardware
+Terceiro maquina e a pessoa -> sensores; TENTAR VER O IDIOMA
+Mais social <- HASHTAG
+Metadata das fotos
+
+Ponto de vista visual -> como alimenta o espaço
+
+Fazer login e dar stream segunda pagina depois
 */
+
+function nextPage() {
+  console.log("Click");
+  if (document.getElementById("entranceDiv").style.zIndex != "0") {
+    document.getElementById("entranceDiv").style.zIndex = "0";
+  } else {
+    document.getElementById("entranceDiv").style.zIndex = "10";
+  }
+  /*var elem = document.getElementById('img');
+  if (elem.getAttribute('src') == "") {
+    alert("empty");
+  } else {
+    elem.getAttribute('src');
+  }*/
+}
+
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+var osc = new OSC();
+osc.open(); // connect by default to ws://localhost:8080
+
+document.getElementById('send').addEventListener('click', () => {
+  var message = new OSC.Message('/test/random', Math.random());
+  osc.send(message);
+});
+// Open Sound Control System
+// https://doc.esdoc.org/github.com/adzialocha/osc-js/
 
 
 function teste(data) {
   console.log(data);
-
   document.getElementById("imageupload").style.backgroundImage = "url('" + data + "')";
 }
 
