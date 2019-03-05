@@ -32,6 +32,7 @@ Ponto de vista visual -> como alimenta o espaço
 
 Fazer login e dar stream segunda pagina depois
 */
+window.max.outlet('foo');
 
 function nextPage() {
   console.log("Click");
