@@ -13,6 +13,10 @@ osc.close();
 }
 */
 /* Network API */
+//tentar enviar mensagens
+
+window.navigator.vibrate([100, 30, 100, 30, 100, 30, 200, 30, 200, 30, 200, 30, 100, 30, 100, 30, 100]); // Vibrate 'SOS' in Morse.
+
 
 // Deal with vendor prefixes
 var connection = window.navigator.connection ||
@@ -38,6 +42,12 @@ https://github.com/RobinLinus
 https://developers.google.com/maps/documentation/javascript/examples/map-geolocation
 
 Fazer a conversão do charger
+
+Queres ir ao concerto entras aqui e das algumas informações tuas
+
+FAZER A BASE DE DADOS DO LOGIN
+
+fazer o telemovel vibrar
 
 Primeiro momento registas
 Segundo hardware -> mais hardware
@@ -101,7 +111,6 @@ document.getElementById('send').addEventListener('click', () => {
 });
 // Open Sound Control System
 // https://doc.esdoc.org/github.com/adzialocha/osc-js/
-
 
 function teste(data) {
   console.log(data);
