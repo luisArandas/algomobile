@@ -8,39 +8,73 @@ function myScript() {
   //socket.emit('emissor', data);
 }
 
+/*window.onbeforeunload = () => {
+osc.close();
+}
+*/
+/* Network API */
+
+// Deal with vendor prefixes
+var connection = window.navigator.connection ||
+  window.navigator.mozConnection ||
+  null;
+if (connection === null) {
+  console.log("API not supported"); //
+} else {
+  console.log("API supported"); // API supported! Let's start the fun :)
+}
+if ('metered' in connection) {
+  //console.log("old"); // Old version
+} else {
+  //console.log("new"); // New version
+}
+
 /*
 Show this
 Network Scan
-Metadata das imagens
 https://pavelk2.github.io/social-feed-example/
 http://webkay.robinlinus.com
 https://github.com/RobinLinus
 https://developers.google.com/maps/documentation/javascript/examples/map-geolocation
 
 Fazer a conversão do charger
-Mobile x was in 4 pages.
-4 momentos vitais
-Integrar um sistema de login
 
 Primeiro momento registas
 Segundo hardware -> mais hardware
 Terceiro maquina e a pessoa -> sensores; TENTAR VER O IDIOMA
 Mais social <- HASHTAG
-Metadata das fotos
 
 Ponto de vista visual -> como alimenta o espaço
 
 Fazer login e dar stream segunda pagina depois
 */
-window.max.outlet('foo');
 
-function nextPage() {
-  console.log("Click");
-  if (document.getElementById("entranceDiv").style.zIndex != "0") {
-    document.getElementById("entranceDiv").style.zIndex = "0";
-  } else {
-    document.getElementById("entranceDiv").style.zIndex = "10";
+function nextPage(v) {
+  if (v == "one") {
+    document.getElementById("cenaUm").style.display = "block";
+    document.getElementById("cenaDois").style.display = "none";
+    document.getElementById("cenaTres").style.display = "none";
+    document.getElementById("cenaQuatro").style.display = "none";
   }
+  if (v == "two") {
+    document.getElementById("cenaUm").style.display = "none";
+    document.getElementById("cenaDois").style.display = "block";
+    document.getElementById("cenaTres").style.display = "none";
+    document.getElementById("cenaQuatro").style.display = "none";
+  }
+  if (v == "three") {
+    document.getElementById("cenaUm").style.display = "none";
+    document.getElementById("cenaDois").style.display = "none";
+    document.getElementById("cenaTres").style.display = "block";
+    document.getElementById("cenaQuatro").style.display = "none";
+  }
+  if (v == "four") {
+    document.getElementById("cenaUm").style.display = "none";
+    document.getElementById("cenaDois").style.display = "none";
+    document.getElementById("cenaTres").style.display = "none";
+    document.getElementById("cenaQuatro").style.display = "block";
+  }
+
   /*var elem = document.getElementById('img');
   if (elem.getAttribute('src') == "") {
     alert("empty");
@@ -49,14 +83,14 @@ function nextPage() {
   }*/
 }
 
-var modal = document.getElementById('id01');
+/*var modal = document.getElementById('id01');
 
-// When the user clicks anywhere outside of the modal, close it
+ When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+}*/
 
 var osc = new OSC();
 osc.open(); // connect by default to ws://localhost:8080

@@ -10,18 +10,20 @@
 </head>
 
 <body>
-  <div class="entranceDiv" id="entranceDiv">okok
-    <button type="button" onClick="nextPage()">getContent</button>
+  <div class="buttons">
+    <button class="btnCenaUm" onclick="nextPage('one')">movimento_01</button>
+    <button class="btnCenaDois" onClick="nextPage('two')">movimento_02</button>
+    <button class="btnCenaTres" onClick="nextPage('three')">movimento_03</button>
+    <button class="btnCenaQuatro" onClick="nextPage('four')">movimento_04</button>
+  </div>
 
-    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+  <div class="cenaUm" id="cenaUm">
     <div id="id01" class="modal">
       <form class="modal-content animate" action="/action_page.php">
         <div class="container" style="background-color:#101010">
         </div>
         <div class="imgcontainer">
-          <!--<img src="img/avatar.png" id="img" alt="Avatar" class="avatar">-->
-          <img class="imge" id="img" alt="Avatar" class="avatar">
-
+          <img src="https://i.imgur.com/DzMKgen.png" alt="Avatar" class="avatar">
         </div>
 
         <div class="container">
@@ -42,18 +44,42 @@
       </form>
     </div>
   </div>
+  <div class="cenaDois" id="cenaDois">
+    hardware
+    <br>network scan
+    <div class="bodyPlace" id="bodyPlace">
+      <div class="content">
+        <section class="demo">
+          <span>
+            User connected to
+            <div id="loggedIn">
+              <h2>No platform</h2>
+              <br><br><br>
+            </div>
+          </span>
+        </section>
+      </div>
+      <br>
 
 
-
-  <div class="bodyPlace" id="bodyPlace">
-    <div class="imageupload" id="imageupload"><br><br><em>Image Uploader</em>
+      <!--
+    The form for writing
+      <form action="/action_page.php">
+        experiment:<br>
+        <input type="text" name="firstname">
+        <br>
+        <input type="submit" onclick="submit()">
+      </form> -->
     </div>
-    <br>
-    <div class="myId" id="imageupload">
-      <form id="myId" class="dropzone" enctype="multipart/form-data">
-        <span class="glyphicon glyphicon-download"></span><br />
-      </form>
+    <div class="battery" id="battery">
+      <div id="charging">(charging state unknown)</div>
+      <div id="level">(battery level unknown)</div>
+      <div id="dischargingTime">(discharging time unknown)</div>
     </div>
+  </div>
+  <div class="cenaTres" id="cenaTres">
+    maquina e pessoa -> sensores;
+    <br>and machinery getAttribute
     <div class="mobileorient" id="mobileorient"><em>Mobile Orientation
         <div class="orientationalpha" id="orientationalpha">Orientation Alpha</div>
         <div class="orientationbeta" id="orientationbeta">Orientation Beta</div>
@@ -67,35 +93,28 @@
         <button id="send">Send Message OSC</button>
     </div>
 
-    <div class="content">
-      <section class="demo">
-        <span>
-          User connected to
-          <div id="loggedIn">
-            <h2>No platform</h2>
-            <br><br><br>
-          </div>
-        </span>
-      </section>
-    </div>
-
-    <br>
-
-    <div class="battery" id="battery">
-      <div id="charging">(charging state unknown)</div>
-      <div id="level">(battery level unknown)</div>
-      <div id="dischargingTime">(discharging time unknown)</div>
-    </div>
-
-    <!--
-  The form for writing
-    <form action="/action_page.php">
-      experiment:<br>
-      <input type="text" name="firstname">
-      <br>
-      <input type="submit" onclick="submit()">
-    </form> -->
   </div>
+
+  <div class="cenaQuatro" id="cenaQuatro">
+    social => #ok
+    <br>image metadata
+    <div class="imageupload" id="imageupload"><br><br><em>Image Uploader</em>
+    </div>
+    <br>
+    <div class="myId" id="imageupload">
+      <form id="myId" class="dropzone" enctype="multipart/form-data">
+        <!--<span class="glyphicon glyphicon-download"></span><br/>-->
+      </form>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
 
 
   <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
