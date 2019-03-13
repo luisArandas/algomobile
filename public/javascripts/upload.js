@@ -8,30 +8,20 @@ function myScript() {
   //socket.emit('emissor', data);
 }
 
+
+
+var client = new ClientJS(); // Create A New Client Object
+
+//var softwareVersion = client.getSoftwareVersion(); // Get ClientJS Software Version
+
+console.log(client);
+
 /*window.onbeforeunload = () => {
 osc.close();
 }
 */
 /* Network API */
 //tentar enviar mensagens
-
-window.navigator.vibrate([100, 30, 100, 30, 100, 30, 200, 30, 200, 30, 200, 30, 100, 30, 100, 30, 100]); // Vibrate 'SOS' in Morse.
-
-
-// Deal with vendor prefixes
-var connection = window.navigator.connection ||
-  window.navigator.mozConnection ||
-  null;
-if (connection === null) {
-  console.log("API not supported"); //
-} else {
-  console.log("API supported"); // API supported! Let's start the fun :)
-}
-if ('metered' in connection) {
-  //console.log("old"); // Old version
-} else {
-  //console.log("new"); // New version
-}
 
 /*
 Show this
@@ -46,8 +36,10 @@ Fazer a conversão do charger
 Queres ir ao concerto entras aqui e das algumas informações tuas
 
 FAZER A BASE DE DADOS DO LOGIN
+Adicionar compasso fim desta pagina
 
 fazer o telemovel vibrar
+CHECK CLIENT PRINT
 
 Primeiro momento registas
 Segundo hardware -> mais hardware
@@ -443,3 +435,153 @@ function init() {
 
 COMPASSO
 */
+
+/* Geolocation API */
+
+if (!(window.navigator && window.navigator.geolocation)) {
+  document.getElementById('g-unsupported').classList.remove('hidden');
+  ['button-get-position', 'button-watch-position', 'button-stop-watching'].forEach(function(elementId) {
+    document.getElementById(elementId).setAttribute('disabled', 'disabled');
+  });
+} else {
+  var log = document.getElementById('log');
+  var watchId = null;
+  var positionOptions = {
+    enableHighAccuracy: true,
+    timeout: 10 * 1000, // 10 seconds
+    maximumAge: 30 * 1000 // 30 seconds
+  };
+
+  function success(position) {
+    document.getElementById('latitude').innerHTML = position.coords.latitude;
+    document.getElementById('longitude').innerHTML = position.coords.longitude;
+    document.getElementById('position-accuracy').innerHTML = position.coords.accuracy;
+
+    document.getElementById('altitude').innerHTML = position.coords.altitude ? position.coords.altitude :
+      'unavailable';
+    document.getElementById('altitude-accuracy').innerHTML = position.coords.altitudeAccuracy ?
+      position.coords.altitudeAccuracy :
+      'unavailable';
+    document.getElementById('heading').innerHTML = position.coords.heading ? position.coords.heading :
+      'unavailable';
+    document.getElementById('speed').innerHTML = position.coords.speed ? position.coords.speed :
+      'unavailable';
+
+    document.getElementById('timestamp').innerHTML = (new Date(position.timestamp)).toString();
+
+    log.innerHTML = 'Position succesfully retrieved<br />' + log.innerHTML;
+  }
+
+  function error(positionError) {
+    log.innerHTML = 'Error: ' + positionError.message + '<br />' + log.innerHTML;
+  }
+
+  document.getElementById('button-get-position').addEventListener('click', function() {
+    navigator.geolocation.getCurrentPosition(success, error, positionOptions);
+  });
+
+  document.getElementById('button-watch-position').addEventListener('click', function() {
+    watchId = navigator.geolocation.watchPosition(success, error, positionOptions);
+  });
+
+  document.getElementById('button-stop-watching').addEventListener('click', function() {
+    if (watchId !== null) {
+      navigator.geolocation.clearWatch(watchId);
+      log.innerHTML = 'Stopped watching position<br />' + log.innerHTML;
+    }
+  });
+
+  //document.getElementById('clear-log').addEventListener('click', function() {
+  //log.innerHTML = '';
+  //});
+}
+
+/* Proximity API */
+
+if (!('ondeviceproximity' in window)) {
+  document.getElementById('dp-unsupported').classList.remove('hidden');
+} else {
+  var proximityValue = document.getElementById('dp-value');
+  var proximityMax = document.getElementById('dp-max');
+  var proximityMin = document.getElementById('dp-min');
+
+  window.addEventListener('deviceproximity', function(event) {
+    proximityValue.innerHTML = event.value;
+    proximityMax.innerHTML = event.max;
+    proximityMin.innerHTML = event.min;
+  });
+}
+
+if (!('onuserproximity' in window)) {
+  document.getElementById('up-unsupported').classList.remove('hidden');
+} else {
+  var inProximity = document.getElementById('up-value');
+
+  window.addEventListener('userproximity', function(event) {
+    inProximity.innerHTML = event.near;
+  });
+}
+
+/* Vibration API */
+
+window.navigator = window.navigator || {};
+if (navigator.vibrate === undefined) {
+  document.getElementById('v-unsupported').classList.remove('hidden');
+  ['button-play-v-once', 'button-play-v-thrice', 'button-stop-v'].forEach(function(elementId) {
+    document.getElementById(elementId).setAttribute('disabled', 'disabled');
+  });
+} else {
+  document.getElementById('button-play-v-once').addEventListener('click', function() {
+    navigator.vibrate(1000);
+  });
+  document.getElementById('button-play-v-thrice').addEventListener('click', function() {
+    navigator.vibrate([1000, 500, 1000, 500, 2000]);
+  });
+  document.getElementById('button-stop-v').addEventListener('click', function() {
+    navigator.vibrate(0);
+  });
+}
+
+/* Network API */
+
+//var networkDownlink = ;
+var net1 = "Network effective bandwidth estimate " + navigator.connection.downlink + " MB/s";
+var net2 = "Max download speed " + navigator.connection.downlinkMax + " MB/s";
+var net3 = "Effective connection type " + navigator.connection.effectiveType + " MB/s";
+var net4 = "estimated effective round-trip " + navigator.connection.rtt + " rounded to the nearest multiple of 25 milliseconds";
+var net5 = "network connection type " + navigator.connection.type;
+
+function networkAtributes() {
+  document.getElementById('net1').innerHTML += net1;
+  document.getElementById('net2').innerHTML += net2;
+  document.getElementById('net3').innerHTML += net3;
+  document.getElementById('net4').innerHTML += net4;
+  document.getElementById('net5').innerHTML += net5;
+
+  /* Language */
+
+  var userLang = navigator.language || navigator.userLanguage;
+  document.getElementById('lang').innerHTML += userLang;
+}
+networkAtributes();
+
+/* Device Light API
+if('ondevicelight' in window) {
+    window.addEventListener("devicelight", function(event) {
+        //light level is returned in lux units
+        console.log(event.value + " lux");
+    });
+}
+
+if('onlightlevel' in window){
+    window.addEventListener("lightlevel", function(event) {
+        //light value can be dim, normal or bright
+        console.log(event.value);
+    });
+}
+*/
+
+
+
+
+//-------------

@@ -273,3 +273,14 @@ span.psw {
   background-color: black;
   z-index: 0;
 }
+
+.buttons-wrapper {
+  position: relative;
+  width: 50%;
+  left: 25%;
+  height: 30%;
+  background-color: rgba(200,200,200,1);
+  text-align: center;
+  vertical-align: middle;
+  border: 2px solid black;
+}
