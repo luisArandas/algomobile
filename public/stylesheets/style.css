@@ -29,8 +29,20 @@ a {
   vertical-align: middle;
 }
 
+/*.buttons-wrapper2{
+  position: relative;
+  width: 100%;
+  margin: auto;
+  height: 30%;
+  background-color: rgba(200,200,200,1);
+  text-align: center;
+  vertical-align: middle;
+  border: 2px solid black;
+}*/
+
 .imageupload {
   position: relative;
+  margin: auto;
   width: 75%;
   height: 100%;
   background-color: rgba(200,200,200,1);
@@ -39,8 +51,10 @@ a {
 
 .myId {
   position:relative;
+  margin-left: 0px;
   width: 25%;
   height: 10%;
+  border: 2px solid black;
 }
 
 #myId {

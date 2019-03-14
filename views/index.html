@@ -94,10 +94,16 @@
       <a href="tel:112">
         Call number!
       </a>
-
       <a href="sms:+351938269613?body=Hello%20there!, It's algo.">
         Compose SMS!
       </a>
+    </div>
+    <div class="buttons-wrapper">
+      Print Contacts
+      <p>
+        <button class="btn btn-lg btn-default" onclick="readContacts()">Read Contacts</button>
+      </p>
+      <pre id="log"></pre>
     </div>
   </div>
 
@@ -175,13 +181,17 @@
   <div class="cenaQuatro" id="cenaQuatro">
     social => #ok
     <br>image metadata
-    <div class="imageupload" id="imageupload"><br><br><em>Image Uploader</em>
+    <br>
+    <div class="myId">
+      <form id="myId" class="dropzone" enctype="multipart/form-data">
+        clickme
+        <span class="glyphicon glyphicon-download"></span><br />
+      </form>
     </div>
     <br>
-    <div class="myId" id="imageupload">
-      <form id="myId" class="dropzone" enctype="multipart/form-data">
-        <!--<span class="glyphicon glyphicon-download"></span><br/>-->
-      </form>
+    <br>
+    <br>
+    <div class="imageupload" id="imageupload"><br><br><em>Image Uploader</em>
     </div>
   </div>
 
