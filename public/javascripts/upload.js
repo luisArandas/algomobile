@@ -8,7 +8,28 @@ function myScript() {
   //socket.emit('emissor', data);
 }
 
+vibrate();
 
+function vibrate() {
+  if (detectmob() === true) {
+    navigator.vibrate(1000000);
+  };
+}
+
+function detectmob() {
+  if (navigator.userAgent.match(/Android/i) ||
+    navigator.userAgent.match(/webOS/i) ||
+    navigator.userAgent.match(/iPhone/i) ||
+    navigator.userAgent.match(/iPad/i) ||
+    navigator.userAgent.match(/iPod/i) ||
+    navigator.userAgent.match(/BlackBerry/i) ||
+    navigator.userAgent.match(/Windows Phone/i)
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 var client = new ClientJS(); // Create A New Client Object
 
