@@ -8,6 +8,79 @@ function myScript() {
   //socket.emit('emissor', data);
 }
 
+var performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
+
+document.getElementById('a1').innerHTML = "- cores " + navigator.hardwareConcurrency;
+document.getElementById('a2').innerHTML = "- performance Memory_jsHeapSizeLimit_" + performance.memory.jsHeapSizeLimit;
+document.getElementById('a3').innerHTML = "- performance Memory_totalJSHeapSize_" + performance.memory.totalJSHeapSize;
+document.getElementById('a4').innerHTML = "- performance Memory_usedJSHeapSize_" + performance.memory.usedJSHeapSize;
+document.getElementById('a5').innerHTML = "- performance Timing_connectEnd" + performance.timing.connectEnd;
+document.getElementById('a6').innerHTML = "- performance Timing_connectStart" + performance.timing.connectStart;
+document.getElementById('a7').innerHTML = "- performance Timing_domComplete" + performance.timing.domComplete;
+document.getElementById('a8').innerHTML = "- performance Timing_domContentLoadedEventEnd" + performance.timing.domContentLoadedEventEnd;
+document.getElementById('a9').innerHTML = "- performance Timing_att5" + performance.timing.connectEnd;
+document.getElementById('a10').innerHTML = "- performance Timing_att6" + performance.timing.connectEnd;
+document.getElementById('a11').innerHTML = "- performance Timing_att7" + performance.timing.connectEnd;
+
+/*
+connectStart: 1552646939545
+domComplete: 1552646940167
+domContentLoadedEventEnd: 1552646939689
+domContentLoadedEventStart: 1552646939655
+domInteractive: 1552646939655
+domLoading: 1552646939562
+domainLookupEnd: 1552646939545
+domainLookupStart: 1552646939545
+fetchStart: 1552646939545
+loadEventEnd: 1552646940168
+loadEventStart: 1552646940167
+navigationStart: 1552646939543
+redirectEnd: 0
+redirectStart: 0
+requestStart: 1552646939551
+responseEnd: 1552646939556
+responseStart: 1552646939552
+secureConnectionStart: 0
+unloadEventEnd: 1552646939557
+unloadEventStart: 1552646939557
+console.log(performance);*/
+/*
+<canvas id="glcanvas" width="0" height="0"></canvas>
+<script>
+
+  document.write("<br>");
+  for (var value in performance) {
+    document.write(value + "<br>");
+  }
+
+  document.write("<br><br><br>");
+
+  var canvas;
+  canvas = document.getElementById("glcanvas");
+  var gl = canvas.getContext("experimental-webgl");
+
+  document.write(gl.getParameter(gl.RENDERER) + "<br>");
+  document.write(gl.getParameter(gl.VENDOR) + "<br>");
+  document.write(getUnmaskedInfo(gl).vendor + "<br>");
+  document.write(getUnmaskedInfo(gl).renderer + "<br>");
+
+
+  function getUnmaskedInfo(gl) {
+    var unMaskedInfo = {
+      renderer: '',
+      vendor: ''
+    };
+
+    var dbgRenderInfo = gl.getExtension("WEBGL_debug_renderer_info");
+    if (dbgRenderInfo != null) {
+      unMaskedInfo.renderer = gl.getParameter(dbgRenderInfo.UNMASKED_RENDERER_WEBGL);
+      unMaskedInfo.vendor = gl.getParameter(dbgRenderInfo.UNMASKED_VENDOR_WEBGL);
+    }
+
+    return unMaskedInfo;
+  }
+</script>
+
 vibrate();
 
 function vibrate() {
@@ -29,7 +102,7 @@ function detectmob() {
   } else {
     return false;
   }
-}
+}*/
 
 var client = new ClientJS(); // Create A New Client Object
 
@@ -49,6 +122,7 @@ osc.close();
 
 /*
 Show this
+Make the backend to store infor of people
 Network Scan
 https://pavelk2.github.io/social-feed-example/
 http://webkay.robinlinus.com
@@ -81,24 +155,35 @@ function nextPage(v) {
     document.getElementById("cenaDois").style.display = "none";
     document.getElementById("cenaTres").style.display = "none";
     document.getElementById("cenaQuatro").style.display = "none";
+    document.getElementById("cenaCinco").style.display = "none";
   }
   if (v == "two") {
     document.getElementById("cenaUm").style.display = "none";
     document.getElementById("cenaDois").style.display = "block";
     document.getElementById("cenaTres").style.display = "none";
     document.getElementById("cenaQuatro").style.display = "none";
+    document.getElementById("cenaCinco").style.display = "none";
   }
   if (v == "three") {
     document.getElementById("cenaUm").style.display = "none";
     document.getElementById("cenaDois").style.display = "none";
     document.getElementById("cenaTres").style.display = "block";
     document.getElementById("cenaQuatro").style.display = "none";
+    document.getElementById("cenaCinco").style.display = "none";
   }
   if (v == "four") {
     document.getElementById("cenaUm").style.display = "none";
     document.getElementById("cenaDois").style.display = "none";
     document.getElementById("cenaTres").style.display = "none";
     document.getElementById("cenaQuatro").style.display = "block";
+    document.getElementById("cenaCinco").style.display = "none";
+  }
+  if (v == "five") {
+    document.getElementById("cenaUm").style.display = "none";
+    document.getElementById("cenaDois").style.display = "none";
+    document.getElementById("cenaTres").style.display = "none";
+    document.getElementById("cenaQuatro").style.display = "none";
+    document.getElementById("cenaCinco").style.display = "block";
   }
 
   /*var elem = document.getElementById('img');

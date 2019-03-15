@@ -20,7 +20,10 @@
     <button class="btnCenaDois" onClick="nextPage('two')">movimento_02</button>
     <button class="btnCenaTres" onClick="nextPage('three')">movimento_03</button>
     <button class="btnCenaQuatro" onClick="nextPage('four')">movimento_04</button>
+    <button class="btnCenaCinco" onClick="nextPage('five')">misc</button>
   </div>
+
+  <!-- //--------------------------------------------------------------------------------------------- -->
 
   <div class="cenaUm" id="cenaUm">
     <div id="id01" class="modal">
@@ -32,16 +35,26 @@
         </div>
 
         <div class="container">
-          <label for="uname"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required>
+          <h1>
+            <label for="uname"><b>Full Name</b></label>
+            <input type="text" placeholder="Enter Full Name" name="uname" required>
 
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
+            <label for="psw"><b>Date of Birth</b></label>
+            <input type="password" placeholder="Enter Date of Birth" name="psw" required>
 
-          <button type="submit">Login</button>
-          <label>
-            <input type="checkbox" checked="checked" name="remember"> Remember me
-          </label>
+            <label for="uname"><b>Mobile Phone</b></label>
+            <input type="text" placeholder="Enter Mobile Contact" name="uname" required>
+
+            <label for="uname"><b>Genre</b></label>
+            <input type="text" placeholder="Enter Genre" name="uname" required>
+
+            <label for="uname"><b>Password</b></label>
+            <input type="text" placeholder="Your Password" name="uname" required>
+
+            <button type="submit">Login</button>
+
+            <button type="submit">Upload Picture</button>
+          </h1>
         </div>
 
         <div class="container" style="background-color:#101010">
@@ -49,34 +62,36 @@
       </form>
     </div>
   </div>
+
+  <!-- //--------------------------------------------------------------------------------------------- -->
+
   <div class="cenaDois" id="cenaDois">
-    hardware
-    <br>network scan
-    <div class="bodyPlace" id="bodyPlace">
-      <div class="content">
-        <section class="demo">
-          <span>
-            User connected to
-            <div id="loggedIn">
-              <h2>No platform</h2>
-              <br><br><br>
-            </div>
-          </span>
-        </section>
-      </div>
+    <div class="buttons-wrapper"> Hardware
+      <br>CPU
+      <div id="a1"></div>
+      <div id="a2"></div>
+      <div id="a3"></div>
+      <div id="a4"></div>
+      <div id="a4"></div>
+      <div id="a5"></div>
+      <div id="a6"></div>
+      <div id="a7"></div>
+      <div id="a8"></div>
+      <div id="a9"></div>
+      <div id="a10"></div>
+      <div id="a11"></div>
+
+
       <br>
-
-      <!--The form for writing
-    testing again
-      <form action="/action_page.php">
-        experiment:<br>
-        <input type="text" name="firstname">
-        <br>
-        <input type="submit" onclick="submit()">
-      </form>-->
-
+      <br>
+      <br>GPU
+      <br>Vendor
+      <br>Renderer
+      <br>Display
+      <br>Dispositivo de Acesso
     </div>
-    <div class="battery" id="battery">
+    <div class="buttons-wrapper" id="buttons-wrapper">
+      Bateria:
       <div id="charging">(charging state unknown)</div>
       <div id="level">(battery level unknown)</div>
       <div id="dischargingTime">(discharging time unknown)</div>
@@ -93,29 +108,12 @@
     <div class="buttons-wrapper"> Device Language
       <div id="lang"></div>
     </div>
-    <div class="buttons-wrapper">
-      <a href="tel:112">
-        Call number!
-      </a>
-      <a href="sms:+351938269613?body=Hello%20there!, It's algo.">
-        Compose SMS!
-      </a>
-    </div>
-    <div class="buttons-wrapper">
-      Print Contacts
-      <p>
-        <button class="btn btn-lg btn-default" onclick="readContacts()">Read Contacts</button>
-      </p>
-      <pre id="log"></pre>
-    </div>
   </div>
 
+  <!-- //--------------------------------------------------------------------------------------------- -->
 
   <div class="cenaTres" id="cenaTres">
-    maquina e pessoa -> sensores;
-    <br>and machinery getAttribute
-    <br>idioma
-    <div class="mobileorient" id="mobileorient"><em>Mobile Orientation
+    <div class="buttons-wrapper" id="buttons-wrapper"><em>Mobile Orientation
         <div class="orientationalpha" id="orientationalpha">Orientation Alpha</div>
         <div class="orientationbeta" id="orientationbeta">Orientation Beta</div>
         <div class="orientationgamma" id="orientationgamma">Orientation Gamma</div>
@@ -167,6 +165,75 @@
         </li>
       </ul>
     </div>
+
+
+  </div>
+
+  <!-- //--------------------------------------------------------------------------------------------- -->
+
+
+  <div class="cenaQuatro" id="cenaQuatro">
+    social => #ok
+    <br>image metadata
+    <br>
+    <div class="bodyPlace" id="bodyPlace">
+      <div class="content">
+        <section class="demo">
+          <span>
+            User connected to
+            <div id="loggedIn">
+              <h2>No platform</h2>
+              <br><br><br>
+            </div>
+          </span>
+        </section>
+      </div>
+      <br>
+
+      <!--The form for writing
+    testing again
+      <form action="/action_page.php">
+        experiment:<br>
+        <input type="text" name="firstname">
+        <br>
+        <input type="submit" onclick="submit()">
+      </form>-->
+
+    </div>
+    <div class="myId">
+      <form id="myId" class="dropzone" enctype="multipart/form-data">
+        clickme
+        <span class="glyphicon glyphicon-download"></span><br />
+      </form>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="imageupload" id="imageupload"><br><br><em>Image Uploader</em>
+    </div>
+  </div>
+
+  <!-- //--------------------------------------------------------------------------------------------- -->
+
+  <div class="cenaCinco" id="cenaCinco">
+
+    <div class="buttons-wrapper">
+      <a href="tel:112">
+        Call number!
+      </a>
+      <a href="sms:+351938269613?body=Hello%20there!, It's algo.">
+        Compose SMS!
+      </a>
+    </div>
+
+    <div class="buttons-wrapper">
+      Print Contacts
+      <p>
+        <button class="btn btn-lg btn-default" onclick="readContacts()">Read Contacts</button>
+      </p>
+      <pre id="log"></pre>
+    </div>
+
     <div class="buttons-wrapper">
       <h1>Vibration API</h1>
 
@@ -181,22 +248,8 @@
 
   </div>
 
-  <div class="cenaQuatro" id="cenaQuatro">
-    social => #ok
-    <br>image metadata
-    <br>
-    <div class="myId">
-      <form id="myId" class="dropzone" enctype="multipart/form-data">
-        clickme
-        <span class="glyphicon glyphicon-download"></span><br />
-      </form>
-    </div>
-    <br>
-    <br>
-    <br>
-    <div class="imageupload" id="imageupload"><br><br><em>Image Uploader</em>
-    </div>
-  </div>
+  <!-- //--------------------------------------------------------------------------------------------- -->
+
 
   <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
   <script src="../javascripts/osc.min.js"></script>
