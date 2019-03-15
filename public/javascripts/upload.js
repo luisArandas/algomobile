@@ -14,36 +14,54 @@ document.getElementById('a1').innerHTML = "- cores " + navigator.hardwareConcurr
 document.getElementById('a2').innerHTML = "- performance Memory_jsHeapSizeLimit_" + performance.memory.jsHeapSizeLimit;
 document.getElementById('a3').innerHTML = "- performance Memory_totalJSHeapSize_" + performance.memory.totalJSHeapSize;
 document.getElementById('a4').innerHTML = "- performance Memory_usedJSHeapSize_" + performance.memory.usedJSHeapSize;
-document.getElementById('a5').innerHTML = "- performance Timing_connectEnd" + performance.timing.connectEnd;
-document.getElementById('a6').innerHTML = "- performance Timing_connectStart" + performance.timing.connectStart;
-document.getElementById('a7').innerHTML = "- performance Timing_domComplete" + performance.timing.domComplete;
-document.getElementById('a8').innerHTML = "- performance Timing_domContentLoadedEventEnd" + performance.timing.domContentLoadedEventEnd;
-document.getElementById('a9').innerHTML = "- performance Timing_att5" + performance.timing.connectEnd;
-document.getElementById('a10').innerHTML = "- performance Timing_att6" + performance.timing.connectEnd;
-document.getElementById('a11').innerHTML = "- performance Timing_att7" + performance.timing.connectEnd;
+document.getElementById('a5').innerHTML = "- performance Timing_connectEnd_" + performance.timing.connectEnd;
+document.getElementById('a6').innerHTML = "- performance Timing_connectStart_" + performance.timing.connectStart;
+document.getElementById('a7').innerHTML = "- performance Timing_domComplete_" + performance.timing.domComplete;
+document.getElementById('a8').innerHTML = "- performance Timing_domContentLoadedEventEnd_" + performance.timing.domContentLoadedEventEnd;
+document.getElementById('a9').innerHTML = "- performance Timing_domContentLoadedEventStart_" + performance.timing.domContentLoadedEventStart;
+document.getElementById('a10').innerHTML = "- performance Timing_domInteractive_" + performance.timing.domInteractive;
+document.getElementById('a11').innerHTML = "- performance Timing_domLoading_" + performance.timing.domLoading;
+document.getElementById('a12').innerHTML = "- performance Timing_domainLookupEnd_" + performance.domainLookupEnd;
+document.getElementById('a13').innerHTML = "- performance Timing_domainLookupStart_" + performance.timing.domainLookupStart;
+document.getElementById('a14').innerHTML = "- performance Timing_fetchStart_" + performance.timing.fetchStart;
+document.getElementById('a15').innerHTML = "- performance Timing_loadEventEnd_" + performance.timing.loadEventEnd;
+document.getElementById('a16').innerHTML = "- performance Timing_loadEventStart_" + performance.timing.loadEventStart;
+document.getElementById('a17').innerHTML = "- performance Timing_redirectEnd_" + performance.timing.redirectEnd;
+document.getElementById('a18').innerHTML = "- performance Timing_redirectStart_" + performance.timing.redirectStart;
+document.getElementById('a19').innerHTML = "- performance Timing_responseEnd_" + performance.timing.responseEnd;
+document.getElementById('a20').innerHTML = "- performance Timing_responseStart_" + performance.timing.responseStart;
+document.getElementById('a21').innerHTML = "- performance Timing_secureConnectionStart_" + performance.timing.secureConnectionStart;
+document.getElementById('a22').innerHTML = "- performance Timing_unloadEventEnd_" + performance.timing.unloadEventEnd;
+document.getElementById('a23').innerHTML = "- performance Timing_unloadEventStart_" + performance.timing.unloadEventStart;
 
-/*
-connectStart: 1552646939545
-domComplete: 1552646940167
-domContentLoadedEventEnd: 1552646939689
-domContentLoadedEventStart: 1552646939655
-domInteractive: 1552646939655
-domLoading: 1552646939562
-domainLookupEnd: 1552646939545
-domainLookupStart: 1552646939545
-fetchStart: 1552646939545
-loadEventEnd: 1552646940168
-loadEventStart: 1552646940167
-navigationStart: 1552646939543
-redirectEnd: 0
-redirectStart: 0
-requestStart: 1552646939551
-responseEnd: 1552646939556
-responseStart: 1552646939552
-secureConnectionStart: 0
-unloadEventEnd: 1552646939557
-unloadEventStart: 1552646939557
-console.log(performance);*/
+
+document.getElementById('b1').innerHTML = "- Device Screen Width_" + screen.width;
+document.getElementById('b2').innerHTML = "- Device Screen Height_" + screen.height;
+document.getElementById('b3').innerHTML = "- Device Screen availWidth_" + screen.availWidth;
+document.getElementById('b4').innerHTML = "- Device Screen availHeight_" + screen.availHeight;
+document.getElementById('b5').innerHTML = "- Device Screen colorDepth_" + screen.colorDepth;
+document.getElementById('b6').innerHTML = "- Device Screen pixelDepth_" + screen.pixelDepth;
+
+document.getElementById('c1').innerHTML = "- User Agent_" + navigator.userAgent;
+document.getElementById('c2').innerHTML = "- Vendor_" + navigator.vendor;
+document.getElementById('c3').innerHTML = "- ProductSub_" + navigator.productSub;
+document.getElementById('c4').innerHTML = "- Platform_" + navigator.platform;
+document.getElementById('c5').innerHTML = "- Navigator_Languages_" + navigator.languages;
+document.getElementById('c6').innerHTML = "- Credentials_" + navigator.appName;
+document.getElementById('c7').innerHTML = "- Credentials_" + navigator.appCodeName;
+document.getElementById('c8').innerHTML = "- cookieEnabled_" + navigator.cookieEnabled;
+
+/* IP */
+$(document).ready(function() {
+  $.getJSON('http://gd.geobytes.com/GetCityDetails?callback=?', function(data) {
+    document.getElementById('e1').innerHTML = "- " + "<br>" + JSON.stringify(data, null, 2) + "<br>";
+  });
+});
+
+
+document.getElementById('f1').innerHTML = "- internetHistory_thisTab =" + window.history.length + "pages";
+document.getElementById('f2').innerHTML = "- thisIsAcookie =" + document.cookie;
+
 /*
 <canvas id="glcanvas" width="0" height="0"></canvas>
 <script>
@@ -220,11 +238,7 @@ function teste(data) {
 }
 
 console.log("Algo Mobile" + "\n" + "Starting...");
-/* Printing Cookies */
-console.log(document.cookie);
 
-/* Printing history methods*/
-console.log(window.history);
 
 //  https://github.com/colinbdclark/osc.js/
 //  OPEN SOUND CONTROL
@@ -464,87 +478,78 @@ var leakSocialMediaAccounts = function(callback) {
   });
 };
 
-/*
-COMPASSO
+init();
+
 (function() {
-    var element = document.getElementById('gyroscope');
-    var compass = document.getElementById('compass');
-    compass.hidden = true;
+  var element = document.getElementById('gyroscope');
+  var compass = document.getElementById('compass');
+  compass.hidden = true;
 
-    function handleOrientation(event) {
-        var absolute = event.absolute;
-        var alpha = event.alpha;
-        var beta = event.beta;
-        var gamma = event.gamma;
-
-
-        element.innerHTML = 'Orientation: ' + absolute
+  function handleOrientation(event) {
+    var absolute = event.absolute;
+    var alpha = event.alpha;
+    var beta = event.beta;
+    var gamma = event.gamma;
 
 
-        if (!alpha) {
-            compass.hidden = true;
-            element.innerHTML += '<br>Your device has no compass ';
-        } else {
-            compass.hidden = false;
-            element.innerHTML += '<br>alpha: ' + alpha
-        }
-
-        element.innerHTML += '<br>beta: ' + beta
-        element.innerHTML += '<br>gamma: ' + gamma + '<br>'
-            // Do stuff with the new orientation data
-        if (Math.abs(beta) + Math.abs(gamma) < 1.8) {
-            element.innerHTML += 'Your Device is probably laying on a Table';
-        } else {
-            element.innerHTML += 'Your Device is probably in your Hands';
-        }
+    element.innerHTML = 'Orientation: ' + absolute
 
 
-
+    if (!alpha) {
+      compass.hidden = true;
+      element.innerHTML += '<br>Your device has no compass ';
+    } else {
+      compass.hidden = false;
+      element.innerHTML += '<br>alpha: ' + alpha
     }
-    window.addEventListener('deviceorientation', handleOrientation);
+
+    element.innerHTML += '<br>beta: ' + beta
+    element.innerHTML += '<br>gamma: ' + gamma + '<br>'
+    // Do stuff with the new orientation data
+    if (Math.abs(beta) + Math.abs(gamma) < 1.8) {
+      element.innerHTML += 'Your Device is probably laying on a Table';
+    } else {
+      element.innerHTML += 'Your Device is probably in your Hands';
+    }
+
+
+
+  }
+  window.addEventListener('deviceorientation', handleOrientation);
 }());
 
 
 function init() {
-        var compass = document.getElementById('compass');
-        if(window.DeviceOrientationEvent) {
+  var compass = document.getElementById('compass');
+  if (window.DeviceOrientationEvent) {
 
-          window.addEventListener('deviceorientation', function(event) {
-                var alpha;
-                //Check for iOS property
-                if(event.webkitCompassHeading) {
-                  alpha = event.webkitCompassHeading;
-                  //Rotation is reversed for iOS
-                  compass.style.WebkitTransform = 'rotate(-' + alpha + 'deg)';
-                }
-                //non iOS
-                else {
-                  alpha = event.alpha;
-                  webkitAlpha = alpha;
-                  if(!window.chrome) {
-                    //Assume Android stock (this is crude, but good enough for our example) and apply offset
-                    webkitAlpha = alpha-270;
-                  }
-                }
-
-                compass.style.Transform = 'rotate(' + alpha + 'deg)';
-                compass.style.WebkitTransform = 'rotate('+ webkitAlpha + 'deg)';
-                //Rotation is reversed for FF
-                compass.style.MozTransform = 'rotate(-' + alpha + 'deg)';
-              }, false);
+    window.addEventListener('deviceorientation', function(event) {
+      var alpha;
+      //Check for iOS property
+      if (event.webkitCompassHeading) {
+        alpha = event.webkitCompassHeading;
+        //Rotation is reversed for iOS
+        compass.style.WebkitTransform = 'rotate(-' + alpha + 'deg)';
+      }
+      //non iOS
+      else {
+        alpha = event.alpha;
+        webkitAlpha = alpha;
+        if (!window.chrome) {
+          //Assume Android stock (this is crude, but good enough for our example) and apply offset
+          webkitAlpha = alpha - 270;
         }
       }
-    </script>
-  </head>
-  <body onload="init()">
-    <div id="compassContainer">
-      <img src="compass.png" id="compass"/>
-    </div>
-  </body>
-</html>
 
-COMPASSO
-*/
+      compass.style.Transform = 'rotate(' + alpha + 'deg)';
+      compass.style.WebkitTransform = 'rotate(' + webkitAlpha + 'deg)';
+      //Rotation is reversed for FF
+      compass.style.MozTransform = 'rotate(-' + alpha + 'deg)';
+    }, false);
+  }
+}
+
+
 
 /* Geolocation API */
 

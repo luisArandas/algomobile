@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="/stylesheets/style.css" />
   <link rel="stylesheet" href="/stylesheets/dropzone.css" />
   <link rel="stylesheet" href="/stylesheets/dropzone_edit.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 
 </head>
 
@@ -80,16 +82,77 @@
       <div id="a9"></div>
       <div id="a10"></div>
       <div id="a11"></div>
+      <div id="a12"></div>
+      <div id="a13"></div>
+      <div id="a14"></div>
+      <div id="a15"></div>
+      <div id="a16"></div>
+      <div id="a17"></div>
+      <div id="a18"></div>
+      <div id="a19"></div>
+      <div id="a20"></div>
+      <div id="a21"></div>
+      <div id="a22"></div>
+      <div id="a23"></div>
+      GPU
+      <canvas id="glcanvas" width="0" height="0"></canvas>
+      <script>
+        var canvas;
+        canvas = document.getElementById("glcanvas");
+        var gl = canvas.getContext("experimental-webgl");
+        document.write("<br>" + "- GL RENDERER " + gl.getParameter(gl.RENDERER) + "<br>");
+        document.write("- GL RendererUM " + getUnmaskedInfo(gl).renderer + "<br>");
+        document.write("VENDOR" + "<br>");
+        document.write("- GL VENDOR " + gl.getParameter(gl.VENDOR) + "<br>");
+        document.write("- GL VendorUM " + getUnmaskedInfo(gl).vendor);
 
+        function getUnmaskedInfo(gl) {
+          var unMaskedInfo = {
+            renderer: '',
+            vendor: ''
+          };
+          var dbgRenderInfo = gl.getExtension("WEBGL_debug_renderer_info");
+          if (dbgRenderInfo != null) {
+            unMaskedInfo.renderer = gl.getParameter(dbgRenderInfo.UNMASKED_RENDERER_WEBGL);
+            unMaskedInfo.vendor = gl.getParameter(dbgRenderInfo.UNMASKED_VENDOR_WEBGL);
+          }
+          return unMaskedInfo;
+        }
+      </script>
 
-      <br>
-      <br>
-      <br>GPU
-      <br>Vendor
-      <br>Renderer
       <br>Display
-      <br>Dispositivo de Acesso
+      <br>
+      <div id="b1"></div>
+      <div id="b2"></div>
+      <div id="b3"></div>
+      <div id="b4"></div>
+      <div id="b5"></div>
+      <div id="b6"></div>
+      Dispositivo de Acesso
+      <br>
+      <div id="c1"></div>
+      <div id="c2"></div>
+      <div id="c3"></div>
+      <div id="c4"></div>
+      <div id="c5"></div>
+      <div id="c6"></div>
+      <div id="c7"></div>
+      <div id="c8"></div>
+      IP
+      <br>
+      <div id="e1"></div>
+      SERVICE PROVIDER
+      <br>veristo em nodejs
+      <br>
+      HISTORY
+      <br>
+      <div id="f1"></div>
+      (make get())
+      <div id="f2"></div>
+      PLUGINS
+      <br>
     </div>
+
     <div class="buttons-wrapper" id="buttons-wrapper">
       Bateria:
       <div id="charging">(charging state unknown)</div>
@@ -113,7 +176,13 @@
   <!-- //--------------------------------------------------------------------------------------------- -->
 
   <div class="cenaTres" id="cenaTres">
-    <div class="buttons-wrapper" id="buttons-wrapper"><em>Mobile Orientation
+    <div class="buttons-wrapper" id="buttons-wrapper">
+      <div id="compassContainer">
+        <img src="https://i.imgur.com/MFov1lW.jpg" id="compass" />
+      </div>
+      <br>
+      <br>
+      <em>Mobile Orientation
         <div class="orientationalpha" id="orientationalpha">Orientation Alpha</div>
         <div class="orientationbeta" id="orientationbeta">Orientation Beta</div>
         <div class="orientationgamma" id="orientationgamma">Orientation Gamma</div>
