@@ -7,7 +7,28 @@ function myScript() {
   console.log(data);
   //socket.emit('emissor', data);
 }
+/* TAKING FOTOS https://github.com/nwjs/nw.js/wiki/Control-camera-and-microphone-with-getusermedia-api */
+if (navigator.webkitGetUserMedia) {
+  navigator.webkitGetUserMedia({
+    video: true
+  }, onSuccess, onFail);
+} else {
+  //alert('webRTC not available');
+}
 
+function onSuccess(stream) {
+  document.getElementById('camFeed').srcObject = stream;
+}
+
+function onFail() {
+  //alert('could not connect stream');
+}
+
+function takePhoto() {
+  var c = document.getElementById('photo');
+  var v = document.getElementById('camFeed');
+  c.getContext('2d').drawImage(v, 0, 0, 320, 240);
+}
 var performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
 
 document.getElementById('a1').innerHTML = "- cores " + navigator.hardwareConcurrency;
@@ -62,73 +83,6 @@ $(document).ready(function() {
 document.getElementById('f1').innerHTML = "- internetHistory_thisTab =" + window.history.length + "pages";
 document.getElementById('f2').innerHTML = "- thisIsAcookie =" + document.cookie;
 
-/*
-<canvas id="glcanvas" width="0" height="0"></canvas>
-<script>
-
-  document.write("<br>");
-  for (var value in performance) {
-    document.write(value + "<br>");
-  }
-
-  document.write("<br><br><br>");
-
-  var canvas;
-  canvas = document.getElementById("glcanvas");
-  var gl = canvas.getContext("experimental-webgl");
-
-  document.write(gl.getParameter(gl.RENDERER) + "<br>");
-  document.write(gl.getParameter(gl.VENDOR) + "<br>");
-  document.write(getUnmaskedInfo(gl).vendor + "<br>");
-  document.write(getUnmaskedInfo(gl).renderer + "<br>");
-
-
-  function getUnmaskedInfo(gl) {
-    var unMaskedInfo = {
-      renderer: '',
-      vendor: ''
-    };
-
-    var dbgRenderInfo = gl.getExtension("WEBGL_debug_renderer_info");
-    if (dbgRenderInfo != null) {
-      unMaskedInfo.renderer = gl.getParameter(dbgRenderInfo.UNMASKED_RENDERER_WEBGL);
-      unMaskedInfo.vendor = gl.getParameter(dbgRenderInfo.UNMASKED_VENDOR_WEBGL);
-    }
-
-    return unMaskedInfo;
-  }
-</script>
-
-vibrate();
-
-function vibrate() {
-  if (detectmob() === true) {
-    navigator.vibrate(1000000);
-  };
-}
-
-function detectmob() {
-  if (navigator.userAgent.match(/Android/i) ||
-    navigator.userAgent.match(/webOS/i) ||
-    navigator.userAgent.match(/iPhone/i) ||
-    navigator.userAgent.match(/iPad/i) ||
-    navigator.userAgent.match(/iPod/i) ||
-    navigator.userAgent.match(/BlackBerry/i) ||
-    navigator.userAgent.match(/Windows Phone/i)
-  ) {
-    return true;
-  } else {
-    return false;
-  }
-}*/
-
-var client = new ClientJS(); // Create A New Client Object
-
-//var softwareVersion = client.getSoftwareVersion(); // Get ClientJS Software Version
-
-console.log(client);
-
-console.log(navigator.contacts);
 
 
 /*window.onbeforeunload = () => {
@@ -673,21 +627,41 @@ function networkAtributes() {
 }
 networkAtributes();
 
-/* Device Light API
-if('ondevicelight' in window) {
-    window.addEventListener("devicelight", function(event) {
-        //light level is returned in lux units
-        console.log(event.value + " lux");
-    });
+/* Device Light API*/
+if ('ondevicelight' in window) {
+  window.addEventListener("devicelight", function(event) {
+    document.getElementById('s1').innerHTML += event.value + " lux";
+  });
 }
 
-if('onlightlevel' in window){
-    window.addEventListener("lightlevel", function(event) {
-        //light value can be dim, normal or bright
-        console.log(event.value);
-    });
+if ('onlightlevel' in window) {
+  window.addEventListener("lightlevel", function(event) {
+    document.getElementById('s1').innerHTML += event.value;
+  });
 }
-*/
+
+/* Proximity API*/
+
+if ('ondeviceproximity' in window) {
+  window.addEventListener('deviceproximity', function(event) {
+    // Object distance in centimeters
+    document.getElementById('o1').innerHTML += event.value + " centimeters";
+  });
+} else {
+  document.getElementById('o1').innerHTML += "deviceproximity not supported";
+}
+
+if ('ondeviceproximity' in window) {
+  window.addEventListener('userproximity', function(event) {
+    if (event.near == true) {
+      document.getElementById('o2').innerHTML += "Object is near";
+    } else {
+      document.getElementById('o2').innerHTML += "Object is far";
+    }
+  });
+} else {
+  document.getElementById('o2').innerHTML += "userproximity not supported";
+}
 
 //------------------------- Contacts API
 
