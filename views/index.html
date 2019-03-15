@@ -150,9 +150,18 @@
       (make get())
       <div id="f2"></div>
       PLUGINS
+      <div id="g1"></div>
+      <script type="text/javascript">
+        var x = navigator.plugins.length; // store the total no of plugin stored
+        var txt = "Total plugin installed: " + x + "<br/>";
+        txt += "Available plugins are->" + "<br/>";
+        for (var i = 0; i < x; i++) {
+          txt += navigator.plugins[i].name + "<br/>";
+        }
+        document.getElementById("g1").innerHTML = txt;
+      </script>
       <br>
     </div>
-
     <div class="buttons-wrapper" id="buttons-wrapper">
       Bateria:
       <div id="charging">(charging state unknown)</div>
@@ -177,9 +186,13 @@
 
   <div class="cenaTres" id="cenaTres">
     <div class="buttons-wrapper" id="buttons-wrapper">
+
+      <div id="gyroscope"></div>
       <div id="compassContainer">
         <img src="https://i.imgur.com/MFov1lW.jpg" id="compass" />
       </div>
+
+
       <br>
       <br>
       <em>Mobile Orientation

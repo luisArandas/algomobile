@@ -490,10 +490,7 @@ init();
     var alpha = event.alpha;
     var beta = event.beta;
     var gamma = event.gamma;
-
-
     element.innerHTML = 'Orientation: ' + absolute
-
 
     if (!alpha) {
       compass.hidden = true;
@@ -502,7 +499,6 @@ init();
       compass.hidden = false;
       element.innerHTML += '<br>alpha: ' + alpha
     }
-
     element.innerHTML += '<br>beta: ' + beta
     element.innerHTML += '<br>gamma: ' + gamma + '<br>'
     // Do stuff with the new orientation data
@@ -511,9 +507,6 @@ init();
     } else {
       element.innerHTML += 'Your Device is probably in your Hands';
     }
-
-
-
   }
   window.addEventListener('deviceorientation', handleOrientation);
 }());
