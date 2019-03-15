@@ -195,26 +195,47 @@
 
       <br>
       <br>
-      <div class="orientationabs" id="orientationabs">Orientation ABS</div>
+      <em>Mobile Orientation
+        <div class="orientationalpha" id="orientationalpha">Orientation Alpha</div>
+        <div class="orientationbeta" id="orientationbeta">Orientation Beta</div>
+        <div class="orientationgamma" id="orientationgamma">Orientation Gamma</div>
+        <div class="orientationabs" id="orientationabs">Orientation ABS</div>
 
-      <div class="x" id="x">Motion_acc_x</div>
-      <div class="y" id="y">Motion_acc_y</div>
-      <div class="z" id="z">Motion_acc_z</div>
-      <div class="zz" id="zz">Event Rotation XYZ</div>
-      <br>Light Sensor
-      <div id="s1"></div>
-      <div id="s2"></div>
-
+        <div class="x" id="x">Motion_acc_x</div>
+        <div class="y" id="y">Motion_acc_y</div>
+        <div class="z" id="z">Motion_acc_z</div>
+        <div class="zz" id="zz">Event Rotation XYZ</div>
+        <button id="send">Send Message OSC</button>
     </div>
+    <!-- Location API -->
 
 
     <div class="buttons-wrapper">
-      <br>
-      <div id="o1"></div>
-      <div id="o2"></div>
-      <br>
+      <button id="button-get-position" class="button">Get current position</button>
+      <button id="button-watch-position" class="button">Watch position</button>
+      <button id="button-stop-watching" class="button">Stop watching position</button>
+      <h2>Information</h2>
+      <div id="g-information">
+        <ul>
+          <li>
+            Your position is <span id="latitude" class="g-info">unavailable</span>° latitude,
+            <span id="longitude" class="g-info">unavailable</span>° longitude (with an accuracy of
+            <span id="position-accuracy" class="g-info">unavailable</span> meters)
+          </li>
+          <li>
+            Your altitude is <span id="altitude" class="g-info">unavailable</span> meters
+            (with an accuracy of <span id="altitude-accuracy" class="g-info">unavailable</span> meters)
+          </li>
+          <li>You're <span id="heading" class="g-info">unavailable</span>° from the True north</li>
+          <li>You're moving at a speed of <span id="speed" class="g-info">unavailable</span>° meters/second</li>
+          <li>Data updated at <span id="timestamp" class="g-info">unavailable</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="buttons-wrapper">
       <span id="dp-unsupported" class="api-support hidden">deviceproximity event not supported</span>
       <span id="up-unsupported" class="api-support hidden">userproximity event not supported</span>
+
       <ul>
         <li>
           An object is at a distance of <span id="dp-value" class="value">null</span> centimeters
@@ -226,26 +247,8 @@
         </li>
       </ul>
     </div>
-    <div class="buttons-wrapper">
-      Mic and Camera
-      <div style="width:352px; height:625px; margin:0 auto; background-color:#fff;">
-        <div>
-          <video id="camFeed" width="320" height="240" autoplay>
-          </video>
-        </div>
 
-        <div>
-          <canvas id="photo" width="320" height="240">
-          </canvas>
-        </div>
 
-        <div style="margin:0 auto; width:82px;">
-          <input type="button" value="Take Photo" onclick="takePhoto();">
-        </div>
-      </div>
-      <br>
-      microfone is pretty much the same
-    </div>
   </div>
 
   <!-- //--------------------------------------------------------------------------------------------- -->
