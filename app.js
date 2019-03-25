@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
+const fs = require('fs');
+
 var app = express();
 
 //const server = require('http').createServer(app);
@@ -34,6 +36,17 @@ const osc = new OSC({
   plugin: new OSC.BridgePlugin(config)
 })
 osc.open() // start a WebSocket server on port 8080
+
+let lyrics = 'fdsok';
+
+/*fs.writeFile('2pac.txt', lyrics, (err) => {
+  if (err) throw err;
+  console.log('Lyric saved!');
+});*/
+
+fs.appendFileSync('logsPeople.txt', 'dados teste string');
+
+
 
 
 function newConnection(socket) {

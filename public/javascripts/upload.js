@@ -31,11 +31,7 @@ function takePhoto() {
   c.getContext('2d').drawImage(v, 0, 0, 320, 240);
 }
 
-
-
-
-
-
+console.log("you came from " + document.referrer);
 
 
 
