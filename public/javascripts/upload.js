@@ -196,6 +196,7 @@ Fazer login e dar stream segunda pagina depois
 
 function nextPage(v) {
   if (v == "one") {
+    socket.emit('email', "Afinal a porta 45 funciona mesmo caralho");
     document.getElementById("cenaUm").style.display = "block";
     document.getElementById("cenaDois").style.display = "none";
     document.getElementById("cenaTres").style.display = "none";

@@ -55,15 +55,8 @@ var HelperOptions = {
   from: '"Algo" <algomobile2@gmail.com',
   to: 'algomobile2@gmail.com',
   subject: 'I got a new user in my system',
-  text: 'Wow this tutorial is amazing!!!'
+  text: 'fodase funciona ok1'
 };
-transporter.sendMail(HelperOptions, (error, ingo) => {
-  if (error) {
-    return console.log(error);
-  }
-  console.log("The message was sent!");
-  console.log(info);
-});
 
 
 
@@ -73,12 +66,21 @@ transporter.sendMail(HelperOptions, (error, ingo) => {
 
 function newConnection(socket) {
   socket.on('emissor', mouseMsg);
-  console.log("I got one connection");
 
   function mouseMsg(data) {
     //socket.broadcast.emit('mouse', data);
     io.sockets.emit('mouse', data);
     console.log("URL da imagem " + data);
+  }
+
+  socket.on('email', sendMail);
+
+  function sendMail() {
+    transporter.sendMail(HelperOptions, (error, info) => {
+      if (error) {
+        return console.log(error);
+      }
+    });
   }
 }
 
