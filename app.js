@@ -37,14 +37,36 @@ const osc = new OSC({
 })
 osc.open() // start a WebSocket server on port 8080
 
-let lyrics = 'fdsok';
+var nodemailer = require('nodemailer');
+/* Mail options */
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  secure: false,
+  port: 25,
+  auth: {
+    user: 'algomobile2@gmail.com',
+    pass: "okokfodase"
+  },
+  tls: {
+    rejectUnauthorized: false
+  }
+});
+var HelperOptions = {
+  from: '"Algo" <algomobile2@gmail.com',
+  to: 'algomobile2@gmail.com',
+  subject: 'I got a new user in my system',
+  text: 'Wow this tutorial is amazing!!!'
+};
+transporter.sendMail(HelperOptions, (error, ingo) => {
+  if (error) {
+    return console.log(error);
+  }
+  console.log("The message was sent!");
+  console.log(info);
+});
 
-/*fs.writeFile('2pac.txt', lyrics, (err) => {
-  if (err) throw err;
-  console.log('Lyric saved!');
-});*/
 
-fs.appendFileSync('logsPeople.txt', 'dados teste string');
+
 
 
 
