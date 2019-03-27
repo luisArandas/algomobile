@@ -44,18 +44,18 @@ var transporter = nodemailer.createTransport({
   secure: false,
   port: 25,
   auth: {
-    user: 'algo.label@gmail.com',
-    pass: "algo1online2KA"
+    user: 'algomobile2@gmail.com',
+    pass: "okokfodase"
   },
   tls: {
     rejectUnauthorized: false
   }
 });
 var HelperOptions = {
-  from: '"Algo2.0" <algo.label@gmail.com',
-  to: 'algo.label@gmail.com',
+  from: '"Algo" <algomobile2@gmail.com',
+  to: 'algomobile2@gmail.com',
   subject: 'I got a new user in my system',
-  text: 'Foda-se funciona crl'
+  text: 'fodase funciona crl'
 };
 
 function newConnection(socket) {
