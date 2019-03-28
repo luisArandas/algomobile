@@ -193,6 +193,9 @@ Ponto de vista visual -> como alimenta o espaço
 
 Fazer login e dar stream segunda pagina depois
 */
+function register() {
+  console.log("yes " + document.getElementById('inputName').value);
+}
 
 function nextPage(v) {
   if (v == "one") {
