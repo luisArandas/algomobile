@@ -38,25 +38,31 @@ const osc = new OSC({
 osc.open(); // start a WebSocket server on port 8080
 
 var nodemailer = require('nodemailer');
+
 /* Mail options */
+
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   secure: false,
   port: 25,
   auth: {
-    user: 'algomobile2@gmail.com',
-    pass: "okokfodase"
+    user: 'algo.label@gmail.com',
+    pass: 'algo1online2KA'
+    //user: 'algomobile2@gmail.com',
+    //pass: "okokfodase"
   },
   tls: {
     rejectUnauthorized: false
   }
 });
 var HelperOptions = {
-  from: '"Algo" <algomobile2@gmail.com',
-  to: 'algomobile2@gmail.com',
+  from: '"Algo" <algo.label@gmail.com',
+  to: 'algo.label@gmail.com',
   subject: 'I got a new user in my system',
   text: 'fodase funciona crl'
 };
+
+// dividir por linhas pergunta resposta pergunta resposta - sem simbolos
 
 function newConnection(socket) {
   socket.on('emissor', mouseMsg);
