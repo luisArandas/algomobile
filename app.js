@@ -41,6 +41,9 @@ var nodemailer = require('nodemailer');
 
 /* Mail options */
 
+var mailMessage = "<b> Name: </b><br> xxx <br> <b>Age</b><br>99";
+//var mailMessage = "<p style='font-weight:bold;'> Name: </p><br> x <br> Age";
+
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   secure: false,
@@ -57,7 +60,7 @@ var HelperOptions = {
   from: '"Algo" <algomobile2@gmail.com',
   to: 'algomobile2@gmail.com',
   subject: 'I got a new user in my system',
-  text: 'fodase funciona crl'
+  html: mailMessage
 };
 
 // dividir por linhas pergunta resposta pergunta resposta - sem simbolos
