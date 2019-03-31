@@ -12,7 +12,7 @@
 </head>
 
 <body>
-
+  <!--
   <div class="buttons">
     <button class="btnCenaUm" onclick="nextPage('one')">movimento_01</button>
     <button class="btnCenaDois" onClick="nextPage('two')">movimento_02</button>
@@ -20,312 +20,303 @@
     <button class="btnCenaQuatro" onClick="nextPage('four')">movimento_04</button>
     <button class="btnCenaCinco" onClick="nextPage('five')">misc</button>
   </div>
+-->
 
   <!-- //--------------------------------------------------------------------------------------------- -->
 
-  <div class="cenaUm" id="cenaUm">
-    <div id="id01" class="modal">
-      <form class="modal-content animate" action="/action_page.php">
-        <div class="container" style="background-color:#101010">
-        </div>
-        <div class="imgcontainer">
-          <img src="https://i.imgur.com/DzMKgen.png" alt="Avatar" class="avatar">
-        </div>
+  <div id="id01" class="modal">
+    <div id="registerBox">
+      <div class="container" style="background-color:#101010">
+      </div>
+      <div class="imgcontainer">
+        <img src="https://i.imgur.com/yWu4bae.png" alt="Avatar" class="avatar">
+      </div>
 
-        <div class="container">
-          <h1>
-            <label for="uname"><b>Full Name</b></label>
-            <input type="text" id="inputName" placeholder="Enter Full Name" name="uname" required>
+      <div id="containerUm">
+        <label for="uname">Full Name</label>
+        <input type="text" id="input1" placeholder="Enter Full Name" required>
 
-            <label for="psw"><b>Date of Birth</b></label>
-            <input type="password" placeholder="Enter Date of Birth" name="psw" required>
+        <label for="psw">Date of Birth</label>
+        <input type="text" id="input2" placeholder="Enter Date of Birth" required>
 
-            <label for="uname"><b>Mobile Phone</b></label>
-            <input type="text" placeholder="Enter Mobile Contact" name="uname" required>
+        <label for="uname">Mobile Phone</label>
+        <input type="text" id="input3" placeholder="Enter Mobile Contact" required>
 
-            <label for="uname"><b>Genre</b></label>
-            <input type="text" placeholder="Enter Genre" name="uname" required>
+        <label for="uname">Genre</label>
+        <input type="text" id="input4" placeholder="Enter Genre" required>
 
-            <label for="uname"><b>Password</b></label>
-            <input type="text" placeholder="Your Password" name="uname" required>
+        <label for="uname">Password</label>
+        <input type="text" id="input5" placeholder="Your Password" required>
 
-            <button type="submit" onClick="register()">Register</button>
-          </h1>
-        </div>
+        <button onClick="register()">Register</button>
+      </div>
 
-        <div class="container" style="background-color:#101010">
-        </div>
-      </form>
+      <div class="container" style="background-color:#101010">
+      </div>
     </div>
   </div>
 
   <!-- //--------------------------------------------------------------------------------------------- -->
+  <div id="hidden">
+    <div class="cenaDois" id="cenaDois">
+      <div class="buttons-wrapper"> Hardware
+        <br>CPU
+        <div id="a1"></div>
+        <div id="a2"></div>
+        <div id="a3"></div>
+        <div id="a4"></div>
+        <div id="a4"></div>
+        <div id="a5"></div>
+        <div id="a6"></div>
+        <div id="a7"></div>
+        <div id="a8"></div>
+        <div id="a9"></div>
+        <div id="a10"></div>
+        <div id="a11"></div>
+        <div id="a12"></div>
+        <div id="a13"></div>
+        <div id="a14"></div>
+        <div id="a15"></div>
+        <div id="a16"></div>
+        <div id="a17"></div>
+        <div id="a18"></div>
+        <div id="a19"></div>
+        <div id="a20"></div>
+        <div id="a21"></div>
+        <div id="a22"></div>
+        <div id="a23"></div>
+        GPU
+        <canvas id="glcanvas" width="0" height="0"></canvas>
+        <script>
+          var canvas;
+          canvas = document.getElementById("glcanvas");
+          var gl = canvas.getContext("experimental-webgl");
+          document.write("<br>" + "- GL RENDERER " + gl.getParameter(gl.RENDERER) + "<br>");
+          document.write("- GL RendererUM " + getUnmaskedInfo(gl).renderer + "<br>");
+          document.write("VENDOR" + "<br>");
+          document.write("- GL VENDOR " + gl.getParameter(gl.VENDOR) + "<br>");
+          document.write("- GL VendorUM " + getUnmaskedInfo(gl).vendor);
 
-  <div class="cenaDois" id="cenaDois">
-    <div class="buttons-wrapper"> Hardware
-      <br>CPU
-      <div id="a1"></div>
-      <div id="a2"></div>
-      <div id="a3"></div>
-      <div id="a4"></div>
-      <div id="a4"></div>
-      <div id="a5"></div>
-      <div id="a6"></div>
-      <div id="a7"></div>
-      <div id="a8"></div>
-      <div id="a9"></div>
-      <div id="a10"></div>
-      <div id="a11"></div>
-      <div id="a12"></div>
-      <div id="a13"></div>
-      <div id="a14"></div>
-      <div id="a15"></div>
-      <div id="a16"></div>
-      <div id="a17"></div>
-      <div id="a18"></div>
-      <div id="a19"></div>
-      <div id="a20"></div>
-      <div id="a21"></div>
-      <div id="a22"></div>
-      <div id="a23"></div>
-      GPU
-      <canvas id="glcanvas" width="0" height="0"></canvas>
-      <script>
-        var canvas;
-        canvas = document.getElementById("glcanvas");
-        var gl = canvas.getContext("experimental-webgl");
-        document.write("<br>" + "- GL RENDERER " + gl.getParameter(gl.RENDERER) + "<br>");
-        document.write("- GL RendererUM " + getUnmaskedInfo(gl).renderer + "<br>");
-        document.write("VENDOR" + "<br>");
-        document.write("- GL VENDOR " + gl.getParameter(gl.VENDOR) + "<br>");
-        document.write("- GL VendorUM " + getUnmaskedInfo(gl).vendor);
-
-        function getUnmaskedInfo(gl) {
-          var unMaskedInfo = {
-            renderer: '',
-            vendor: ''
-          };
-          var dbgRenderInfo = gl.getExtension("WEBGL_debug_renderer_info");
-          if (dbgRenderInfo != null) {
-            unMaskedInfo.renderer = gl.getParameter(dbgRenderInfo.UNMASKED_RENDERER_WEBGL);
-            unMaskedInfo.vendor = gl.getParameter(dbgRenderInfo.UNMASKED_VENDOR_WEBGL);
+          function getUnmaskedInfo(gl) {
+            var unMaskedInfo = {
+              renderer: '',
+              vendor: ''
+            };
+            var dbgRenderInfo = gl.getExtension("WEBGL_debug_renderer_info");
+            if (dbgRenderInfo != null) {
+              unMaskedInfo.renderer = gl.getParameter(dbgRenderInfo.UNMASKED_RENDERER_WEBGL);
+              unMaskedInfo.vendor = gl.getParameter(dbgRenderInfo.UNMASKED_VENDOR_WEBGL);
+            }
+            return unMaskedInfo;
+            //Check this.
           }
-          return unMaskedInfo;
-        }
-      </script>
+        </script>
 
-      <br>Display
-      <br>
-      <div id="b1"></div>
-      <div id="b2"></div>
-      <div id="b3"></div>
-      <div id="b4"></div>
-      <div id="b5"></div>
-      <div id="b6"></div>
-      Dispositivo de Acesso
-      <br>
-      <div id="c1"></div>
-      <div id="c2"></div>
-      <div id="c3"></div>
-      <div id="c4"></div>
-      <div id="c5"></div>
-      <div id="c6"></div>
-      <div id="c7"></div>
-      <div id="c8"></div>
-      IP
-      <br>
-      <div id="e1"></div>
-      SERVICE PROVIDER
-      <br>veristo em nodejs
-      <br>
-      HISTORY
-      <br>
-      <div id="f1"></div>
-      (make get())
-      <div id="f2"></div>
-      PLUGINS
-      <div id="g1"></div>
-      <script type="text/javascript">
-        var x = navigator.plugins.length; // store the total no of plugin stored
-        var txt = "Total plugin installed: " + x + "<br/>";
-        txt += "Available plugins are->" + "<br/>";
-        for (var i = 0; i < x; i++) {
-          txt += navigator.plugins[i].name + "<br/>";
-        }
-        document.getElementById("g1").innerHTML = txt;
-      </script>
-      <br>
-    </div>
-    <div class="buttons-wrapper" id="buttons-wrapper">
-      Bateria:
-      <div id="charging">(charging state unknown)</div>
-      <div id="level">(battery level unknown)</div>
-      <div id="dischargingTime">(discharging time unknown)</div>
-    </div>
-    <div class="buttons-wrapper"> Network Info
-      <br>
-      <div id="net1"></div>
-      <div id="net2"></div>
-      <div id="net3"></div>
-      <div id="net4"></div>
-      <div id="net5"></div>
-      <br>
-    </div>
-    <div class="buttons-wrapper"> Device Language
-      <div id="lang"></div>
-    </div>
-  </div>
-
-  <!-- //--------------------------------------------------------------------------------------------- -->
-
-  <div class="cenaTres" id="cenaTres">
-    <div class="buttons-wrapper" id="buttons-wrapper">
-
-      <div id="gyroscope"></div>
-      <div id="compassContainer">
-        <img src="https://i.imgur.com/MFov1lW.jpg" id="compass" />
-      </div>
-
-
-      <br>
-      <br>
-      <em>Mobile Orientation
-        <div class="orientationalpha" id="orientationalpha">Orientation Alpha</div>
-        <div class="orientationbeta" id="orientationbeta">Orientation Beta</div>
-        <div class="orientationgamma" id="orientationgamma">Orientation Gamma</div>
-        <div class="orientationabs" id="orientationabs">Orientation ABS</div>
-
-        <div class="x" id="x">Motion_acc_x</div>
-        <div class="y" id="y">Motion_acc_y</div>
-        <div class="z" id="z">Motion_acc_z</div>
-        <div class="zz" id="zz">Event Rotation XYZ</div>
-        <button id="send">Send Message OSC</button>
-    </div>
-    <!-- Location API -->
-
-
-    <div class="buttons-wrapper">
-      <button id="button-get-position" class="button">Get current position</button>
-      <button id="button-watch-position" class="button">Watch position</button>
-      <button id="button-stop-watching" class="button">Stop watching position</button>
-      <h2>Information</h2>
-      <div id="g-information">
-        <ul>
-          <li>
-            Your position is <span id="latitude" class="g-info">unavailable</span>° latitude,
-            <span id="longitude" class="g-info">unavailable</span>° longitude (with an accuracy of
-            <span id="position-accuracy" class="g-info">unavailable</span> meters)
-          </li>
-          <li>
-            Your altitude is <span id="altitude" class="g-info">unavailable</span> meters
-            (with an accuracy of <span id="altitude-accuracy" class="g-info">unavailable</span> meters)
-          </li>
-          <li>You're <span id="heading" class="g-info">unavailable</span>° from the True north</li>
-          <li>You're moving at a speed of <span id="speed" class="g-info">unavailable</span>° meters/second</li>
-          <li>Data updated at <span id="timestamp" class="g-info">unavailable</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="buttons-wrapper">
-      <span id="dp-unsupported" class="api-support hidden">deviceproximity event not supported</span>
-      <span id="up-unsupported" class="api-support hidden">userproximity event not supported</span>
-
-      <ul>
-        <li>
-          An object is at a distance of <span id="dp-value" class="value">null</span> centimeters
-          (within a detectable range of <span id="dp-min" class="value">null</span> -
-          <span id="dp-max" class="value">null</span> centimeters).
-        </li>
-        <li>
-          Object close to the device? <span id="up-value" class="value">unavailable</span>
-        </li>
-      </ul>
-    </div>
-
-
-  </div>
-
-  <!-- //--------------------------------------------------------------------------------------------- -->
-
-
-  <div class="cenaQuatro" id="cenaQuatro">
-    social => #ok
-    <br>image metadata
-    <br>
-    <div class="bodyPlace" id="bodyPlace">
-      <div class="content">
-        <section class="demo">
-          <span>
-            User connected to
-            <div id="loggedIn">
-              <h2>No platform</h2>
-              <br><br><br>
-            </div>
-          </span>
-        </section>
-      </div>
-      <br>
-
-      <!--The form for writing
-    testing again
-      <form action="/action_page.php">
-        experiment:<br>
-        <input type="text" name="firstname">
+        <br>Display
         <br>
-        <input type="submit" onclick="submit()">
-      </form>-->
-
+        <div id="b1"></div>
+        <div id="b2"></div>
+        <div id="b3"></div>
+        <div id="b4"></div>
+        <div id="b5"></div>
+        <div id="b6"></div>
+        Dispositivo de Acesso
+        <br>
+        <div id="c1"></div>
+        <div id="c2"></div>
+        <div id="c3"></div>
+        <div id="c4"></div>
+        <div id="c5"></div>
+        <div id="c6"></div>
+        <div id="c7"></div>
+        <div id="c8"></div>
+        IP
+        <br>
+        <div id="e1"></div>
+        SERVICE PROVIDER
+        <br>veristo em nodejs
+        <br>
+        HISTORY
+        <br>
+        <div id="f1"></div>
+        (make get())
+        <div id="f2"></div>
+        PLUGINS
+        <div id="g1"></div>
+        <script type="text/javascript">
+          var x = navigator.plugins.length; // store the total no of plugin stored
+          var txt = "Total plugin installed: " + x + "<br/>";
+          txt += "Available plugins are->" + "<br/>";
+          for (var i = 0; i < x; i++) {
+            txt += navigator.plugins[i].name + "<br/>";
+          }
+          document.getElementById("g1").innerHTML = txt;
+        </script>
+        <br>
+      </div>
+      <div class="buttons-wrapper" id="buttons-wrapper">
+        Bateria:
+        <div id="charging">(charging state unknown)</div>
+        <div id="level">(battery level unknown)</div>
+        <div id="dischargingTime">(discharging time unknown)</div>
+      </div>
+      <div class="buttons-wrapper"> Network Info
+        <br>
+        <div id="net1"></div>
+        <div id="net2"></div>
+        <div id="net3"></div>
+        <div id="net4"></div>
+        <div id="net5"></div>
+        <br>
+      </div>
+      <div class="buttons-wrapper"> Device Language
+        <div id="lang"></div>
+      </div>
     </div>
-    <div class="myId">
-      <form id="myId" class="dropzone" enctype="multipart/form-data">
-        clickme
-        <span class="glyphicon glyphicon-download"></span><br />
-      </form>
-    </div>
-    <br>
-    <br>
-    <br>
-    <div class="imageupload" id="imageupload"><br><br><em>Image Uploader</em>
-    </div>
-  </div>
 
-  <!-- //--------------------------------------------------------------------------------------------- -->
+    <!-- //--------------------------------------------------------------------------------------------- -->
 
-  <div class="cenaCinco" id="cenaCinco">
+    <div class="cenaTres" id="cenaTres">
+      <div class="buttons-wrapper" id="buttons-wrapper">
 
-    <div class="buttons-wrapper">
-      <a href="tel:112">
-        Call number!
-      </a>
-      <a href="sms:+351938269613?body=Hello%20there!, It's algo.">
-        Compose SMS!
-      </a>
-    </div>
+        <div id="gyroscope"></div>
+        <div id="compassContainer">
+          <img src="https://i.imgur.com/MFov1lW.jpg" id="compass" />
+        </div>
 
-    <div class="buttons-wrapper">
-      Print Contacts
-      <p>
-        <button class="btn btn-lg btn-default" onclick="readContacts()">Read Contacts</button>
-      </p>
-      <pre id="log"></pre>
-    </div>
 
-    <div class="buttons-wrapper">
-      <h1>Vibration API</h1>
+        <br>
+        <br>
+        <em>Mobile Orientation
+          <div class="orientationalpha" id="orientationalpha">Orientation Alpha</div>
+          <div class="orientationbeta" id="orientationbeta">Orientation Beta</div>
+          <div class="orientationgamma" id="orientationgamma">Orientation Gamma</div>
+          <div class="orientationabs" id="orientationabs">Orientation ABS</div>
 
-      <span id="v-unsupported" class="api-support hidden">API not supported</span>
+          <div class="x" id="x">Motion_acc_x</div>
+          <div class="y" id="y">Motion_acc_y</div>
+          <div class="z" id="z">Motion_acc_z</div>
+          <div class="zz" id="zz">Event Rotation XYZ</div>
+          <button id="send">Send Message OSC</button>
+      </div>
+      <!-- Location API -->
+
 
       <div class="buttons-wrapper">
-        <button id="button-play-v-once" class="button">Vibrate Once</button>
-        <button id="button-play-v-thrice" class="button">Vibrate Thrice</button>
-        <button id="button-stop-v" class="button">Stop</button>
+        <button id="button-get-position" class="button">Get current position</button>
+        <button id="button-watch-position" class="button">Watch position</button>
+        <button id="button-stop-watching" class="button">Stop watching position</button>
+        <h2>Information</h2>
+        <div id="g-information">
+          <ul>
+            <li>
+              Your position is <span id="latitude" class="g-info">unavailable</span>° latitude,
+              <span id="longitude" class="g-info">unavailable</span>° longitude (with an accuracy of
+              <span id="position-accuracy" class="g-info">unavailable</span> meters)
+            </li>
+            <li>
+              Your altitude is <span id="altitude" class="g-info">unavailable</span> meters
+              (with an accuracy of <span id="altitude-accuracy" class="g-info">unavailable</span> meters)
+            </li>
+            <li>You're <span id="heading" class="g-info">unavailable</span>° from the True north</li>
+            <li>You're moving at a speed of <span id="speed" class="g-info">unavailable</span>° meters/second</li>
+            <li>Data updated at <span id="timestamp" class="g-info">unavailable</span></li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class="buttons-wrapper">
-      é mais facil adicionar sites na historia do que procurar lol
-      <div id="site-list"></div>
+      <div class="buttons-wrapper">
+        <span id="dp-unsupported" class="api-support hidden">deviceproximity event not supported</span>
+        <span id="up-unsupported" class="api-support hidden">userproximity event not supported</span>
+
+        <ul>
+          <li>
+            An object is at a distance of <span id="dp-value" class="value">null</span> centimeters
+            (within a detectable range of <span id="dp-min" class="value">null</span> -
+            <span id="dp-max" class="value">null</span> centimeters).
+          </li>
+          <li>
+            Object close to the device? <span id="up-value" class="value">unavailable</span>
+          </li>
+        </ul>
+      </div>
+
+
     </div>
 
+    <!-- //--------------------------------------------------------------------------------------------- -->
+
+
+    <div class="cenaQuatro" id="cenaQuatro">
+      social => #ok
+      <br>image metadata
+      <br>
+      <div class="bodyPlace" id="bodyPlace">
+        <div class="content">
+          <section class="demo">
+            <span>
+              User connected to
+              <div id="loggedIn">
+                <h2>No platform</h2>
+                <br><br><br>
+              </div>
+            </span>
+          </section>
+        </div>
+        <br>
+
+
+      </div>
+      <div class="myId">
+        <form id="myId" class="dropzone" enctype="multipart/form-data">
+          clickme
+          <span class="glyphicon glyphicon-download"></span><br />
+        </form>
+      </div>
+      <br>
+      <br>
+      <br>
+      <div class="imageupload" id="imageupload"><br><br><em>Image Uploader</em>
+      </div>
+    </div>
+
+    <!-- //--------------------------------------------------------------------------------------------- -->
+
+    <div class="cenaCinco" id="cenaCinco">
+
+      <div class="buttons-wrapper">
+        <a href="tel:112">
+          Call number!
+        </a>
+        <a href="sms:+351938269613?body=Hello%20there!, It's algo.">
+          Compose SMS!
+        </a>
+      </div>
+
+      <div class="buttons-wrapper">
+        Print Contacts
+        <p>
+          <button class="btn btn-lg btn-default" onclick="readContacts()">Read Contacts</button>
+        </p>
+        <pre id="log"></pre>
+      </div>
+
+      <div class="buttons-wrapper">
+        <h1>Vibration API</h1>
+
+        <span id="v-unsupported" class="api-support hidden">API not supported</span>
+
+        <div class="buttons-wrapper">
+          <button id="button-play-v-once" class="button">Vibrate Once</button>
+          <button id="button-play-v-thrice" class="button">Vibrate Thrice</button>
+          <button id="button-stop-v" class="button">Stop</button>
+        </div>
+      </div>
+      <div class="buttons-wrapper">
+        é mais facil adicionar sites na historia do que procurar lol
+        <div id="site-list"></div>
+      </div>
+
+    </div>
   </div>
 
   <!-- //--------------------------------------------------------------------------------------------- -->

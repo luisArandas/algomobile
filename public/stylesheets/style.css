@@ -7,7 +7,6 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: rgba(0,255,0,1);
   font-style: italic;
   color: white;
   height: 100%;
@@ -20,6 +19,9 @@ a {
 h1 {
   font-size: 7px;
   color: white;
+  width: 70%;
+  left: 15%;
+
 }
 input {
   height: 10px;
@@ -129,7 +131,54 @@ section {
 /* Div of Entrance */
 #id01{
   display: block;
+  margin: auto;
   height: 100%;
+  width: 100%;
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background-color: rgba(50,50,50,1);
+}
+
+#registerBox {
+  position: relative;
+  background-color: rgba(0,0,0,1);
+  width: 90%;
+  left: 5%;
+  border-radius: 15px;
+}
+
+#containerUm {
+  position: relative;
+  width: 70%;
+  left: 15%;
+}
+
+input {
+  border-radius: 5px;
+  background-color: rgba(50,50,50,1);
+  color: white !important;
+}
+
+label {
+  background-color: white !important;
+  width: 100%;
+  margin: auto;
+  color: black;
+  font-style: monospace;
+}
+
+button {
+  width: 100%;
+  background-color: rgba(50,50,50,1);
+  color: white;
+  border-radius: 5px;
+  font-style: monospace;
+}
+
+.avatar {
+  width: 100%;
+  height: 50% !important;
 }
 
 .buttons {
@@ -181,17 +230,16 @@ button:hover {
   text-align: center;
   margin: 24px 0 12px 0;
   position: relative;
-  width: 100%;
 }
 
 img.avatar {
-  width: 5%;
-  height: 20%;
-  width: 35%;
+  width: 30%;
+  height: 5%;
   border-radius: 5%;
 }
 
 .container {
+  border-radius: 15px;
   padding: 16px;
 }
 
@@ -291,4 +339,8 @@ span.psw {
   vertical-align: middle;
   border: 2px solid black;
   color: black;
+}
+
+#hidden {
+  display: none;
 }
