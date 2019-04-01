@@ -7,7 +7,6 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  font-style: italic;
   color: white;
   height: 100%;
 }
@@ -21,8 +20,8 @@ h1 {
   color: white;
   width: 70%;
   left: 15%;
-
 }
+
 input {
   height: 10px;
 }
@@ -173,7 +172,7 @@ button {
   background-color: rgba(50,50,50,1);
   color: white;
   border-radius: 5px;
-  font-style: monospace;
+  font-style: "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 .avatar {
@@ -224,7 +223,6 @@ button:hover {
   opacity: 0.8;
 }*/
 
-
 /* Center the image and position the close button */
 .imgcontainer {
   text-align: center;
@@ -233,7 +231,7 @@ button:hover {
 }
 
 img.avatar {
-  width: 30%;
+  width: 25%;
   height: 5%;
   border-radius: 5%;
 }
@@ -342,5 +340,10 @@ span.psw {
 }
 
 #hidden {
+  display: none;
+}
+
+.aboutAlgo{
+  background-color: rgba(0,255,0,1);
   display: none;
 }

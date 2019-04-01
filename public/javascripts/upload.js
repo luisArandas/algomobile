@@ -311,10 +311,18 @@ function register(v) {
 
   if (reg1 != "" && reg2 != "" && reg3 != "" && reg4 != "" && reg5 != "") {
     var data = [];
-    data.push("<b>Name</b>" + '<br>' + reg1 + '<br>' + '<b>Date of Birth</b>' + '<br>' + reg2 + '<br>' + '<b>Mobile Phone</b>' + '<br>' + reg3 + '<br>' + '<b>Genre</b>' + '<br>' + reg4 + '<br>' + '<b>Password</b>' + '<br>' + reg5 + '<br><br> <b>CPU</b> <br>' + a1 + '<br>' + a2 + '<br>' + a3 + '<br>' + a4 + '<br>' + a5 + '<br>' + a6 + '<br>' + a7 + '<br>' + a8 + '<br>' + a9 + '<br>' + a10 + '<br>' + a11 + '<br>' + a12 + '<br>' + a13 + '<br>' + a14 + '<br>' + a15 + '<br>' + a16 + '<br>' + a17 + '<br>' + a18 + '<br>' + a19 + '<br>' + a20 + '<br>' + a21 + '<br>' + a22 + '<br>' + a23 + '<br> <b>GPU</b> <br>' + a24 + "<br>" + a25 + "<br> <b>VENDOR</b> <br>" + a26 + "<br>" + a27 + "<br> <b>DISPLAY</b> <br>" + a28 + a29 + a30 + a31 + a32 + a33 + "<b>ACCESS DEVICE</b><br>" + a30 + a31 + a32 + a33 + a34 + a35 + a36 + a37 + a38 + a39 + a40 + a41 + "<b>IP</b><br>" + ip_ + "<br><b>HISTORY</b><br>" + a42 + '<br>' + a43 + '<br><b>PLUGINS</b></br>' + a44 + '<b>BATTERY</b></br>' + a45 + a46 + a47 + '<b>NETWORK INFO</b></br>' + a48 + a49 + a50 + a51 + a52 + '<b>DEVICE LANGUAGE</b></br>' + a53 + '<b>USER CONNECTED TO</b></br>' + "User: " + reg1 + " is connected to " + a54);
+    data.push("<b>Name</b>" + '<br>' + reg1 + '<br>' + '<b>Date of Birth</b>' + '<br>' + reg2 + '<br>' + '<b>Mobile Phone</b>' + '<br>' + reg3 + '<br>' + '<b>Genre</b>' + '<br>' + reg4 + '<br>' + '<b>Password</b>' + '<br>' + reg5 + '<br><br> <b>CPU</b> <br>' + a1 + '<br>' + a2 + '<br>' + a3 + '<br>' + a4 + '<br>' + a5 + '<br>' + a6 + '<br>' + a7 + '<br>' + a8 + '<br>' + a9 + '<br>' + a10 + '<br>' + a11 + '<br>' + a12 + '<br>' + a13 + '<br>' + a14 + '<br>' + a15 + '<br>' + a16 + '<br>' + a17 + '<br>' + a18 + '<br>' + a19 + '<br>' + a20 + '<br>' + a21 + '<br>' + a22 + '<br>' + a23 + '<br> <b>GPU</b> <br>' + a24 + "<br>" + a25 + "<br> <b>VENDOR</b> <br>" + a26 + "<br>" + a27 + "<br> <b>DISPLAY</b> <br>" + a28 + a29 + a30 + a31 + a32 + a33 + "<b>ACCESS DEVICE</b><br>" + a30 + a31 + a32 + a33 + a34 + a35 + a36 + a37 + a38 + a39 + a40 + a41 + "<b>IP</b><br>" + ip_ + "<br><b>HISTORY</b><br>" + a42 + '<br>' + a43 + '<br><b>PLUGINS</b></br>' + a44 + '<b>BATTERY</b></br>' + a45 + a46 + a47 + '<b>NETWORK INFO</b></br>' + a48 + a49 + a50 + a51 + a52 + '<b>DEVICE LANGUAGE</b></br>' + a53 + '<br>' + '<b>USER CONNECTED TO</b>' + "User: " + reg1 + " is connected to " + a54);
     socket.emit('email', data);
-    console.log("mail sent");
+    $("#registerBox").fadeOut("slow", function() {
+      //ended fadeOut
+      console.log("yy");
+      document.getElementById("aboutAlgo").style.display = "block";
+      $("#aboutAlgo").fadeIn("slow", function() {
+        console.log("y");
+      });
+    });
   }
+
 }
 
 function nextPage(v) {
