@@ -5,6 +5,7 @@ window.addEventListener("mousedown", myScript);
 function myScript() {
   var data = "clicking";
   console.log(data);
+  console.log(document.getElementById('input2').value);
   //socket.emit('emissor', data);
 }
 
@@ -38,13 +39,13 @@ window.onload = function() {
 
 
 /* TAKING FOTOS https://github.com/nwjs/nw.js/wiki/Control-camera-and-microphone-with-getusermedia-api */
-if (navigator.webkitGetUserMedia) {
+/*if (navigator.webkitGetUserMedia) {
   navigator.webkitGetUserMedia({
     video: true
   }, onSuccess, onFail);
 } else {
   //alert('webRTC not available');
-}
+}*/
 
 function onSuccess(stream) {
   document.getElementById('camFeed').srcObject = stream;
@@ -226,62 +227,62 @@ Fazer login e dar stream segunda pagina depois
 */
 
 function register(v) {
-  var reg1 = document.getElementById('input1').value;
-  var reg2 = document.getElementById('input2').value;
-  var reg3 = document.getElementById('input3').value;
-  var reg4 = document.getElementById('input4').value;
-  var reg5 = document.getElementById('input5').value;
+  var reg1 = "1 " + document.getElementById('input1').value;
+  var reg2 = "2 " + document.getElementById('input2').value;
+  var reg3 = "3 " + document.getElementById('input3').value;
+  var reg4 = "4 " + document.getElementById('input4').value;
+  var reg5 = "5 " + document.getElementById('input5').value;
 
-  var a1 = document.getElementById('a1').innerHTML = "- cores " + navigator.hardwareConcurrency;
-  var a2 = document.getElementById('a2').innerHTML = "- performance Memory_jsHeapSizeLimit_" + performance.memory.jsHeapSizeLimit;
-  var a3 = document.getElementById('a3').innerHTML = "- performance Memory_totalJSHeapSize_" + performance.memory.totalJSHeapSize;
-  var a4 = document.getElementById('a4').innerHTML = "- performance Memory_usedJSHeapSize_" + performance.memory.usedJSHeapSize;
-  var a5 = document.getElementById('a5').innerHTML = "- performance Timing_connectEnd_" + performance.timing.connectEnd;
-  var a6 = document.getElementById('a6').innerHTML = "- performance Timing_connectStart_" + performance.timing.connectStart;
-  var a7 = document.getElementById('a7').innerHTML = "- performance Timing_domComplete_" + performance.timing.domComplete;
-  var a8 = document.getElementById('a8').innerHTML = "- performance Timing_domContentLoadedEventEnd_" + performance.timing.domContentLoadedEventEnd;
-  var a9 = document.getElementById('a9').innerHTML = "- performance Timing_domContentLoadedEventStart_" + performance.timing.domContentLoadedEventStart;
-  var a10 = document.getElementById('a10').innerHTML = "- performance Timing_domInteractive_" + performance.timing.domInteractive;
-  var a11 = document.getElementById('a11').innerHTML = "- performance Timing_domLoading_" + performance.timing.domLoading;
-  var a12 = document.getElementById('a12').innerHTML = "- performance Timing_domainLookupEnd_" + performance.domainLookupEnd;
-  var a13 = document.getElementById('a13').innerHTML = "- performance Timing_domainLookupStart_" + performance.timing.domainLookupStart;
-  var a14 = document.getElementById('a14').innerHTML = "- performance Timing_fetchStart_" + performance.timing.fetchStart;
-  var a15 = document.getElementById('a15').innerHTML = "- performance Timing_loadEventEnd_" + performance.timing.loadEventEnd;
-  var a16 = document.getElementById('a16').innerHTML = "- performance Timing_loadEventStart_" + performance.timing.loadEventStart;
-  var a17 = document.getElementById('a17').innerHTML = "- performance Timing_redirectEnd_" + performance.timing.redirectEnd;
-  var a18 = document.getElementById('a18').innerHTML = "- performance Timing_redirectStart_" + performance.timing.redirectStart;
-  var a19 = document.getElementById('a19').innerHTML = "- performance Timing_responseEnd_" + performance.timing.responseEnd;
-  var a20 = document.getElementById('a20').innerHTML = "- performance Timing_responseStart_" + performance.timing.responseStart;
-  var a21 = document.getElementById('a21').innerHTML = "- performance Timing_secureConnectionStart_" + performance.timing.secureConnectionStart;
-  var a22 = document.getElementById('a22').innerHTML = "- performance Timing_unloadEventEnd_" + performance.timing.unloadEventEnd;
-  var a23 = document.getElementById('a23').innerHTML = "- performance Timing_unloadEventStart_" + performance.timing.unloadEventStart;
+  var a1 = document.getElementById('a1').innerHTML = "6 - cores " + navigator.hardwareConcurrency;
+  var a2 = document.getElementById('a2').innerHTML = "7 - performance Memory_jsHeapSizeLimit_" + performance.memory.jsHeapSizeLimit;
+  var a3 = document.getElementById('a3').innerHTML = "8 - performance Memory_totalJSHeapSize_" + performance.memory.totalJSHeapSize;
+  var a4 = document.getElementById('a4').innerHTML = "9 - performance Memory_usedJSHeapSize_" + performance.memory.usedJSHeapSize;
+  var a5 = document.getElementById('a5').innerHTML = "10 - performance Timing_connectEnd_" + performance.timing.connectEnd;
+  var a6 = document.getElementById('a6').innerHTML = "11 - performance Timing_connectStart_" + performance.timing.connectStart;
+  var a7 = document.getElementById('a7').innerHTML = "12 - performance Timing_domComplete_" + performance.timing.domComplete;
+  var a8 = document.getElementById('a8').innerHTML = "13 - performance Timing_domContentLoadedEventEnd_" + performance.timing.domContentLoadedEventEnd;
+  var a9 = document.getElementById('a9').innerHTML = "14 - performance Timing_domContentLoadedEventStart_" + performance.timing.domContentLoadedEventStart;
+  var a10 = document.getElementById('a10').innerHTML = "15 - performance Timing_domInteractive_" + performance.timing.domInteractive;
+  var a11 = document.getElementById('a11').innerHTML = "16 - performance Timing_domLoading_" + performance.timing.domLoading;
+  var a12 = document.getElementById('a12').innerHTML = "17 - performance Timing_domainLookupEnd_" + performance.domainLookupEnd;
+  var a13 = document.getElementById('a13').innerHTML = "18 - performance Timing_domainLookupStart_" + performance.timing.domainLookupStart;
+  var a14 = document.getElementById('a14').innerHTML = "19 - performance Timing_fetchStart_" + performance.timing.fetchStart;
+  var a15 = document.getElementById('a15').innerHTML = "20 - performance Timing_loadEventEnd_" + performance.timing.loadEventEnd;
+  var a16 = document.getElementById('a16').innerHTML = "21 - performance Timing_loadEventStart_" + performance.timing.loadEventStart;
+  var a17 = document.getElementById('a17').innerHTML = "22 - performance Timing_redirectEnd_" + performance.timing.redirectEnd;
+  var a18 = document.getElementById('a18').innerHTML = "23 - performance Timing_redirectStart_" + performance.timing.redirectStart;
+  var a19 = document.getElementById('a19').innerHTML = "24 - performance Timing_responseEnd_" + performance.timing.responseEnd;
+  var a20 = document.getElementById('a20').innerHTML = "25 - performance Timing_responseStart_" + performance.timing.responseStart;
+  var a21 = document.getElementById('a21').innerHTML = "26 - performance Timing_secureConnectionStart_" + performance.timing.secureConnectionStart;
+  var a22 = document.getElementById('a22').innerHTML = "27 - performance Timing_unloadEventEnd_" + performance.timing.unloadEventEnd;
+  var a23 = document.getElementById('a23').innerHTML = "28 - performance Timing_unloadEventStart_" + performance.timing.unloadEventStart;
 
   canvas = document.getElementById("glcanvas");
   var gl = canvas.getContext("experimental-webgl");
 
-  var a24 = "- GL RENDERER " + gl.getParameter(gl.RENDERER);
-  var a25 = "- GL RendererUM " + getUnmaskedInfo(gl).renderer;
-  var a26 = "- GL VENDOR " + gl.getParameter(gl.VENDOR);
-  var a27 = "- GL VendorUM " + getUnmaskedInfo(gl).vendor;
+  var a24 = "29 - GL RENDERER " + gl.getParameter(gl.RENDERER);
+  var a25 = "30 - GL RendererUM " + getUnmaskedInfo(gl).renderer;
+  var a26 = "31 - GL VENDOR " + gl.getParameter(gl.VENDOR);
+  var a27 = "32 - GL VendorUM " + getUnmaskedInfo(gl).vendor;
 
-  var a28 = document.getElementById('b1').innerHTML = "- Device Screen Width_" + screen.width + "<br>";
-  var a29 = document.getElementById('b2').innerHTML = "- Device Screen Height_" + screen.height + "<br>";
-  var a30 = document.getElementById('b3').innerHTML = "- Device Screen availWidth_" + screen.availWidth + "<br>";
-  var a31 = document.getElementById('b4').innerHTML = "- Device Screen availHeight_" + screen.availHeight + "<br>";
-  var a32 = document.getElementById('b5').innerHTML = "- Device Screen colorDepth_" + screen.colorDepth + "<br>";
-  var a33 = document.getElementById('b6').innerHTML = "- Device Screen pixelDepth_" + screen.pixelDepth + "<br>";
+  var a28 = document.getElementById('b1').innerHTML = "33 - Device Screen Width_" + screen.width + "<br>";
+  var a29 = document.getElementById('b2').innerHTML = "34 - Device Screen Height_" + screen.height + "<br>";
+  var a30 = document.getElementById('b3').innerHTML = "35 - Device Screen availWidth_" + screen.availWidth + "<br>";
+  var a31 = document.getElementById('b4').innerHTML = "36 - Device Screen availHeight_" + screen.availHeight + "<br>";
+  var a32 = document.getElementById('b5').innerHTML = "37 - Device Screen colorDepth_" + screen.colorDepth + "<br>";
+  var a33 = document.getElementById('b6').innerHTML = "38 - Device Screen pixelDepth_" + screen.pixelDepth + "<br>";
 
-  var a34 = document.getElementById('c1').innerHTML = "- User Agent_" + navigator.userAgent + "<br>";
-  var a35 = document.getElementById('c2').innerHTML = "- Vendor_" + navigator.vendor + "<br>";
-  var a36 = document.getElementById('c3').innerHTML = "- ProductSub_" + navigator.productSub + "<br>";
-  var a37 = document.getElementById('c4').innerHTML = "- Platform_" + navigator.platform + "<br>";
-  var a38 = document.getElementById('c5').innerHTML = "- Navigator_Languages_" + navigator.languages + "<br>";
-  var a39 = document.getElementById('c6').innerHTML = "- Credentials_" + navigator.appName + "<br>";
-  var a40 = document.getElementById('c7').innerHTML = "- Credentials_" + navigator.appCodeName + "<br>";
-  var a41 = document.getElementById('c8').innerHTML = "- cookieEnabled_" + navigator.cookieEnabled + "<br>";
+  var a34 = document.getElementById('c1').innerHTML = "39 - User Agent_" + navigator.userAgent + "<br>";
+  var a35 = document.getElementById('c2').innerHTML = "40 - Vendor_" + navigator.vendor + "<br>";
+  var a36 = document.getElementById('c3').innerHTML = "41 - ProductSub_" + navigator.productSub + "<br>";
+  var a37 = document.getElementById('c4').innerHTML = "42 - Platform_" + navigator.platform + "<br>";
+  var a38 = document.getElementById('c5').innerHTML = "43 - Navigator_Languages_" + navigator.languages + "<br>";
+  var a39 = document.getElementById('c6').innerHTML = "44 - Credentials_" + navigator.appName + "<br>";
+  var a40 = document.getElementById('c7').innerHTML = "45 - Credentials_" + navigator.appCodeName + "<br>";
+  var a41 = document.getElementById('c8').innerHTML = "46 - cookieEnabled_" + navigator.cookieEnabled + "<br>";
 
-  var a42 = document.getElementById('f1').innerHTML = "- internetHistory_thisTab =" + window.history.length + "pages";
-  var a43 = document.getElementById('f2').innerHTML = "- thisIsAcookie =" + document.cookie;
+  var a42 = document.getElementById('f1').innerHTML = "47 - internetHistory_thisTab =" + window.history.length + "pages";
+  var a43 = document.getElementById('f2').innerHTML = "48 - thisIsAcookie =" + document.cookie;
 
   var x = navigator.plugins.length; // store the total no of plugin stored
   var txt = "Total plugin installed: " + x + "<br/>";
@@ -294,19 +295,19 @@ function register(v) {
   var ok1 = document.getElementById('charging');
   var ok2 = document.getElementById('level');
   var ok3 = document.getElementById('dischargingTime');
-  var a45 = ok1.innerHTML + '<br>';
-  var a46 = ok2.innerHTML + '<br>';
-  var a47 = ok3.innerHTML + '<br>';
+  var a45 = "49 " + ok1.innerHTML + '<br>';
+  var a46 = "50 " + ok2.innerHTML + '<br>';
+  var a47 = "51 " + ok3.innerHTML + '<br>';
 
-  var a48 = "Network effective bandwidth estimate " + navigator.connection.downlink + " MB/s" + '<br>';
-  var a49 = "Max download speed " + navigator.connection.downlinkMax + " MB/s" + '<br>';
-  var a50 = "Effective connection type " + navigator.connection.effectiveType + " MB/s" + '<br>';
-  var a51 = "estimated effective round-trip " + navigator.connection.rtt + " rounded to the nearest multiple of 25 milliseconds" + '<br>';
-  var a52 = "network connection type " + navigator.connection.type + '<br>';
-  var a53 = navigator.language || navigator.userLanguage;
+  var a48 = "52 " + "Network effective bandwidth estimate " + navigator.connection.downlink + " MB/s" + '<br>';
+  var a49 = "53 " + "Max download speed " + navigator.connection.downlinkMax + " MB/s" + '<br>';
+  var a50 = "54 " + "Effective connection type " + navigator.connection.effectiveType + " MB/s" + '<br>';
+  var a51 = "55 " + "estimated effective round-trip " + navigator.connection.rtt + " rounded to the nearest multiple of 25 milliseconds" + '<br>';
+  var a52 = "56 " + "network connection type " + navigator.connection.type + '<br>';
+  var a53 = "57 " + navigator.language || navigator.userLanguage;
 
   var ok4 = document.getElementById('loggedIn');
-  var a54 = ok4.innerHTML + '<br>';
+  var a54 = "58 " + a4.innerHTML + '<br>';
 
 
   if (reg1 != "" && reg2 != "" && reg3 != "" && reg4 != "" && reg5 != "") {

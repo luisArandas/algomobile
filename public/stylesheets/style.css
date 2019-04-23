@@ -347,3 +347,14 @@ span.psw {
   background-color: rgba(0,255,0,1);
   display: none;
 }
+
+#input2 {
+  margin-top: 7px;
+  margin-bottom: 7px;
+  margin-right: 5px;
+  height: 20px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: rgba(50,50,50,1);
+  color: rgba(110,110,110,1) !important;
+}
