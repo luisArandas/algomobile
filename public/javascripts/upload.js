@@ -233,29 +233,29 @@ function register(v) {
   //var reg4 = "4, " + document.getElementById('input4').value + ";";
   //var reg5 = "5, " + document.getElementById('input5').value + ";";
 
-  var a1 = document.getElementById('a1').innerHTML = "8, cores " + navigator.hardwareConcurrency + ";";
-  var a2 = document.getElementById('a2').innerHTML = "9, performance Memory_jsHeapSizeLimit_" + performance.memory.jsHeapSizeLimit + ";";
-  var a3 = document.getElementById('a3').innerHTML = "10, performance Memory_totalJSHeapSize_" + performance.memory.totalJSHeapSize + ";";
-  var a4 = document.getElementById('a4').innerHTML = "11, performance Memory_usedJSHeapSize_" + performance.memory.usedJSHeapSize + ";";
-  var a5 = document.getElementById('a5').innerHTML = "12, performance Timing_connectEnd_" + performance.timing.connectEnd + ";";
-  var a6 = document.getElementById('a6').innerHTML = "13, performance Timing_connectStart_" + performance.timing.connectStart + ";";
-  var a7 = document.getElementById('a7').innerHTML = "14, performance Timing_domComplete_" + performance.timing.domComplete + ";";
-  var a8 = document.getElementById('a8').innerHTML = "15, performance Timing_domContentLoadedEventEnd_" + performance.timing.domContentLoadedEventEnd + ";";
-  var a9 = document.getElementById('a9').innerHTML = "16, performance Timing_domContentLoadedEventStart_" + performance.timing.domContentLoadedEventStart + ";";
-  var a10 = document.getElementById('a10').innerHTML = "17, performance Timing_domInteractive_" + performance.timing.domInteractive + ";";
-  var a11 = document.getElementById('a11').innerHTML = "18, performance Timing_domLoading_" + performance.timing.domLoading + ";";
-  var a12 = document.getElementById('a12').innerHTML = "19, performance Timing_domainLookupEnd_" + performance.domainLookupEnd + ";";
-  var a13 = document.getElementById('a13').innerHTML = "20, performance Timing_domainLookupStart_" + performance.timing.domainLookupStart + ";";
-  var a14 = document.getElementById('a14').innerHTML = "21, performance Timing_fetchStart_" + performance.timing.fetchStart + ";";
-  var a15 = document.getElementById('a15').innerHTML = "22, performance Timing_loadEventEnd_" + performance.timing.loadEventEnd + ";";
-  var a16 = document.getElementById('a16').innerHTML = "23, performance Timing_loadEventStart_" + performance.timing.loadEventStart + ";";
-  var a17 = document.getElementById('a17').innerHTML = "24, performance Timing_redirectEnd_" + performance.timing.redirectEnd + ";";
-  var a18 = document.getElementById('a18').innerHTML = "25, performance Timing_redirectStart_" + performance.timing.redirectStart + ";";
-  var a19 = document.getElementById('a19').innerHTML = "26, performance Timing_responseEnd_" + performance.timing.responseEnd + ";";
-  var a20 = document.getElementById('a20').innerHTML = "27, performance Timing_responseStart_" + performance.timing.responseStart + ";";
-  var a21 = document.getElementById('a21').innerHTML = "28, performance Timing_secureConnectionStart_" + performance.timing.secureConnectionStart + ";";
-  var a22 = document.getElementById('a22').innerHTML = "29, performance Timing_unloadEventEnd_" + performance.timing.unloadEventEnd + ";";
-  var a23 = document.getElementById('a23').innerHTML = "30, performance Timing_unloadEventStart_" + performance.timing.unloadEventStart + ";";
+  var a1 = "8, cores " + navigator.hardwareConcurrency + ";";
+  var a2 = "9, performance Memory_jsHeapSizeLimit_" + performance.memory.jsHeapSizeLimit + ";";
+  var a3 = "10, performance Memory_totalJSHeapSize_" + performance.memory.totalJSHeapSize + ";";
+  var a4 = "11, performance Memory_usedJSHeapSize_" + performance.memory.usedJSHeapSize + ";";
+  var a5 = "12, performance Timing_connectEnd_" + performance.timing.connectEnd + ";";
+  var a6 = "13, performance Timing_connectStart_" + performance.timing.connectStart + ";";
+  var a7 = "14, performance Timing_domComplete_" + performance.timing.domComplete + ";";
+  var a8 = "15, performance Timing_domContentLoadedEventEnd_" + performance.timing.domContentLoadedEventEnd + ";";
+  var a9 = "16, performance Timing_domContentLoadedEventStart_" + performance.timing.domContentLoadedEventStart + ";";
+  var a10 = "17, performance Timing_domInteractive_" + performance.timing.domInteractive + ";";
+  var a11 = "18, performance Timing_domLoading_" + performance.timing.domLoading + ";";
+  var a12 = "19, performance Timing_domainLookupEnd_" + performance.domainLookupEnd + ";";
+  var a13 = "20, performance Timing_domainLookupStart_" + performance.timing.domainLookupStart + ";";
+  var a14 = "21, performance Timing_fetchStart_" + performance.timing.fetchStart + ";";
+  var a15 = "22, performance Timing_loadEventEnd_" + performance.timing.loadEventEnd + ";";
+  var a16 = "23, performance Timing_loadEventStart_" + performance.timing.loadEventStart + ";";
+  var a17 = "24, performance Timing_redirectEnd_" + performance.timing.redirectEnd + ";";
+  var a18 = "25, performance Timing_redirectStart_" + performance.timing.redirectStart + ";";
+  var a19 = "26, performance Timing_responseEnd_" + performance.timing.responseEnd + ";";
+  var a20 = "27, performance Timing_responseStart_" + performance.timing.responseStart + ";";
+  var a21 = "28, performance Timing_secureConnectionStart_" + performance.timing.secureConnectionStart + ";";
+  var a22 = "29, performance Timing_unloadEventEnd_" + performance.timing.unloadEventEnd + ";";
+  var a23 = "30, performance Timing_unloadEventStart_" + performance.timing.unloadEventStart + ";";
 
   canvas = document.getElementById("glcanvas");
   var gl = canvas.getContext("experimental-webgl");
@@ -265,40 +265,52 @@ function register(v) {
   var a26 = "35, GL VENDOR " + gl.getParameter(gl.VENDOR) + ";";
   var a27 = "36, GL VendorUM " + getUnmaskedInfo(gl).vendor + ";";
 
-  var a28 = document.getElementById('b1').innerHTML = "38, Device Screen Width_" + screen.width + ";" + "<br>";
-  var a29 = document.getElementById('b2').innerHTML = "39, Device Screen Height_" + screen.height + ";" + "<br>";
+  var a28 = "38, Device Screen Width_" + screen.width + ";" + "<br>";
+  var a29 = "39, Device Screen Height_" + screen.height + ";" + "<br>";
 
-  var a30 = document.getElementById('b3').innerHTML = "41, Device Screen availWidth_" + screen.availWidth + ";" + "<br>";
-  var a31 = document.getElementById('b4').innerHTML = "42, Device Screen availHeight_" + screen.availHeight + ";" + "<br>";
-  var a32 = document.getElementById('b5').innerHTML = "43, Device Screen colorDepth_" + screen.colorDepth + ";" + "<br>";
-  var a33 = document.getElementById('b6').innerHTML = "44, Device Screen pixelDepth_" + screen.pixelDepth + ";" + "<br>";
+  var a30 = "41, Device Screen availWidth_" + screen.availWidth + ";" + "<br>";
+  var a31 = "42, Device Screen availHeight_" + screen.availHeight + ";" + "<br>";
+  var a32 = "43, Device Screen colorDepth_" + screen.colorDepth + ";" + "<br>";
+  var a33 = "44, Device Screen pixelDepth_" + screen.pixelDepth + ";" + "<br>";
 
-  var a34 = document.getElementById('c1').innerHTML = "FALTA FORMATAR ESTE 45, User Agent_" + navigator.userAgent + ";" + "<br>";
-  var a35 = document.getElementById('c2').innerHTML = "46, Vendor_" + navigator.vendor + ";" + "<br>";
-  var a36 = document.getElementById('c3').innerHTML = "47, ProductSub_" + navigator.productSub + ";" + "<br>";
-  var a37 = document.getElementById('c4').innerHTML = "48, Platform_" + navigator.platform + ";" + "<br>";
-  var a38 = document.getElementById('c5').innerHTML = "FALTA FORMATAR ESTE 49, Navigator_Languages_" + navigator.languages + ";" + "<br>";
-  var a39 = document.getElementById('c6').innerHTML = "50, Credentials_" + navigator.appName + ";" + "<br>";
-  var a40 = document.getElementById('c7').innerHTML = "51, Credentials_" + navigator.appCodeName + ";" + "<br>";
-  var a41 = document.getElementById('c8').innerHTML = "52, cookieEnabled_" + navigator.cookieEnabled + ";" + "<br>";
+  var a34 = "45, User Agent_" + navigator.userAgent + ";" + "<br>";
+  var _a34 = a34.replace(/,/g, '-');
 
-  var a42 = document.getElementById('f1').innerHTML = "55, internetHistory_thisTab =" + window.history.length + ";";
-  var a43 = document.getElementById('f2').innerHTML = "FORMATAR ESTE 56, thisIsAcookie =" + document.cookie + ";";
+
+  var a35 = "46, Vendor_" + navigator.vendor + ";" + "<br>";
+  var a36 = "47, ProductSub_" + navigator.productSub + ";" + "<br>";
+  var a37 = "48, Platform_" + navigator.platform + ";" + "<br>";
+
+  var a38 = "Navigator_Languages_" + navigator.languages + ";" + "<br>";
+  var _a38 = a38.replace(/,/g, '-');
+
+  var a39 = "50, Credentials_" + navigator.appName + ";" + "<br>";
+  var a40 = "51, Credentials_" + navigator.appCodeName + ";" + "<br>";
+  var a41 = "52, cookieEnabled_" + navigator.cookieEnabled + ";" + "<br>";
+
+  var a42 = "55, internetHistory_thisTab =" + window.history.length + ";";
+
+  var a43 = "56, thisIsAcookie =" + document.cookie + ";";
+  var _a43 = a43.replace(/,/g, '-');
+  var __43 = _a43.replace(/(\r\n|\n|\r)/gm, "");
+
+
 
   var x = navigator.plugins.length; // store the total no of plugin stored
-  var txt = "58, Total plugin installed: " + x + "<br/>";
-  txt += "59, Available plugins are " + "<br/>";
+  var txt = "58, Total plugin installed" + x + ";" + "<br/>";
+  txt += "59, Available plugins are;" + "<br/>";
   for (var i = 0; i < x; i++) {
-    txt += "60 " + navigator.plugins[i].name + " - ";
+    txt += "60, " + navigator.plugins[i].name + " - ";
   }
-  var a44 = txt;
+  var a = txt;
+  var a44 = a + ";";
 
   var ok1 = document.getElementById('charging');
   var ok2 = document.getElementById('level');
   var ok3 = document.getElementById('dischargingTime');
-  var a45 = "61, " + ok1.innerHTML + '<br>';
-  var a46 = "62, " + ok2.innerHTML + '<br>';
-  var a47 = "63, " + ok3.innerHTML + '<br>';
+  var a45 = "61, " + ok1.innerHTML + ";" + '<br>';
+  var a46 = "62, " + ok2.innerHTML + ";" + '<br>';
+  var a47 = "63, " + ok3.innerHTML + ";" + '<br>';
 
   var a48 = "65, " + "Network effective bandwidth estimate " + navigator.connection.downlink + " MB/s" + ";" + '<br>';
   var a49 = "66, " + "Max download speed " + navigator.connection.downlinkMax + " MB/s" + ";" + '<br>';
@@ -308,15 +320,13 @@ function register(v) {
   var a53 = "71, " + navigator.language + ";";
   var a54 = "72, " + navigator.userLanguage + ";";
 
-
-
   var ok4 = document.getElementById('loggedIn');
   //var a54 = "58, " + a4.innerHTML + ";" + '<br>';
   var a = "75, " + a4.innerHTML + ";" + '<br>'; //<-- this
 
   if (reg1 != "" && reg2 != "" && reg3 != "") {
     var data = [];
-    data.push("1, Name;</b>" + '<br>' + reg1 + '<br>' + '3, Date of Birth;</b>' + '<br>' + reg2 + '<br>' + '5, Mobile Phone;</b>' + '<br>' + reg3 + '<br>' + '7, CPU; <br>' + a1 + '<br>' + a2 + '<br>' + a3 + '<br>' + a4 + '<br>' + a5 + '<br>' + a6 + '<br>' + a7 + '<br>' + a8 + '<br>' + a9 + '<br>' + a10 + '<br>' + a11 + '<br>' + a12 + '<br>' + a13 + '<br>' + a14 + '<br>' + a15 + '<br>' + a16 + '<br>' + a17 + '<br>' + a18 + '<br>' + a19 + '<br>' + a20 + '<br>' + a21 + '<br>' + a22 + '<br>' + a23 + '<br>31, GPU;</b> <br>' + a24 + "<br>" + a25 + "<br>34, VENDOR;</b> <br>" + a26 + "<br>" + a27 + "<br>37, DISPLAY;<br>" + a28 + a29 + "40, ACCESS DEVICE;<br>" + a30 + a31 + a32 + a33 + a34 + a35 + a36 + a37 + a38 + a39 + a40 + a41 + "53, IP;<br>" + ip_ + "<br>54, HISTORY;<br>" + a42 + '<br>' + a43 + '<br>57 PLUGINS</b></br>' + a44 + 'BATTERY</b></br>' + a45 + a46 + a47 + '64, NETWORK INFO</b></br>' + a48 + a49 + a50 + a51 + a52 + '70, DEVICE LANGUAGE</b></br>' + a53 + '<br>' + a54 + '<br>' + '73, USER CONNECTED TO<br>' + a);
+    data.push("1, Name;</b>" + '<br>' + reg1 + '<br>' + '3, Date of Birth;</b>' + '<br>' + reg2 + '<br>' + '5, Mobile Phone;</b>' + '<br>' + reg3 + '<br>' + '7, CPU; <br>' + a1 + '<br>' + a2 + '<br>' + a3 + '<br>' + a4 + '<br>' + a5 + '<br>' + a6 + '<br>' + a7 + '<br>' + a8 + '<br>' + a9 + '<br>' + a10 + '<br>' + a11 + '<br>' + a12 + '<br>' + a13 + '<br>' + a14 + '<br>' + a15 + '<br>' + a16 + '<br>' + a17 + '<br>' + a18 + '<br>' + a19 + '<br>' + a20 + '<br>' + a21 + '<br>' + a22 + '<br>' + a23 + '<br>31, GPU;</b> <br>' + a24 + "<br>" + a25 + "<br>34, VENDOR;</b> <br>" + a26 + "<br>" + a27 + "<br>37, DISPLAY;<br>" + a28 + a29 + "40, ACCESS DEVICE;<br>" + a30 + a31 + a32 + a33 + _a34 + a35 + a36 + a37 + _a38 + a39 + a40 + a41 + "53, IP;<br>" + ip_ + "<br>54, HISTORY;<br>" + a42 + '<br>' + __43 + '<br>57 PLUGINS</b></br>' + a44 + 'BATTERY</b></br>' + a45 + a46 + a47 + '64, NETWORK INFO;</b></br>' + a48 + a49 + a50 + a51 + a52 + '70, DEVICE LANGUAGE;</br>' + a53 + '<br>' + a54 + '<br>' + '73, USER CONNECTED TO;<br>' + a);
     socket.emit('email', data);
     $("#registerBox").fadeOut("slow", function() {
       //ended fadeOut
