@@ -294,14 +294,13 @@ function register(v) {
   var _a43 = a43.replace(/,/g, '-');
   var __43 = _a43.replace(/(\r\n|\n|\r)/gm, "");
 
-
-
   var x = navigator.plugins.length; // store the total no of plugin stored
-  var txt = "58, Total plugin installed" + x + ";" + "<br/>";
+  var txt = "58, Total plugin installed: " + x + ";" + "<br/>";
   txt += "59, Available plugins are;" + "<br/>";
   for (var i = 0; i < x; i++) {
     txt += "60, " + navigator.plugins[i].name + " - ";
   }
+
   var a = txt;
   var a44 = a + ";";
 
@@ -329,12 +328,7 @@ function register(v) {
     data.push("1, Name;</b>" + '<br>' + reg1 + '<br>' + '3, Date of Birth;</b>' + '<br>' + reg2 + '<br>' + '5, Mobile Phone;</b>' + '<br>' + reg3 + '<br>' + '7, CPU; <br>' + a1 + '<br>' + a2 + '<br>' + a3 + '<br>' + a4 + '<br>' + a5 + '<br>' + a6 + '<br>' + a7 + '<br>' + a8 + '<br>' + a9 + '<br>' + a10 + '<br>' + a11 + '<br>' + a12 + '<br>' + a13 + '<br>' + a14 + '<br>' + a15 + '<br>' + a16 + '<br>' + a17 + '<br>' + a18 + '<br>' + a19 + '<br>' + a20 + '<br>' + a21 + '<br>' + a22 + '<br>' + a23 + '<br>31, GPU;</b> <br>' + a24 + "<br>" + a25 + "<br>34, VENDOR;</b> <br>" + a26 + "<br>" + a27 + "<br>37, DISPLAY;<br>" + a28 + a29 + "40, ACCESS DEVICE;<br>" + a30 + a31 + a32 + a33 + _a34 + a35 + a36 + a37 + _a38 + a39 + a40 + a41 + "53, IP;<br>" + ip_ + "<br>54, HISTORY;<br>" + a42 + '<br>' + __43 + '<br>57 PLUGINS</b></br>' + a44 + 'BATTERY</b></br>' + a45 + a46 + a47 + '64, NETWORK INFO;</b></br>' + a48 + a49 + a50 + a51 + a52 + '70, DEVICE LANGUAGE;</br>' + a53 + '<br>' + a54 + '<br>' + '73, USER CONNECTED TO;<br>' + a);
     socket.emit('email', data);
     $("#registerBox").fadeOut("slow", function() {
-      //ended fadeOut
-      console.log("yy");
-      document.getElementById("aboutAlgo").style.display = "block";
-      $("#aboutAlgo").fadeIn("slow", function() {
-        console.log("y");
-      });
+      console.log("fadeout");
     });
   }
 
