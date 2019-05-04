@@ -9,6 +9,16 @@ function myScript() {
   //socket.emit('emissor', data);
 }
 
+var z = navigator.userAgent;
+var _z = z.replace(/,/g, '-');
+var __z = _z.replace(/;/g, '-');
+
+var l = "Navigator_Languages_" + navigator.languages;
+var _l = l.replace(/,/g, '-');
+var __l = _l.replace(/;/g, '-');
+
+console.log();
+
 
 window.onload = function() {
   function updateBatteryStatus(battery) {
@@ -35,8 +45,6 @@ window.onload = function() {
     };
   });
 };
-
-
 
 /* TAKING FOTOS https://github.com/nwjs/nw.js/wiki/Control-camera-and-microphone-with-getusermedia-api */
 /*if (navigator.webkitGetUserMedia) {
@@ -108,17 +116,21 @@ document.getElementById('c6').innerHTML = "- Credentials_" + navigator.appName;
 document.getElementById('c7').innerHTML = "- Credentials_" + navigator.appCodeName;
 document.getElementById('c8').innerHTML = "- cookieEnabled_" + navigator.cookieEnabled;
 
+var o;
+var _o;
 var ip_;
 /* IP */
 $(document).ready(function() {
   $.getJSON('http://gd.geobytes.com/GetCityDetails?callback=?', function(data) {
     document.getElementById('e1').innerHTML = "- " + "<br>" + JSON.stringify(data, null, 2) + "<br>";
-    ip_ = JSON.stringify(data, null, 2);
+    var o = JSON.stringify(data, null, 2);
+    var _o = o.replace(/,/g, '-');
+    ip_ = "54, " + _o + ";";
   });
 });
 
 
-document.getElementById('f1').innerHTML = "- internetHistory_thisTab =" + window.history.length + "pages";
+document.getElementById('f1').innerHTML = "- internetHistory_thisTab = " + window.history.length + "pages";
 document.getElementById('f2').innerHTML = "- thisIsAcookie =" + document.cookie;
 
 /*
@@ -288,7 +300,7 @@ function register(v) {
   var a40 = "51, Credentials_" + navigator.appCodeName + ";" + "<br>";
   var a41 = "52, cookieEnabled_" + navigator.cookieEnabled + ";" + "<br>";
 
-  var a42 = "55, internetHistory_thisTab =" + window.history.length + ";";
+  var a42 = "56, internetHistory_thisTab =" + window.history.length + ";";
 
   var a43 = "56, thisIsAcookie =" + document.cookie + ";";
   var _a43 = a43.replace(/,/g, '-');
@@ -307,25 +319,25 @@ function register(v) {
   var ok1 = document.getElementById('charging');
   var ok2 = document.getElementById('level');
   var ok3 = document.getElementById('dischargingTime');
-  var a45 = "61, " + ok1.innerHTML + ";" + '<br>';
-  var a46 = "62, " + ok2.innerHTML + ";" + '<br>';
-  var a47 = "63, " + ok3.innerHTML + ";" + '<br>';
+  var a45 = "59, " + ok1.innerHTML + ";" + '<br>';
+  var a46 = "60, " + ok2.innerHTML + ";" + '<br>';
+  var a47 = "61, " + ok3.innerHTML + ";" + '<br>';
 
-  var a48 = "65, " + "Network effective bandwidth estimate " + navigator.connection.downlink + " MB/s" + ";" + '<br>';
-  var a49 = "66, " + "Max download speed " + navigator.connection.downlinkMax + " MB/s" + ";" + '<br>';
-  var a50 = "67, " + "Effective connection type " + navigator.connection.effectiveType + " MB/s" + ";" + '<br>';
-  var a51 = "68, " + "estimated effective round-trip " + navigator.connection.rtt + " rounded to the nearest multiple of 25 milliseconds" + ";" + '<br>';
-  var a52 = "69, " + "network connection type " + navigator.connection.type + ";" + '<br>';
-  var a53 = "71, " + navigator.language + ";";
-  var a54 = "72, " + navigator.userLanguage + ";";
+  var a48 = "63, " + "Network effective bandwidth estimate " + navigator.connection.downlink + " MB/s" + ";" + '<br>';
+  var a49 = "64, " + "Max download speed " + navigator.connection.downlinkMax + " MB/s" + ";" + '<br>';
+  var a50 = "65, " + "Effective connection type " + navigator.connection.effectiveType + " MB/s" + ";" + '<br>';
+  var a51 = "66, " + "estimated effective round-trip " + navigator.connection.rtt + " rounded to the nearest multiple of 25 milliseconds" + ";" + '<br>';
+  var a52 = "67, " + "network connection type " + navigator.connection.type + ";" + '<br>';
+  var a53 = "69, " + navigator.language + ";";
+  var a54 = "70, " + navigator.userLanguage + ";";
 
   var ok4 = document.getElementById('loggedIn');
   //var a54 = "58, " + a4.innerHTML + ";" + '<br>';
-  var a = "75, " + a4.innerHTML + ";" + '<br>'; //<-- this
+  var a = "72, " + a4.innerHTML + ";" + '<br>'; //<-- this
 
   if (reg1 != "" && reg2 != "" && reg3 != "") {
     var data = [];
-    data.push("1, Name;</b>" + '<br>' + reg1 + '<br>' + '3, Date of Birth;</b>' + '<br>' + reg2 + '<br>' + '5, Mobile Phone;</b>' + '<br>' + reg3 + '<br>' + '7, CPU; <br>' + a1 + '<br>' + a2 + '<br>' + a3 + '<br>' + a4 + '<br>' + a5 + '<br>' + a6 + '<br>' + a7 + '<br>' + a8 + '<br>' + a9 + '<br>' + a10 + '<br>' + a11 + '<br>' + a12 + '<br>' + a13 + '<br>' + a14 + '<br>' + a15 + '<br>' + a16 + '<br>' + a17 + '<br>' + a18 + '<br>' + a19 + '<br>' + a20 + '<br>' + a21 + '<br>' + a22 + '<br>' + a23 + '<br>31, GPU;</b> <br>' + a24 + "<br>" + a25 + "<br>34, VENDOR;</b> <br>" + a26 + "<br>" + a27 + "<br>37, DISPLAY;<br>" + a28 + a29 + "40, ACCESS DEVICE;<br>" + a30 + a31 + a32 + a33 + _a34 + a35 + a36 + a37 + _a38 + a39 + a40 + a41 + "53, IP;<br>" + ip_ + "<br>54, HISTORY;<br>" + a42 + '<br>' + __43 + '<br>57 PLUGINS</b></br>' + a44 + 'BATTERY</b></br>' + a45 + a46 + a47 + '64, NETWORK INFO;</b></br>' + a48 + a49 + a50 + a51 + a52 + '70, DEVICE LANGUAGE;</br>' + a53 + '<br>' + a54 + '<br>' + '73, USER CONNECTED TO;<br>' + a);
+    data.push("1, Name;</b>" + '<br>' + reg1 + '<br>' + '3, Date of Birth;</b>' + '<br>' + reg2 + '<br>' + '5, Mobile Phone;</b>' + '<br>' + reg3 + '<br>' + '7, CPU; <br>' + a1 + '<br>' + a2 + '<br>' + a3 + '<br>' + a4 + '<br>' + a5 + '<br>' + a6 + '<br>' + a7 + '<br>' + a8 + '<br>' + a9 + '<br>' + a10 + '<br>' + a11 + '<br>' + a12 + '<br>' + a13 + '<br>' + a14 + '<br>' + a15 + '<br>' + a16 + '<br>' + a17 + '<br>' + a18 + '<br>' + a19 + '<br>' + a20 + '<br>' + a21 + '<br>' + a22 + '<br>' + a23 + '<br>31, GPU;</b> <br>' + a24 + "<br>" + a25 + "<br>34, VENDOR;</b> <br>" + a26 + "<br>" + a27 + "<br>37, DISPLAY;<br>" + a28 + a29 + "40, ACCESS DEVICE;<br>" + a30 + a31 + a32 + a33 + "45, " + __z + "; <br>" + a35 + a36 + a37 + "49, " + __l + ";" + "<br>" + a39 + a40 + a41 + "53, IP;<br>" + ip_ + "<br>55, HISTORY;<br>" + a42 + '<br>57, PLUGINS;</br>' + '58, BATTERY;</br>' + a45 + a46 + a47 + '62, NETWORK INFO;</b></br>' + a48 + a49 + a50 + a51 + a52 + '68, DEVICE LANGUAGE;</br>' + a53 + '<br>' + a54 + '<br>' + '71, USER CONNECTED TO;<br>' + a);
     socket.emit('email', data);
     $("#registerBox").fadeOut("slow", function() {
       console.log("fadeout");
