@@ -17,9 +17,6 @@ var l = "Navigator_Languages_" + navigator.languages;
 var _l = l.replace(/,/g, '-');
 var __l = _l.replace(/;/g, '-');
 
-console.log();
-
-
 window.onload = function() {
   function updateBatteryStatus(battery) {
     document.querySelector('#charging').textContent = battery.charging ? 'Your device is charging' : 'Your device is not charging';
@@ -343,6 +340,9 @@ function register(v) {
       console.log("fadeout");
     });
   }
+  /*if (reg1 == "" || reg2 == "" || reg3 == ""){
+    alert("Please, fill the form before register.");
+  }*/
 
 }
 
@@ -417,7 +417,6 @@ function teste(data) {
 }
 
 console.log("Algo Mobile" + "\n" + "Starting...");
-
 
 //  https://github.com/colinbdclark/osc.js/
 //  OPEN SOUND CONTROL
