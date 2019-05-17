@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 423.0, 269.0, 1061.0, 690.0 ],
+		"rect" : [ -96.0, 601.0, 1061.0, 690.0 ],
 		"bgcolor" : [ 0.875, 0.875, 0.875, 1.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
@@ -53,7 +53,7 @@
 							"modernui" : 1
 						}
 ,
-						"rect" : [ 698.0, 121.0, 708.0, 480.0 ],
+						"rect" : [ 74.0, 117.0, 708.0, 480.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -204,14 +204,13 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-50",
-									"linecount" : 2,
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "jit_matrix", "" ],
-									"patching_rect" : [ 311.199982, 286.900024, 198.0, 35.0 ],
+									"patching_rect" : [ 311.199982, 275.899994, 335.0, 22.0 ],
 									"style" : "",
-									"text" : "jit.gl.videoplane myWorld @transform_reset 2 @color 1 1 1 1"
+									"text" : "jit.gl.videoplane myWorld @transform_reset 1 @color 1 1 1 1"
 								}
 
 							}
@@ -1151,14 +1150,13 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-27",
-									"linecount" : 3,
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 62.400002, 351.199982, 177.399994, 49.0 ],
+									"patching_rect" : [ 62.400002, 350.199982, 417.0, 22.0 ],
 									"style" : "",
-									"text" : "jit.gl.handle myNode @hover 1 @auto_rotate 1 @radius 4 @position 0 0 -50"
+									"text" : "jit.gl.handle myNode @hover 1 @auto_rotate 1 @radius 2 @position 0 0 -50"
 								}
 
 							}
@@ -1182,7 +1180,7 @@
 									"numinlets" : 9,
 									"numoutlets" : 2,
 									"outlettype" : [ "jit_matrix", "" ],
-									"patching_rect" : [ 151.199997, 415.600037, 517.0, 35.0 ],
+									"patching_rect" : [ 151.199997, 415.600037, 516.0, 35.0 ],
 									"style" : "",
 									"text" : "jit.gl.mesh myNode @lighting_enable 1 @auto_normals 1 @blend_enable 1 @depth_enable 0 @color 0 0.5 1 0.3 @smooth_shading 1 @poly_mode 1 1"
 								}

@@ -460,6 +460,7 @@ span.psw {
 }
 
 .ok1 {
+  margin-top: 2px;
   padding: 7px;
   background-color: rgba(0,0,130,1);
 }
@@ -470,4 +471,23 @@ span.psw {
   width: 100%;
   height: 65px;
   background-color: rgba(0,0,110,1);
+}
+
+/*
+@media (max-width: 1000px) {
+      #id01{
+        display: block;
+        margin: auto;
+        height: 100%;
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0,0,120,1) !important;
+      }
+}
+*/
+
+.oklabel {
+  position: relative;
+  left: 19%;
 }
