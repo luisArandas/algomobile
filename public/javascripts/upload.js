@@ -343,6 +343,11 @@ function register(v) {
   /*if (reg1 == "" || reg2 == "" || reg3 == ""){
     alert("Please, fill the form before register.");
   }*/
+  if (reg1 != ""){
+    var e = document.getElementById('input1').value;
+    document.getElementById('aboutYou').innerHTML += 'We look forward to see you, ' + e + ".";
+  }
+
 
 }
 

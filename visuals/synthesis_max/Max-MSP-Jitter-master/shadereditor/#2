@@ -1,0 +1,157 @@
+<jittershader name = "myShader">
+<description> shader test </description>
+<language name = "glsl" version = "1.2">
+<program name = "vp" type = "vertex">
+<![CDATA[
+
+
+const float PI = 3.14159; 
+ const float TWO_PI = PI * 2.0;
+
+varying vec2 texcoord0;
+varying vec2 texcoord1;
+varying vec3 lightPositions[2];
+ varying vec3 lightColors[2];
+
+
+void main() {
+texcoord0 = vec2(gl_TextureMatrix[0] * gl_MultiTexCoord0);
+texcoord1 = vec2(gl_TextureMatrix[1] * gl_MultiTexCoord1);
+lightPositions[0] = gl_LightSource[0].position.xyz;
+lightPositions[1] = gl_LightSource[1].position.xyz;
+lightColors[0] = gl_LightSource[0].diffuse.rgb;
+lightColors[1] = gl_LightSource[1].diffuse.rgb;
+
+
+gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+}
+
+]]>
+</program>
+
+<program name = "fp" type = "fragment">
+<![CDATA[
+
+
+
+varying vec2 texcoord0;
+varying vec2 texcoord1;
+
+
+void main() {
+
+
+gl_FragColor = vec4(1,0.4,0.6,1.0);
+}
+
+]]>
+</program>
+
+</language>
+</jittershader>
+ 
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         

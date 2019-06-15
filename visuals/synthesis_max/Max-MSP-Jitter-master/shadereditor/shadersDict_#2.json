@@ -1,0 +1,4 @@
+{
+	"vertex" : "\nconst float PI = 3.14159; \n const float TWO_PI = PI * 2.0;\n\nvarying vec2 texcoord0;\nvarying vec2 texcoord1;\nvarying vec3 lightPositions[2];\n varying vec3 lightColors[2];\n\n\nvoid main() {\ntexcoord0 = vec2(gl_TextureMatrix[0] * gl_MultiTexCoord0);\ntexcoord1 = vec2(gl_TextureMatrix[1] * gl_MultiTexCoord1);\nlightPositions[0] = gl_LightSource[0].position.xyz;\nlightPositions[1] = gl_LightSource[1].position.xyz;\nlightColors[0] = gl_LightSource[0].diffuse.rgb;\nlightColors[1] = gl_LightSource[1].diffuse.rgb;\n\n\ngl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;\n}\n\n",
+	"fragment" : "\n\nvarying vec2 texcoord0;\nvarying vec2 texcoord1;\n\n\nvoid main() {\n\n\ngl_FragColor = vec4(1,0.4,0.6,1.0);\n}\n\n"
+}
