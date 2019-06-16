@@ -3,35 +3,22 @@ public void flickrDataOne(){
   timeNoWrap += .01; 
   time = timeNoWrap % 1;
   
-  fill(#D8D8D8, 255); 
+  fill(#000000); 
   rect(40, 10, 350, height / 35 + 20);
-  
-  lineOffset += ((floor(((lines.length) / 2) * timeNoWrap)) - lineOffset) * .5;
 
-  pg.beginDraw();
-  pg.clear();
-  pg.noStroke();
-  pg.fill(200);
+  pg1.beginDraw();
+  pg1.clear();
+  pg1.noStroke();
   
   for (float i = 0; i < 300; i += 10){
-    pg.fill(255, random(50, 255));
-    pg.rect(width / 25 + i, height / 35, 10, 10);    
-    pg.fill(255, random(50, 255));
-    pg.rect(width / 25 + i, height / 35 + 20, 10, 10);    
+    pg1.fill(255, random(50, 255));
+    pg1.rect(width / 25 + i, height / 35, 10, 10);    
+    pg1.fill(255, random(50, 255));
+    pg1.rect(width / 25 + i, height / 35 + 20, 10, 10);    
   }
-  pg.fill(1);
- 
-  
-  pg.noFill();
-  pg.stroke(0);
-  pg.strokeWeight(6);
-  pg.stroke(0, 10);
-  pg.endDraw();
-  
-  tint(255, 255, 255, 20);
-  image(pg, 0, 0);
-  tint(0);
-  image(pg, 0, 0);
+
+  pg1.endDraw();
+  image(pg1, 0, 0);
 }
 /*
 public void flickrDataTwo(){
@@ -80,28 +67,26 @@ int d = 50;
 
 public void wierdShapes(){
   
-   for (int x = 25; x <= width; x += d) {
-    for (int y = 25; y <= height; y += d) {
- 
-      if (random(3) < 1) {
-        noFill();
-        rect(x, y, d, d);
- 
-      } else if ((random(3) > 1) && (random(3) < 2)) {
-        noFill();
-        rectMode(CENTER);
-        rect(x, y, d, d);
- 
-      } else if ((random(3) > 2) && (random(3) < 3)) {
-        fill(255, 255, 255, random(255));
-        rect(x, y, d, d);
- 
-        // line(x,y,d,d);
-        // line(x+50, y, x, y+50)
-      }
- 
-      // line(0, 0, 50, 50); // x shape
-      // line(0, 50, 50, 0);
-    }
-  }
+  txt.beginDraw();
+  txt.clear();
+  txt.background(255,255,255,255);
+
+  txt.stroke(255);
+  txt.line(20, 20, mouseX, mouseY);
+  txt.endDraw();
+  image(txt, 200, 200); 
+ }
+
+
+public void setShader(){
+  shader.setShaderParameters();
+  
+  pg.beginDraw();
+  pg.shader(shader.shader);
+  pg.rect(0, 0, pg.width, pg.height);
+  pg.endDraw();
+  
+  fill(0);
+  rect(0, 0, 480, height);
+  image(pg, 200, 0); 
 }

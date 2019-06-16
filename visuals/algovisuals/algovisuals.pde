@@ -1,5 +1,5 @@
 /* Testing some data VIZ*/
-
+import controlP5.*;
 import oscP5.*;
 
 OscP5 oscP5;
@@ -10,30 +10,18 @@ float lineOffsetL = 0;
 float timeNoWrap;
 float snapTimer = 0;
 
-PGraphics pg;
+PGraphics pg1;
 PGraphics txt;
 
 boolean anim_1 = false;
 boolean anim_2 = false;
 boolean anim_3 = false;
 
-
-String[] lines =  
-{"XXXXXXX-XXXXXXX-XXXXXXXXXXX-XXXXXXX-XXXXXXXXX",
- "XX-XXXXXXXXX-XXXXXXX-XXX-XXXXXXX-XXXXX-XXXXXX",
- "XXXXXXXXX-XXXXXXX-XXXXXXXXX-XXXXXXXX-XXXX-XXX",
- "XXX-XXXXXXXXXXX-XXXXXXX-XXXXXXXXXXX-XXXXXXX-X",
- "XX-XXX-XXXX-XXXXXX-XXXXXXXXXXX-XXXXXX-XXXXXXX",
- "XXXX-XXXX-XXXX-XXXXXX-XXXX-XXXXXXXX-XXXXXXX-X",
- "XXXXXX-XXXX-XXXXXXXXXXXXXXXX-XXX-XXXXX-X-XXXX",
- "XXXXXXXXX-XXXXXXX-XXXXX-XXXXXXXXX-XX-XXXXXXXX",
- "XXX-XXXXXXXXX-XXXXXX-XXX-XXXXX-XXXXXXX-XXXXXX",
- "XXXXXXXXXXX-XXXX-XXXXX-XXXXXXXXXXX-XXXXXXXX-X",
- "XXXXX-XX-XXXXXXXXXX-XXXXXXX-XXXX-XXXX-XX-XXXX",
- "X-XXXXXXXXXXXX-XXXXXXX-XXXXXXXXXXXX-XXXXXXX-X",
- "XXXX-XX-XXX-XXXX-XX-XXXX-XXXXX-XXXXXX-XXXXXXX",
- "X-XXXXXXX-XXXXXXXXXXXXX-XXXXXXX-XX-XXXXX-XXXX"};
-
+int timer;
+ArrayList<GShader> shaders;
+GShader shader;
+PGraphics pg;
+int idxShader = -1;
 
 void setup(){
   
@@ -43,9 +31,13 @@ void setup(){
   oscP5 = new OscP5(this,12000);
   
   //smooth(8);
-  frameRate(60);
-  pg = createGraphics(width, height, P3D);
-  txt = createGraphics(width, height, P3D);
+  //frameRate(60);
+  setupShaders();
+  setupGui();  
+  setShader(1);
+  pg = createGraphics(960, 720, OPENGL);
+  pg1 = createGraphics(width, height, P3D);
+  txt = createGraphics(width/4, height/2);
 
   oscP5.plug(this,"ints","/ints");
   oscP5.plug(this,"strings","/strings");
@@ -57,6 +49,15 @@ void draw() {
   flickrDataOne();
   wierdShapes();
   //flickrDataTwo();
+  
+   if (millis() - timer >= 2000) {
+    println("Printing");
+    //background(random(255));
+    int x = (int)random(8);
+    //setShader(x);
+    timer = millis();
+  }
+  setShader();
 }
 
 
@@ -90,7 +91,6 @@ void keyPressed() {
     //anim_2 = false;
   }
 }
-
 
 
 /*
