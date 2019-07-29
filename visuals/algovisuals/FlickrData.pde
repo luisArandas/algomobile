@@ -4,7 +4,7 @@ public void flickrDataOne(){
   time = timeNoWrap % 1;
   
   fill(#000000); 
-  rect(40, 10, 350, height / 35 + 20);
+  rect(100, 100, 350, height / 35 + 20);
 
   pg1.beginDraw();
   pg1.clear();
@@ -16,7 +16,6 @@ public void flickrDataOne(){
     pg1.fill(255, random(50, 255));
     pg1.rect(width / 25 + i, height / 35 + 20, 10, 10);    
   }
-
   pg1.endDraw();
   image(pg1, 0, 0);
 }
@@ -69,10 +68,9 @@ public void wierdShapes(){
   
   txt.beginDraw();
   txt.clear();
-  txt.background(255,255,255,255);
+  txt.background(255,255,255,random(255));
 
   txt.stroke(255);
-  txt.line(20, 20, mouseX, mouseY);
   txt.endDraw();
   image(txt, 200, 200); 
  }
@@ -87,6 +85,6 @@ public void setShader(){
   pg.endDraw();
   
   fill(0);
-  rect(0, 0, 480, height);
-  image(pg, 200, 0); 
+  rect(0, 0, pg.width, pg.height);
+  image(pg, 0, 0); 
 }

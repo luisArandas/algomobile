@@ -1,5 +1,5 @@
-class Param 
-{
+class Param {
+  
   String name;
   float value;
   PVector value2;

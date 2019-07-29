@@ -1,8 +1,15 @@
-/* Testing some data VIZ*/
+/* Testing some data VIZ 
+   See what I rcv from max <--
+   
+   METER LETRAS MEIO COM FUNDO PRETO OK? OK
+*/
+
 import controlP5.*;
 import oscP5.*;
 
 OscP5 oscP5;
+
+PFont mono;
 
 float time;
 float lineOffset = 1;
@@ -29,35 +36,46 @@ void setup(){
   //fullScreen(P3D);
   background(0,0,0);
   oscP5 = new OscP5(this,12000);
-  
+
+  frame.setTitle("Algo 2.0");
   //smooth(8);
   //frameRate(60);
   setupShaders();
   setupGui();  
   setShader(1);
-  pg = createGraphics(960, 720, OPENGL);
-  pg1 = createGraphics(width, height, P3D);
-  txt = createGraphics(width/4, height/2);
+  pg = createGraphics(width,height,P3D);
+  //pg1 = createGraphics(width, height, P3D);
+  //txt = createGraphics(width/4, height/4);
 
   oscP5.plug(this,"ints","/ints");
   oscP5.plug(this,"strings","/strings");
-  oscP5.plug(this,"floats","/floats");
+  oscP5.plug(this,"floats","/floats"); // <bang1 - "acabauCutf>"
+  
+  // Put the sliders here
+  cp5.getController("intense").setValue(1);
+  cp5.getController("speed").setValue(1);
+  cp5.getController("graininess").setArrayValue(new float[] {0, 1});
+  
 }
 
 
 void draw() {
-  flickrDataOne();
-  wierdShapes();
+  
+  setShader();
+  
+  //algoText();
+  
+  //flickrDataOne();
+  //wierdShapes();
   //flickrDataTwo();
   
-   if (millis() - timer >= 2000) {
+  if (millis() - timer >= 2000) {
     println("Printing");
     //background(random(255));
     int x = (int)random(8);
     //setShader(x);
     timer = millis();
   }
-  setShader();
 }
 
 
@@ -71,9 +89,11 @@ public void strings(String string){
 
 public void floats(float floats) {
   println(floats);
+  float o = floats;
+  cp5.getController("depth").setValue(o);
+  cp5.getController("graininess").setArrayValue(new float[] {o, o});
+  
 }
-
-
 
 
 
@@ -87,9 +107,58 @@ void keyPressed() {
   if (key == 'd'){
     anim_3 = true;
   }
-  if (key == 'f'){
-    //anim_2 = false;
+  if (key == 'z'){
+    setShader(0);
+    //"depth"
+    //"rate"
   }
+  if (key == 'x'){
+    setShader(1);
+    //"intense"
+    //"speed"
+    //graininess 2D
+  }
+  if (key == 'c'){
+    setShader(2);
+    //"rings"
+    //"complexity"
+    //cp5.getController("rings").setValue(40);
+  }
+  if (key == 'v'){
+    setShader(3);
+    //"noisefactor"
+    //"stripes"
+    cp5.getController("noiseFactor").setValue(1); // WORKS
+  }
+  if (key == 'b'){
+    setShader(4);
+    //coeffx
+    //coeffy
+    //colormult 2D
+  }
+  if (key == 'n'){
+    setShader(5);
+    //noisefactortime
+    //noisefactor 2D
+  }
+  if (key == 'm'){
+    setShader(6);
+    //"graininess"
+    //pace
+    //twist
+  }
+  if (key == ','){
+    setShader(7);
+    //mx
+    //my
+  }
+}
+
+public void algoText(){
+ 
+  textSize(32);
+  text("Algo is Nice.", 10, 30);
+  fill(0,102,153);
 }
 
 

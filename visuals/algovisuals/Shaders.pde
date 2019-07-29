@@ -1,5 +1,4 @@
-void setupShaders() 
-{
+void setupShaders() {
   GShader newShader;
   shaders = new ArrayList<GShader>();
   
@@ -18,8 +17,8 @@ void setupShaders()
   
   // electro
   newShader = new GShader("electro.glsl");
-  newShader.addParameter("rings", 5, 40);
-  newShader.addParameter("complexity", 1, 60);
+  //newShader.addParameter("rings", 5, 40);
+  //newShader.addParameter("complexity", 1, 60);
   shaders.add(newShader);
   
   // bands
@@ -54,7 +53,6 @@ void setupShaders()
   newShader.addParameter("mx", 0, 1);
   newShader.addParameter("my", 0, 1);
   shaders.add(newShader);
-
 }
 
 

@@ -1,5 +1,5 @@
-class GShader
-{
+class GShader {
+  
   String path;
   PShader shader;
   ArrayList<Param> parameters;
@@ -40,7 +40,7 @@ class GShader
            .setArrayValue(new float[]{p.value2.x, p.value2.y})
            .setMinX(p.minValue2.x).setMinY(p.minValue2.y)
            .setMaxX(p.maxValue2.x).setMaxY(p.maxValue2.y)
-           .setPosition(guiPosition.x, guiPosition.y)
+           .setPosition(width, height)
            .setSize(300, 300);           
         guiPosition.y += 330;
       }
@@ -48,7 +48,7 @@ class GShader
         cp5.addSlider(p.name)
            .setValue(p.value)
            .setRange(p.minValue, p.maxValue)
-           .setPosition(guiPosition.x, guiPosition.y)
+           .setPosition(width, height)
            .setSize(300, 25);
         guiPosition.y += 35;
       } 

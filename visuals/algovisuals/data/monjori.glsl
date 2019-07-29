@@ -1,32 +1,56 @@
-uniform vec2 resolution;
-uniform float time;
-uniform float graininess;
-uniform float pace;
-uniform float twist;
+#define PROCESSING_COLOR_SHADER
 
-void main(void)
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+uniform float time;
+uniform float noiseFactor;
+uniform vec2 resolution;
+uniform float stripes;
+
+// Gradient Noise (http://en.wikipedia.org/wiki/Gradient_noise)
+// Created by inigo quilez - iq/2013
+// License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+// Noise implementation from https://www.shadertoy.com/view/XdXGW8
+vec2 hash( vec2 p )
 {
-    vec2 p = -1.0 + 2.0 * gl_FragCoord.xy / resolution.xy;
-    float a = time*pace;
-    float d,e,f,g=1.0/graininess,h,i,r,q;
-    e=400.0*(p.x*0.5+0.5);
-    f=400.0*(p.y*0.5+0.5);
-    i=200.0+sin(e*g+a/150.0)*20.0;
-    d=200.0+cos(f*g/2.0)*18.0+cos(e*g)*twist;
-    r=sqrt(pow(i-e,2.0)+pow(d-f,2.0));
-    q=f/r;
-    e=(r*cos(q))-a/2.0;f=(r*sin(q))-a/2.0;
-    d=sin(e*g)*876.0+sin(e*g)*164.0+r;
-    h=((f+d)+a/2.0)*g;
-    i=cos(h+r*p.x/1.3)*(e+e+a)+cos(q*g*6.0)*(r+h/3.0);
-    h=sin(f*g)*144.0-sin(e*g)*212.0*p.x;
-    h=(h+(f-e)*q+sin(r-(a+h)/7.0)*10.0+i/4.0)*g;
-    i+=cos(h*2.91*sin(a/350.0-q))*124.0*sin(q-(r*4.3+a/12.0)*g)+tan(r*g+h)*184.0*cos(r*g+h);
-    i=mod(i/5.6,256.0)/64.0;
-    if(i<0.0) i+=4.0;
-    if(i>=2.0) i=4.0-i;
-    d=r/350.0;
-    d+=sin(d*d*8.0)*0.52;
-    f=(sin(a*g)+1.0)/2.0;
-    gl_FragColor=vec4(vec3(f*i/1.6,i/2.0+d/13.0,i)*d*p.x+vec3(i/1.3+d/8.0,i/2.0+d/18.0,i)*d*(1.0-p.x),1.0);
+	p = vec2( dot(p,vec2(127.1,311.7)),
+			  dot(p,vec2(269.5,183.3)) );
+
+	return -1.0 + 2.0*fract(sin(p)*43758.5453123);
+}
+
+float noise( in vec2 p )
+{
+    vec2 i = floor( p );
+    vec2 f = fract( p );
+	
+	vec2 u = f*f*(10.0-2.0*f);
+
+    return mix( mix( dot( hash( i + vec2(0,0.0) ), f - vec2(0.0,0.0) ),
+                     dot( hash( i + vec2(0,1.0) ), f - vec2(1.0,0.0) ), u.x),
+                mix( dot( hash( i + vec2(0,1.0) ), f - vec2(0.0,1.0) ),
+                     dot( hash( i + vec2(0,1.0) ), f - vec2(1.0,1.0) ), u.x), u.y);
+}
+
+
+void main( void ) {
+	vec2 position = ( gl_FragCoord.xy / resolution.xy );
+	
+	float stripeNumber = floor(position.x * stripes);
+	float stripePosition = fract(position.x * stripes);
+
+	float color = (noise(vec2(position.y * noiseFactor - 2.0*time, stripeNumber+noise(vec2(5.0*stripeNumber, time*0.1))*time*0.2)) + 1.0) / 2.0;
+	color = smoothstep(color, 0, 1);
+	color -= 0.2*mod(color, 0.2*position.x*position.y);
+	//color = (noise(vec2(position.y * 0.1 + time * 0.2 * fract(stripeNumber * 1.3), stripeNumber)) + 1.0) / 2.0;
+	if (stripePosition < 0.3)
+		color -=0.9;
+
+	vec3 col = vec3(color);
+	col.r = mod(col.g, position.x);
+	col.g = mod(col.b, position.y);
+	gl_FragColor = vec4(col, 1.0);
+
 }

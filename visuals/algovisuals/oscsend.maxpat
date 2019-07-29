@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 844.0, 135.0, 640.0, 480.0 ],
+		"rect" : [ 661.0, 79.0, 640.0, 480.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -70,7 +70,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 176.0, 235.0, 73.0, 22.0 ],
+					"patching_rect" : [ 176.0, 234.0, 73.0, 22.0 ],
 					"style" : "",
 					"text" : "\"algo isn't?\""
 				}
@@ -97,7 +97,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 55.5, 235.0, 50.0, 22.0 ],
+					"patching_rect" : [ 59.5, 209.0, 50.0, 22.0 ],
 					"style" : ""
 				}
 
@@ -171,9 +171,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 287.0, 172.0, 72.0, 22.0 ],
+					"patching_rect" : [ 287.0, 172.0, 79.0, 22.0 ],
 					"style" : "",
-					"text" : "\"cool isn't?\""
+					"text" : "algoalgoalgo"
 				}
 
 			}
@@ -210,7 +210,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 55.5, 278.0, 80.0, 22.0 ],
+					"patching_rect" : [ 29.5, 301.0, 80.0, 22.0 ],
 					"style" : "",
 					"text" : "prepend /ints"
 				}
@@ -222,7 +222,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 176.0, 344.0, 144.0, 22.0 ],
+					"patching_rect" : [ 30.0, 388.0, 144.0, 22.0 ],
 					"style" : "",
 					"text" : "udpsend localhost 12000"
 				}

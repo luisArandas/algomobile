@@ -4,29 +4,54 @@
 precision mediump float;
 #endif
 
+//https://thebookofshaders.com/edit.php#10/ikeda-04.frag
+//https://thebookofshaders.com/10/
+
 uniform vec2 resolution;
+uniform vec2 mouse;
 uniform float time;
-uniform float intense;
-uniform float speed;
-uniform vec2 graininess;
 
-const float offset = 20.0;
-const int complexity = 38;
-const float Pi = 3.14159;
+float random (in float x) { return fract(sin(x)*1e4); }
+float random (in vec2 _st) { return fract(sin(dot(_st.xy, vec2(12.9898,78.233)))* 43758.5453123);}
 
-void main()
-{
-  	vec2 p=(2.0*gl_FragCoord.xy-resolution)/max(resolution.x,resolution.y);
-
-  	for(int i=1;i<complexity;i++)
-  	{
-    	vec2 newp=p;
-    	newp.x+=graininess.x/float(i)*sin(float(i)*p.y+time/speed+0.3*float(i))+offset;
-    	newp.y+=graininess.y/float(i)*sin(float(i)*p.x+time/speed+0.3*float(i+100))+offset;
-    	p=newp;
-  	}
-  	vec3 col=vec3(intense*sin(3.0*p.x)+intense,intense*sin(3.0*p.y)+intense,intense*sin(p.x+p.y)+intense);
-	col.g = col.r;
-//	col.b = col.r;
-  	gl_FragColor=vec4(col, 1.0);
+void main() {
+    vec2 st = gl_FragCoord.xy/resolution.xy;
+    st.x *= resolution.x/resolution.y;
+    
+    // Grid
+    vec2 grid = vec2(100.0,50.);
+    st *= grid;
+    
+    vec2 ipos = floor(st);  // integer
+    
+    vec2 vel = floor(vec2(time*10.)); // time
+    vel *= vec2(-1.,0.); // direction
+    
+    vel *= (step(1., mod(ipos.y,2.0))-0.5)*2.; // Oposite directions
+    vel *= random(ipos.y); // random speed
+    
+    // 100%
+    float totalCells = grid.x*grid.y;
+    float t = mod(time*max(grid.x,grid.y)+floor(1.0+time*mouse.y),totalCells);
+    vec2 head = vec2(mod(t,grid.x), floor(t/grid.x));
+    
+    vec2 offset = vec2(0.1,0.);
+    
+    vec3 color = vec3(1.0);
+    color *= step(grid.y-head.y,ipos.y);                                // Y
+    color += (1.0-step(head.x,ipos.x))*step(grid.y-head.y,ipos.y+1.);   // X
+    color = clamp(color,vec3(0.),vec3(1.));
+    
+    // Assign a random value base on the integer coord
+    color.r *= random(floor(st+vel+offset));
+    color.g *= random(floor(st+vel));
+    color.b *= random(floor(st+vel-offset));
+    
+    color = smoothstep(0.,.5+mouse.x/resolution.x*.5,color*color); // smooth
+    color = step(0.5+mouse.x/resolution.x*0.5,color); // threshold
+    
+    //  Margin
+    color *= step(.1,fract(st.x+vel.x))*step(.1,fract(st.y+vel.y));
+    
+    gl_FragColor = vec4(1.0-color,1.0);
 }

@@ -2,20 +2,21 @@ ControlP5 cp5;
 
 void setupGui() {
   cp5 = new ControlP5(this);
-  cp5.setFont(createFont("Courier", 14));
+  //cp5.setFont(createFont("Courier", 14));
   
-  DropdownList guiShaders = cp5.addDropdownList("selectShader");
-  guiShaders.setPosition(480, 25).setSize(240, height-10).setItemHeight(25).setBarHeight(25);
-  guiShaders.getCaptionLabel().set("shaders");
+  //DropdownList guiShaders = cp5.addDropdownList("selectShader");
+  //guiShaders.setPosition(480, 25).setSize(240, height-10).setItemHeight(25).setBarHeight(25);
+  //guiShaders.getCaptionLabel().set("shaders");
   //guiShaders.getCaptionLabel().style().marginTop = 1;
   //guiShaders.getCaptionLabel().style().marginLeft = 1;
-  for (int i=0; i<shaders.size(); i++) {
-    guiShaders.addItem(shaders.get(i).path, i);
-  }  
+  //for (int i=0; i<shaders.size(); i++) {
+  //  guiShaders.addItem(shaders.get(i).path, i);
+  //}  
 }
 
-void controlEvent(ControlEvent theEvent) 
-{
+void controlEvent(ControlEvent theEvent) {
+  
+  println(theEvent);
   String name = theEvent.getName();
   println(theEvent);
   for (Param p : shader.parameters) {  
