@@ -13,16 +13,14 @@ uniform float stripes;
 // Created by inigo quilez - iq/2013
 // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 // Noise implementation from https://www.shadertoy.com/view/XdXGW8
-vec2 hash( vec2 p )
-{
+vec2 hash( vec2 p ) {
 	p = vec2( dot(p,vec2(127.1,311.7)),
 			  dot(p,vec2(269.5,183.3)) );
 
 	return -1.0 + 2.0*fract(sin(p)*43758.5453123);
 }
 
-float noise( in vec2 p )
-{
+float noise( in vec2 p ) {
     vec2 i = floor( p );
     vec2 f = fract( p );
 	
@@ -49,7 +47,7 @@ void main( void ) {
 		color -=0.9;
 
 	vec3 col = vec3(color);
-	col.r = mod(col.g, position.x);
+	col.r = mod(0, position.x);
 	col.g = mod(col.b, position.y);
 	gl_FragColor = vec4(col, 1.0);
 

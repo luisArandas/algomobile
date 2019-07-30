@@ -37,15 +37,15 @@ void main() {
     
     vec2 offset = vec2(0.1,0.);
     
-    vec3 color = vec3(1.0);
+    vec3 color = vec3(1);
     color *= step(grid.y-head.y,ipos.y);                                // Y
     color += (1.0-step(head.x,ipos.x))*step(grid.y-head.y,ipos.y+1.);   // X
     color = clamp(color,vec3(0.),vec3(1.));
     
     // Assign a random value base on the integer coord
-    color.r *= random(floor(st+vel+offset));
-    color.g *= random(floor(st+vel));
-    color.b *= random(floor(st+vel-offset));
+    color.r *= 0;//(random(floor(st+vel+offset)));
+    color.g *= 0;//random(floor(st+vel));
+    color.b *= 1;
     
     color = smoothstep(0.,.5+mouse.x/resolution.x*.5,color*color); // smooth
     color = step(0.5+mouse.x/resolution.x*0.5,color); // threshold
@@ -53,5 +53,5 @@ void main() {
     //  Margin
     color *= step(.1,fract(st.x+vel.x))*step(.1,fract(st.y+vel.y));
     
-    gl_FragColor = vec4(1.0-color,1.0);
+    gl_FragColor = vec4(color,1.0);
 }

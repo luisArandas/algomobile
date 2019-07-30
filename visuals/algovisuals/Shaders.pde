@@ -3,13 +3,50 @@ void setupShaders() {
   shaders = new ArrayList<GShader>();
   
   // blobby
-  newShader = new GShader("blobby.glsl");
-  newShader.addParameter("depth", 0, 2);
-  newShader.addParameter("rate", 0, 2);
+  newShader = new GShader("algo1.glsl");
+  shaders.add(newShader);
+  
+  newShader = new GShader("algo2.glsl");
+  shaders.add(newShader);
+  
+  newShader = new GShader("algo3.glsl");
+  shaders.add(newShader);
+  
+  newShader = new GShader("algo4.glsl");
+  shaders.add(newShader);
+  
+  newShader = new GShader("algo5.glsl");
+  shaders.add(newShader);
+  
+  newShader = new GShader("algo6.glsl");
+  shaders.add(newShader);
+  
+  newShader = new GShader("algo7.glsl");
+  shaders.add(newShader);
+  
+  newShader = new GShader("algo8.glsl");
+  shaders.add(newShader);
+  
+  newShader = new GShader("algo9.glsl");
+  shaders.add(newShader);
+  
+  newShader = new GShader("algo10.glsl");
+  shaders.add(newShader);
+  
+  newShader = new GShader("algo11.glsl");
+  shaders.add(newShader);
+  
+  newShader = new GShader("algo12.glsl");
+  shaders.add(newShader);
+  
+  newShader = new GShader("algo13.glsl");
+  shaders.add(newShader);
+  
+  newShader = new GShader("algo14.glsl");
   shaders.add(newShader);
   
   // drip
-  newShader = new GShader("drip.glsl");
+ /* newShader = new GShader("drip.glsl");
   newShader.addParameter("intense", 0, 1);
   newShader.addParameter("speed", 0, 1);
   newShader.addParameter("graininess", 0, 1, 0, 1);
@@ -52,6 +89,9 @@ void setupShaders() {
   newShader = new GShader("bits.glsl");
   newShader.addParameter("mx", 0, 1);
   newShader.addParameter("my", 0, 1);
+  shaders.add(newShader);
+  */
+  newShader = new GShader("algo1.glsl");
   shaders.add(newShader);
 }
 

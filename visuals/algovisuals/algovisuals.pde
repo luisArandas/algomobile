@@ -42,7 +42,7 @@ void setup(){
   //frameRate(60);
   setupShaders();
   setupGui();  
-  setShader(1);
+  setShader(0);
   pg = createGraphics(width,height,P3D);
   //pg1 = createGraphics(width, height, P3D);
   //txt = createGraphics(width/4, height/4);
@@ -52,9 +52,9 @@ void setup(){
   oscP5.plug(this,"floats","/floats"); // <bang1 - "acabauCutf>"
   
   // Put the sliders here
-  cp5.getController("intense").setValue(1);
-  cp5.getController("speed").setValue(1);
-  cp5.getController("graininess").setArrayValue(new float[] {0, 1});
+  //cp5.getController("intense").setValue(1);
+  //cp5.getController("speed").setValue(1);
+  //cp5.getController("graininess").setArrayValue(new float[] {0, 1});
   
 }
 
@@ -98,32 +98,50 @@ public void floats(float floats) {
 
 
 void keyPressed() { 
+  if (key == 'q'){
+    setShader(0);
+  }
+  if (key == 'w'){
+    setShader(1);
+  }
+  if (key == 'e'){
+    setShader(2);
+  }
+  if (key == 'r'){
+    setShader(3);
+  }
+  if (key == 't'){
+    setShader(4);
+  }
+  if (key == 'y'){
+    setShader(5);
+  }
+  if (key == 'u'){
+    setShader(6); // Not Working
+  }
+  if (key == 'i'){
+    setShader(7);
+  }
+  if (key == 'o'){
+    setShader(8);
+  }
+  if (key == 'p'){
+    setShader(9);
+  }
   if (key == 'a'){
-    anim_1 = true;
+    setShader(10);
   }
   if (key == 's'){
-    anim_2 = true;
+    setShader(11);
   }
   if (key == 'd'){
-    anim_3 = true;
+    setShader(12);
   }
-  if (key == 'z'){
-    setShader(0);
-    //"depth"
-    //"rate"
+  if (key == 'f'){
+    setShader(13);
   }
-  if (key == 'x'){
-    setShader(1);
-    //"intense"
-    //"speed"
-    //graininess 2D
-  }
-  if (key == 'c'){
-    setShader(2);
-    //"rings"
-    //"complexity"
-    //cp5.getController("rings").setValue(40);
-  }
+  /*
+  
   if (key == 'v'){
     setShader(3);
     //"noisefactor"
@@ -151,7 +169,7 @@ void keyPressed() {
     setShader(7);
     //mx
     //my
-  }
+  }*/
 }
 
 public void algoText(){
