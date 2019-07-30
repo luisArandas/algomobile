@@ -9,7 +9,7 @@ import oscP5.*;
 
 OscP5 oscP5;
 
-PFont mono;
+PFont f;
 
 float time;
 float lineOffset = 1;
@@ -20,9 +20,13 @@ float snapTimer = 0;
 PGraphics pg1;
 PGraphics txt;
 
+String algoText;
+
 boolean anim_1 = false;
 boolean anim_2 = false;
 boolean anim_3 = false;
+
+boolean drawAlgoText = false;
 
 int timer;
 ArrayList<GShader> shaders;
@@ -32,12 +36,13 @@ int idxShader = -1;
 
 void setup(){
   
-  size(650,450, P3D);
-  //fullScreen(P3D);
+  //size(650,450, P3D);
+  fullScreen(P3D);
   background(0,0,0);
   oscP5 = new OscP5(this,12000);
 
   frame.setTitle("Algo 2.0");
+  f = createFont("Arial", 16, true);
   //smooth(8);
   //frameRate(60);
   setupShaders();
@@ -50,12 +55,13 @@ void setup(){
   oscP5.plug(this,"ints","/ints");
   oscP5.plug(this,"strings","/strings");
   oscP5.plug(this,"floats","/floats"); // <bang1 - "acabauCutf>"
+  oscP5.plug(this,"oscShaders","/shaders"); // <bang1 - "acabauCutf>"
   
   // Put the sliders here
   //cp5.getController("intense").setValue(1);
   //cp5.getController("speed").setValue(1);
   //cp5.getController("graininess").setArrayValue(new float[] {0, 1});
-  
+  algoText = "Algo 2.0";
 }
 
 
@@ -64,6 +70,9 @@ void draw() {
   setShader();
   
   //algoText();
+  if (drawAlgoText == true){
+    algoText();
+  }
   
   //flickrDataOne();
   //wierdShapes();
@@ -78,13 +87,23 @@ void draw() {
   }
 }
 
+public void oscShaders(int ints){
+  println(ints);
+  if (ints == 0) {
+    setShader(7);
+  }
+  if (ints == 1){
+    setShader(10);
+  }
+}
 
 public void ints(int ints){
   println(ints);
 }
 
 public void strings(String string){
-  println(string);
+  algoText= string;
+  println(algoText);
 }
 
 public void floats(float floats) {
@@ -170,13 +189,25 @@ void keyPressed() {
     //mx
     //my
   }*/
+  if (key == '-'){
+    if (drawAlgoText == false){
+      drawAlgoText = true;
+    } else {
+      drawAlgoText = false;
+    }
+  }
 }
 
 public void algoText(){
- 
-  textSize(32);
-  text("Algo is Nice.", 10, 30);
-  fill(0,102,153);
+  fill(0);
+  rect(0,height/2.5,width,height/6);
+  
+  fill(255,255,255);
+
+  textAlign(CENTER);
+  text(algoText,width/2,height/2); 
+
+  
 }
 
 

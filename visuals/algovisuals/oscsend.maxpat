@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 661.0, 79.0, 640.0, 480.0 ],
+		"rect" : [ 90.0, 113.0, 640.0, 480.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -38,6 +38,45 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-14",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 463.0, 159.0, 29.5, 22.0 ],
+					"style" : "",
+					"text" : "1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-12",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 406.0, 154.0, 29.5, 22.0 ],
+					"style" : "",
+					"text" : "0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-3",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 352.5, 218.0, 104.0, 22.0 ],
+					"style" : "",
+					"text" : "prepend /shaders"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"format" : 6,
 					"id" : "obj-25",
 					"maxclass" : "flonum",
@@ -45,7 +84,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 343.0, 234.0, 50.0, 22.0 ],
+					"patching_rect" : [ 249.5, 139.0, 50.0, 22.0 ],
 					"style" : ""
 				}
 
@@ -57,7 +96,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 349.0, 280.0, 90.0, 22.0 ],
+					"patching_rect" : [ 249.5, 183.0, 90.0, 22.0 ],
 					"style" : "",
 					"text" : "prepend /floats"
 				}
@@ -70,9 +109,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 176.0, 234.0, 73.0, 22.0 ],
+					"patching_rect" : [ 141.5, 95.0, 164.0, 22.0 ],
 					"style" : "",
-					"text" : "\"algo isn't?\""
+					"text" : "\"John is 20 years old.\""
 				}
 
 			}
@@ -83,7 +122,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 176.0, 278.0, 97.0, 22.0 ],
+					"patching_rect" : [ 141.5, 183.0, 97.0, 22.0 ],
 					"style" : "",
 					"text" : "prepend /strings"
 				}
@@ -97,109 +136,8 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 59.5, 209.0, 50.0, 22.0 ],
+					"patching_rect" : [ 72.5, 91.0, 50.0, 22.0 ],
 					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-17",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 128.5, 153.0, 64.0, 20.0 ],
-					"style" : "",
-					"text" : "float value"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-18",
-					"linecount" : 2,
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 301.0, 118.5, 158.0, 33.0 ],
-					"style" : "",
-					"text" : "String value, here in max is also called symbol"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-15",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 55.5, 124.0, 54.0, 20.0 ],
-					"style" : "",
-					"text" : "int value"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-13",
-					"linecount" : 2,
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 178.0, 52.0, 150.0, 33.0 ],
-					"style" : "",
-					"text" : "Run the plug example in Processing and click bang"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-11",
-					"maxclass" : "button",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 230.0, 90.0, 24.0, 24.0 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-9",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 287.0, 172.0, 79.0, 22.0 ],
-					"style" : "",
-					"text" : "algoalgoalgo"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-7",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 194.5, 153.0, 54.0, 22.0 ],
-					"style" : "",
-					"text" : "3.14159"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-5",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 115.5, 124.0, 29.5, 22.0 ],
-					"style" : "",
-					"text" : "77"
 				}
 
 			}
@@ -210,7 +148,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 29.5, 301.0, 80.0, 22.0 ],
+					"patching_rect" : [ 42.5, 183.0, 80.0, 22.0 ],
 					"style" : "",
 					"text" : "prepend /ints"
 				}
@@ -222,7 +160,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 30.0, 388.0, 144.0, 22.0 ],
+					"patching_rect" : [ 43.0, 270.0, 144.0, 22.0 ],
 					"style" : "",
 					"text" : "udpsend localhost 12000"
 				}
@@ -231,31 +169,19 @@
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
-					"destination" : [ "obj-5", 0 ],
+					"destination" : [ "obj-3", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
-					"midpoints" : [ 239.5, 118.5, 125.0, 118.5 ],
-					"source" : [ "obj-11", 0 ]
+					"source" : [ "obj-12", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-7", 0 ],
+					"destination" : [ "obj-3", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
-					"midpoints" : [ 239.5, 133.0, 204.0, 133.0 ],
-					"source" : [ "obj-11", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-9", 0 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"midpoints" : [ 239.5, 150.0, 296.5, 150.0 ],
-					"source" : [ "obj-11", 0 ]
+					"source" : [ "obj-14", 0 ]
 				}
 
 			}
@@ -310,6 +236,15 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-25", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-3", 0 ]
 				}
 
 			}
