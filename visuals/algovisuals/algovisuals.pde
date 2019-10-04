@@ -22,11 +22,13 @@ PGraphics txt;
 
 String algoText;
 
+
 boolean anim_1 = false;
 boolean anim_2 = false;
 boolean anim_3 = false;
 
 boolean drawAlgoText = false;
+boolean drawAlgoRect = false;
 
 int timer;
 ArrayList<GShader> shaders;
@@ -36,8 +38,8 @@ int idxShader = -1;
 
 void setup(){
   
-  //size(650,450, P3D);
-  fullScreen(P3D);
+  size(650,450, P3D);
+  //fullScreen(P3D);
   background(0,0,0);
   oscP5 = new OscP5(this,12000);
 
@@ -49,14 +51,15 @@ void setup(){
   setupGui();  
   setShader(0);
   pg = createGraphics(width,height,P3D);
-  //pg1 = createGraphics(width, height, P3D);
-  //txt = createGraphics(width/4, height/4);
+
 
   oscP5.plug(this,"ints","/ints");
   oscP5.plug(this,"strings","/strings");
-  oscP5.plug(this,"floats","/floats"); // <bang1 - "acabauCutf>"
-  oscP5.plug(this,"oscShaders","/shaders"); // <bang1 - "acabauCutf>"
-  
+  oscP5.plug(this,"floats","/floats"); 
+  oscP5.plug(this,"oscShaders","/shaders"); 
+  oscP5.plug(this,"showText","/showText"); // <bang1 - "acabauCutf>"
+  oscP5.plug(this,"flicker","/flicker"); // <bang1 - "acabauCutf>"
+
   // Put the sliders here
   //cp5.getController("intense").setValue(1);
   //cp5.getController("speed").setValue(1);
@@ -73,22 +76,12 @@ void draw() {
   if (drawAlgoText == true){
     algoText();
   }
-  
-  //flickrDataOne();
-  //wierdShapes();
-  //flickrDataTwo();
-  
-  if (millis() - timer >= 2000) {
-    println("Printing");
-    //background(random(255));
-    int x = (int)random(8);
-    //setShader(x);
-    timer = millis();
+  if (drawAlgoRect == true){
+    algoRect();
   }
 }
 
 public void oscShaders(int ints){
-  println(ints);
   if (ints == 0) {
     setShader(7);
   }
@@ -97,22 +90,42 @@ public void oscShaders(int ints){
   }
 }
 
-public void ints(int ints){
-  println(ints);
+void ints(int ints){
+  String e = str(ints);
+  algoText = e;
 }
 
-public void strings(String string){
+void strings(String string){
   algoText= string;
-  println(algoText);
 }
 
-public void floats(float floats) {
-  println(floats);
+void floats(float floats) {
   float o = floats;
+  String e = str(floats);
+  algoText = e;
   cp5.getController("depth").setValue(o);
-  cp5.getController("graininess").setArrayValue(new float[] {o, o});
-  
+  cp5.getController("graininess").setArrayValue(new float[] {o, o}); 
 }
+
+public void flicker(String ints){
+    
+  if (drawAlgoRect == false){
+      drawAlgoRect = true;
+    } else {
+      drawAlgoRect = false;
+    }
+}
+
+public void showText(String ints){
+  if (drawAlgoText == false){
+    drawAlgoText = true;
+  } else {
+    drawAlgoText = false;
+  }
+}
+
+
+
 
 
 
@@ -198,6 +211,7 @@ void keyPressed() {
   }
 }
 
+
 public void algoText(){
   fill(0);
   rect(0,height/2.5,width,height/6);
@@ -207,9 +221,11 @@ public void algoText(){
   textAlign(CENTER);
   text(algoText,width/2,height/2); 
 
-  
 }
-
+public void algoRect(){
+  fill(255,255,255);
+  rect(width/4,height/4,width/2,height/2);
+}
 
 /*
 int DIM, NUMQUADS; // variables to hold the grid dimensions and total grid size
@@ -282,3 +298,17 @@ void drawQuad(int indexPos, int indexTex) {
     pg.rect(width / 25 + width / 25 * (i * 2), height - height / 25, 20, -max(0, 140 + sin((TAU * time) + (i * i * 40)) * 120 + cos(i * i * 25) * (20 * sin(i))));
   }
   pg.popMatrix(); */
+  
+  
+public void setShader(){
+  shader.setShaderParameters();
+  
+  pg.beginDraw();
+  pg.shader(shader.shader);
+  pg.rect(0, 0, pg.width, pg.height);
+  pg.endDraw();
+  
+  fill(0);
+  rect(0, 0, pg.width, pg.height);
+  image(pg, 0, 0); 
+}
