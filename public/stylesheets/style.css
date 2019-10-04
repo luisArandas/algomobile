@@ -237,6 +237,7 @@ label {
   color: black;
   font-size: 11px;
   font-style: monospace;
+  vertical-align: middle;
 }
 
 #mainPage {

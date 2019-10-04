@@ -5,7 +5,9 @@ window.addEventListener("mousedown", myScript);
 
 $(function() {
     $('#input3').on('keypress', function(e) {
-        if (e.which == 32 || e.which == 187)
+        if (e.which == 32)
+            return false;
+        else if (e.which == 187)
             return false;
     });
 });
