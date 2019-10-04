@@ -2,6 +2,15 @@ socket = io.connect(window.location.origin);
 socket.on('mouse', teste);
 window.addEventListener("mousedown", myScript);
 
+
+$(function() {
+    $('#input3').on('keypress', function(e) {
+        if (e.which == 32 || e.which == 187)
+            return false;
+    });
+});
+
+
 function myScript() {
   var data = "clicking";
   console.log(data);
