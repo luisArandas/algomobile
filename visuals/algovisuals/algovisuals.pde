@@ -38,8 +38,8 @@ int idxShader = -1;
 
 void setup(){
   
-  size(650,450, P3D);
-  //fullScreen(P3D);
+  //size(650,450, P3D);
+  fullScreen(P3D);
   background(0,0,0);
   oscP5 = new OscP5(this,12000);
 
