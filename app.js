@@ -59,6 +59,7 @@ var transporter = nodemailer.createTransport({
   }
 });
 //https://myaccount.google.com/lesssecureapps
+//https://accounts.google.com/b/0/displayunlockcaptcha
 var HelperOptions = {
   from: '"Algo" <algo.label@gmail.com',
   to: 'algo.label@gmail.com',

@@ -219,6 +219,11 @@ input[type=date]:focus {
     margin-top: 100px;
     margin-bottom: 100px;
 }
+
+#topmenu {
+	font-size: 10px !important;
+}
+
 .button-box-flex {
 	display: flex;
 	padding-top: 30px;

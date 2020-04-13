@@ -508,3 +508,7 @@ span.psw {
   position: relative;
   left: 19%;
 }
+
+span:hover {
+  background-color: white !important;
+}

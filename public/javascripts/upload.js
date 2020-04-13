@@ -188,6 +188,7 @@ function register(v) {
     var e = document.getElementById('input1').value;
     document.getElementById('aboutYou').innerHTML += 'We look forward to see you, ' + e + ".";
   }*/
+  window.location.href = "register.html";
 
 
 }
