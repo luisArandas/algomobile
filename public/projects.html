@@ -10,13 +10,28 @@
     <title>Algo Project</title>
     <link rel="stylesheet" href="/stylesheets/styles.css" />
     <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 
 </head>
 
 <body>
 
     <div class="gridContainer clearfix">
+
         <div id="div1" class="fluid">
+
+          <div id="navbar" style="display: none;">
+            <ul>
+              <li><a class="active" href="../index.html" style="display: inline-block;">Home</a></li>
+              <li><a href="about.html" style="display: inline-block;">About</a></li>
+              <li><a href="projects.html" style="display: inline-block;">Projects</a></li>
+              <li><a href="algo-policy.html" style="display: inline-block;">ToS</a></li>
+              <li><a href="manifesto.html" style="display: inline-block;">Manifesto</a></li>
+            </ul>
+            <hr>
+
+          </div>
 
           <section class="logo">
               <a href="../index.html">
@@ -32,20 +47,10 @@
 
               </a>
           </section>
+            <hr id="rmv">
 
-            <hr>
 
-            <!--<section class="breadcrumb">
-                // you are in <b>"Registration Form"</b>
-            </section>-->
-
-            <section class="sub-text"><br>
-                <!--<h1>Launched Projects</h1>
-              <p>Maybe here the two artworks as already conceived projects? and then put the register under algo2.0<br><br>This is <i>Algo registration form</i> to participate in ALGO music composition.
-                    You need to be at least 18 years old to participate</p>-->
-            </section>
-
-            <section class="form" style="height: max-content; overflow: auto;">
+            <section class="projectsdiv" id="projectsname" style="height: max-content; overflow: auto;">
               <a href="algo1.html"><div id="project1" class="divhover" style="display:block; width: 47%; height: 50vh; background-repeat: no-repeat; background-color: black; background-size: contain; background-image: url('/images/algo1.0/algo_foto_2.png'); float: left;">
                 <!--<p class="text">algo1.0</p>-->
 
@@ -69,6 +74,8 @@
 
         </div>
     </div>
+
+    <script src="../javascripts/upload2.js"></script>
 
 </body>
 

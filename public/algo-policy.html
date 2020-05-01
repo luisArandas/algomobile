@@ -10,6 +10,8 @@
     <title>Algo Project</title>
     <link rel="stylesheet" href="/stylesheets/styles.css" />
     <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 
 </head>
 
@@ -17,6 +19,18 @@
 
     <div class="gridContainer clearfix">
         <div id="div1" class="fluid">
+
+          <div id="navbar" style="display: none;">
+            <ul>
+              <li><a class="active" href="../index.html" style="display: inline-block;">Home</a></li>
+              <li><a href="about.html" style="display: inline-block;">About</a></li>
+              <li><a href="projects.html" style="display: inline-block;">Projects</a></li>
+              <li><a href="algo-policy.html" style="display: inline-block;">ToS</a></li>
+              <li><a href="manifesto.html" style="display: inline-block;">Manifesto</a></li>
+            </ul>
+            <hr>
+
+          </div>
 
           <section class="logo">
               <a href="../index.html">
@@ -33,43 +47,43 @@
               </a>
           </section>
 
-            <hr>
+            <hr id="rmv">
 
             <!--<section class="breadcrumb">
                   // you are in <b>"Terms of Service and Data Policy"</b>
             </section>-->
 
 
-            <section class="sub-text">
+            <section class="sub-text" id="sub-text">
 
                 <div>
-                    <h1>Terms of Service</h1>
-                    <label class="sub-text-2">Here you can find the team's position on how artists collect information, how we act whenever a project processes data about the public and our terms of responsibility. </label>
+                    <h1>Terms of Service<br><br>
+                    <label class="sub-text-2">Here you can find the team's position on how artists collect information, how we act whenever a project processes data about the public and our terms of responsibility.<h1></label>
                 </div>
 
                 <p>&nbsp;</p>
 
                 <div>
-                    <hr>
-                    <h1>Data Policy</h1>
-                    <p class="title-label"><b>1. Collected Information</b></p>
-                    <label class="sub-text-2">The label promotes all kinds of data collection as long as it does not conflict with
+                    <hr id="rmv">
+                    <h2>Data Policy</h2>
+                    <p class="title-label"><b><h3>1. Collected Information<h3></b></p>
+                    <label class="sub-text-2"><h3>The label promotes all kinds of data collection as long as it does not conflict with
                       third-party policies. We are advocates of an open source culture as well as the reuse of data that without a
                       context can be considered useless. It is not within the scope of this project to investigate how the authors collected
                       content for their projects, nor do we aim to promote personal and exclusive hacking for any reason. There are multiple
-                      interfaces that allow us to collect data publicly as well as nature itself.</label>
+                      interfaces that allow us to collect data publicly as well as nature itself.<h3></label>
                     <p>&nbsp;</p>
-                    <p class="title-label"><b>2. Projects that Collect Data from Users</b></p>
+                    <p class="title-label"><b><h3>2. Projects that Collect Data from Users</b></p>
                     <label class="sub-text-2">Whenever any label project uses data collected by users, the public or third parties
                       should always be done for artistic purposes. None of this information is used other than to make music directly or
-                      indirectly using the necessary media, from synthesizers to controllers in general.</label>
+                      indirectly using the necessary media, from synthesizers to controllers in general.<h3></label>
                     <p>&nbsp;</p>
-                    <p class="title-label"><b>3. Device Hacking</b></p>
+                    <p class="title-label"><b><h3>3. Device Hacking</b></p>
                     <label class="sub-text-2">Given the inclusion of projects exploiting automatic electronics,
                       it is necessary to clarify the team's position in this field. Both automation, circuit-bending and
                       transfiguration of digital information must always correspond to the canons of freedom of each author
                       and the tools he uses. The reappropriation of
-                      software and hardware used for edited music is supported, provided it is done legally.</label>
+                      software and hardware used for edited music is supported, provided it is done legally.<h3></label>
                     <p>&nbsp;</p>
                     <hr>
 
@@ -82,7 +96,7 @@
 
 
 
-            <section class="footer">
+            <section class="footer" id="footer">
                 <hr>
                 <p>
                   © ALGO Team 2020 | ____________________
@@ -91,6 +105,7 @@
 
         </div>
     </div>
+    <script src="../javascripts/upload6.js"></script>
 
 </body>
 

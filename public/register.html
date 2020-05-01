@@ -10,6 +10,8 @@
     <title>Algo Project</title>
     <link rel="stylesheet" href="/stylesheets/styles.css" />
     <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 
 </head>
 
@@ -17,6 +19,18 @@
 
     <div class="gridContainer clearfix">
         <div id="div1" class="fluid">
+
+          <div id="navbar" style="display: none;">
+            <ul>
+              <li><a class="active" href="../index.html" style="display: inline-block;">Home</a></li>
+              <li><a href="about.html" style="display: inline-block;">About</a></li>
+              <li><a href="projects.html" style="display: inline-block;">Projects</a></li>
+              <li><a href="algo-policy.html" style="display: inline-block;">ToS</a></li>
+              <li><a href="manifesto.html" style="display: inline-block;">Manifesto</a></li>
+            </ul>
+            <hr>
+
+          </div>
 
           <section class="logo">
               <a href="../index.html">
@@ -33,17 +47,17 @@
               </a>
           </section>
 
-            <hr>
+            <hr id="rmv">
 
             <!--<section class="breadcrumb">
                   // you are in <b>"Terms of Service and Data Policy"</b>
             </section>-->
 
 
-            <section class="sub-text">
+            <section class="sub-text" id="sub-text">
 
                 <div>
-                    <h1>thanks for registering</h1>
+                    <h1>thanks for registering. //</h1>
                     <label class="sub-text-2"></label>
                 </div>
 
@@ -54,7 +68,7 @@
 
 
 
-            <section class="footer">
+            <section class="footer" id="footer">
                 <hr>
                 <p>
                   © ALGO Team 2020 | ____________________
@@ -63,6 +77,7 @@
 
         </div>
     </div>
+    <script src="../javascripts/upload8.js"></script>
 
 </body>
 

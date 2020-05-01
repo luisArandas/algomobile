@@ -10,6 +10,7 @@
     <title>Algo Project</title>
     <link rel="stylesheet" href="/stylesheets/styles.css" />
     <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
 
@@ -17,6 +18,18 @@
 
     <div class="gridContainer clearfix">
         <div id="div1" class="fluid">
+
+          <div id="navbar" style="display: none;">
+            <ul>
+              <li><a class="active" href="../index.html" style="display: inline-block;">Home</a></li>
+              <li><a href="about.html" style="display: inline-block;">About</a></li>
+              <li><a href="projects.html" style="display: inline-block;">Projects</a></li>
+              <li><a href="algo-policy.html" style="display: inline-block;">ToS</a></li>
+              <li><a href="manifesto.html" style="display: inline-block;">Manifesto</a></li>
+            </ul>
+            <hr>
+
+          </div>
 
             <section class="logo">
                 <a href="../index.html">
@@ -33,19 +46,19 @@
                 </a>
             </section>
 
-            <hr>
 
             <!--<section class="breadcrumb">
                 // you are in <b>"About"</b>
             </section>-->
 
-            <section class="sub-text">
+            <section class="sub-text" id="sub-text">
                 <h1>Welcome.</h1>
-                ALGO is a label for data music and automatic electronics. <br><br>We promote music performance and composition from data obtained in the most diverse ways.
+                <h2>ALGO is a label for data music and automatic electronics. <br><br>We promote music performance and composition from data obtained in the most diverse ways.
                   Our focus is on the use of information as musical expression material demonstrating both chaos and structure. We offer
                   distribution services as well as inclusion in a community of artists interested in
-                musical expression from public data, circuit bending and algorithmic improvisation.
+                musical expression from public data, circuit bending and algorithmic improvisation.<h2>
                 <h4 style="text-align: right; margin-right: 5%;">The ALGO Team</h4>
+                <hr>
                 <!--<p class="sub-text-2">Here we present what we defend and want to do. datamusic electronics etc<br><br>The aim of ALGO is to explore new sounds through the blurring of boundaries between the listener and the music, seeking to create a personalized sound and music experience.</p>-->
             </section>
 
@@ -58,6 +71,7 @@
 
         </div>
     </div>
+    <script src="../javascripts/upload3.js"></script>
 
 </body>
 

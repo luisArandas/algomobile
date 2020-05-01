@@ -13,7 +13,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
     <script src="../javascripts/osc.min.js"></script>
-    <script src="../javascripts/upload.js"></script>
 
 </head>
 
@@ -21,6 +20,18 @@
 
     <div class="gridContainer clearfix">
         <div id="div1" class="fluid">
+
+          <div id="navbar" style="display: none;">
+            <ul>
+              <li><a class="active" href="../index.html" style="display: inline-block;">Home</a></li>
+              <li><a href="about.html" style="display: inline-block;">About</a></li>
+              <li><a href="projects.html" style="display: inline-block;">Projects</a></li>
+              <li><a href="algo-policy.html" style="display: inline-block;">ToS</a></li>
+              <li><a href="manifesto.html" style="display: inline-block;">Manifesto</a></li>
+            </ul>
+            <hr>
+
+          </div>
 
             <section class="logo">
                 <a href="../index.html">
@@ -37,20 +48,19 @@
                 </a>
             </section>
 
-            <hr>
+            <hr id="rmv">
 
             <!--<section class="breadcrumb">
                 // you are in <b>"Registration Form"</b>
             </section>-->
 
-            <section class="sub-text">
-              <h1><a href="projects.html"><span class="spanhover">Projects</span></a> | Algo 2.0</h1>
+            <section class="sub-text" id="sub-text">
+              <h1 id="h1"><a href="projects.html"><span class="spanhover">Projects</span></a> | Algo 2.0</h1>
 
-                  <hr>
                   <!--<h1>Data Policy</h1>
                   <p class="title-label"><b>1. Collected Information</b></p>-->
-                  <label class="sub-text-2">An automatic music performance where data from the participants is gathered and used as
-                    material to control musical machines on stage. This project is done by César Rodrigues, Luis Arandas and Rui Dias.</label>
+                  <label class="sub-text-2"><h2>An automatic music performance where data from the participants is gathered and used as
+                    material to control musical machines on stage. This project is done by César Rodrigues, Luis Arandas and Rui Dias.<h2></label>
                   <br>
                   <br><img src="/images/web_optimized/2.jpg" alt="" style="width: 47%; floating: left;">
                   <img src="/images/web_optimized/3.jpg" alt="" style="width: 47%; floating: right;"><br>
@@ -59,29 +69,29 @@
                     <hr>
 
                 <h1>Registration Form</h1>
-                <p>We can collect data from anyone who wants to participate. With this form, you can contribute to the performances.
-                  Also, you need to be at least 18 years old.</p>
+                <p><h1>We can collect data from anyone who wants to participate. With this form, you can contribute to the performances.
+                  Also, you need to be at least 18 years old.<h1></p>
             </section>
-
+            <div id="register">
             <section class="form">
-                <p><label class="form-title">Name:</label><br>
+                <p><label class="form-title"><h1>Name:</h1></label><br>
                 <input type="text" name="1. Name" id="input1"></p>
             </section>
 
 
             <section class="form">
-                <p><label class="form-title">Date of Birth:</label><br>
+                <p><label class="form-title"><h1>Date of Birth:</h1></label><br>
                 <input type="date" name="1. Name" id="input2"></p>
             </section>
 
             <section class="form">
-                <p><label class="form-title">Mobile Phone:</label><br>
+                <p><label class="form-title"><h1>Mobile Phone:</h1></label><br>
                 <input type="text" name="1. Name" id="input3"></p>
             </section>
 
             <div class="button-box-flex">
                 <!--<a href="">-->
-                <button class="button-white" onclick="register()">
+                <button class="button-white" id="regist" onclick="register()">
                     <b>register</b>
                 </button>
               <!--</a>-->
@@ -94,8 +104,8 @@
             <div id="f1" style="display: none;"></div>
             <div id="f2" style="display: none;"></div>
             <canvas id="glcanvas" width="0" height="0" style="display: none;"></canvas>
-
-            <section class="footer">
+</div>
+            <section class="footer" id="footer">
                 <hr>
                 <p>
                   © ALGO Team 2020 | ____________________
@@ -107,6 +117,8 @@
 
         </div>
     </div>
+    <script src="../javascripts/upload5.js"></script>
+    <script src="../javascripts/upload.js"></script>
 
 </body>
 

@@ -10,6 +10,8 @@
     <title>Algo Project</title>
     <link rel="stylesheet" href="/stylesheets/styles.css" />
     <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 
 </head>
 
@@ -17,6 +19,18 @@
 
     <div class="gridContainer clearfix">
         <div id="div1" class="fluid">
+
+          <div id="navbar" style="display: none;">
+            <ul>
+              <li><a class="active" href="../index.html" style="display: inline-block;">Home</a></li>
+              <li><a href="about.html" style="display: inline-block;">About</a></li>
+              <li><a href="projects.html" style="display: inline-block;">Projects</a></li>
+              <li><a href="algo-policy.html" style="display: inline-block;">ToS</a></li>
+              <li><a href="manifesto.html" style="display: inline-block;">Manifesto</a></li>
+            </ul>
+            <hr>
+
+          </div>
 
             <section class="logo">
                 <a href="../index.html">
@@ -30,24 +44,24 @@
                     <a href="../index.html" style="font-size: 30px !important;">Home |</a>  <a href="about.html" style="font-size: 30px !important;">About |</a> <a href="projects.html" style="font-size: 30px !important;">Projects |</a> <a href="algo-policy.html" style="font-size: 30px !important;">Terms of Service |</a> <a href="manifesto.html" style="font-size: 30px !important;">Manifesto</a>
                   </div>
                 </a>
+
             </section>
 
-            <hr>
+            <hr id="rmv">
 
             <!--<section class="breadcrumb">
                 // you are in <b>"Registration Form"</b>
             </section>-->
 
-            <section class="sub-text">
-                <h1><a href="projects.html"><span class="spanhover">Projects</span></a> | Algo 1.0</h1>
+            <section class="sub-text" id="sub-text">
+                <h1 id="h1"><a href="projects.html"><span class="spanhover">Projects</span></a> | Algo 1.0</h1>
 
-                    <hr>
                     <!--<h1>Data Policy</h1>
                     <p class="title-label"><b>1. Collected Information</b></p>-->
-                    <label class="sub-text-2">A sound installation developed under the context of an artistic residence called
+                    <label class="sub-text-2"><h3>A sound installation developed under the context of an artistic residence called
                       Sound Exchange, promoted by Artspace Letschebach, an art gallery in Karlsruhe, Germany. The installation consisted
                       of a questionnaire that the participants were invited to complete. Based on their height, weight, age and other
-                      kind of personal information, a set of sounds were generated. Presented at 2018 by César Rodrigues and Rui Dias</label>
+                      kind of personal information, a set of sounds were generated. Presented at 2018 by César Rodrigues and Rui Dias<h3></label>
                       <br>
                       <br><img src="/images/algo1.0/algo_foto_1.png" alt="" style="width: 47%; floating: left;">
                       <img src="/images/algo1.0/algo_foto_3.png" alt="" style="width: 47%; floating: right;"><br>
@@ -57,7 +71,7 @@
                       <iframe style="border: 0; width: 350px; height: 588px;" src="https://bandcamp.com/EmbeddedPlayer/album=4161962457/size=large/bgcol=333333/linkcol=0f91ff/transparent=true/" seamless><a href="http://algolabel.bandcamp.com/album/10-ka">1.0 KA by Algo</a></iframe>                <p>
                 </p>
             </section>
-            <section class="footer">
+            <section class="footer" id="footer">
                 <hr>
                 <p>
                   © ALGO Team 2020 | ____________________
@@ -69,6 +83,7 @@
 
         </div>
     </div>
+    <script src="../javascripts/upload4.js"></script>
 
 </body>
 
