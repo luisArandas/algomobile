@@ -9,7 +9,7 @@ if ($(window).width() < 960) {
   document.getElementById('projectsname').style["position"] = "absolute";
   //document.getElementById('projectsname').style["background-color"] = "red";
 
-  document.getElementById('projectsname').style["top"] = "15%";
+  document.getElementById('projectsname').style["top"] = "20%";
   document.getElementById('projectsname').style["left"] = "1%";
   document.getElementById('projectsname').style["height"] = "80%";
   document.getElementById('projectsname').style["width"] = "98%";

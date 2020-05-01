@@ -12,7 +12,7 @@ if ($(window).width() < 960) {
 
   document.getElementById('sub-text').style["position"] = "absolute";
 
-  document.getElementById('sub-text').style["top"] = "15%";
+  document.getElementById('sub-text').style["top"] = "20%";
   document.getElementById('sub-text').style["color"] = "white";
   document.getElementById('sub-text').style["font-family"] = "Proxima Nova !important";
 
