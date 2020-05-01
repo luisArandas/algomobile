@@ -3,7 +3,7 @@ if ($(window).width() < 960) {
   document.getElementsByClassName('logo')[0].style.visibility = 'hidden';
   document.getElementById('navbar').style.display = 'block';
 
-  //document.getElementById('footer').style.display = 'none';
+  document.getElementById('footer').style.display = 'none';
 
   document.getElementById('h1').style.display = 'none';
   document.getElementById('rmv').style.display = 'none';
