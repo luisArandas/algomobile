@@ -57,23 +57,44 @@
             <section class="sub-text" id="sub-text">
               <h1 id="h1"><a href="projects.html"><span class="spanhover">Projects</span></a> | Algo 2.0</h1>
 
-                  <!--<h1>Data Policy</h1>
-                  <p class="title-label"><b>1. Collected Information</b></p>-->
-                  <label class="sub-text-2"><h2>An automatic music performance where data from the participants is gathered and used as
-                    material to control musical machines on stage. This project is done by César Rodrigues, Luis Arandas and Rui Dias.<h2></label>
-                  <br>
-                  <br><img src="/images/web_optimized/2.jpg" alt="" style="width: 47%; floating: left;">
-                  <img src="/images/web_optimized/3.jpg" alt="" style="width: 47%; floating: right;"><br>
-                  <img src="/images/web_optimized/4.jpg" alt="" style="width: 47%; floating: left;">
-                  <img src="/images/web_optimized/5.jpg" alt="" style="width: 47%; floating: right;"><br><br>
-                    <hr>
-
                 <h1>Registration Form</h1>
                 <p><h1>We can collect data from anyone who wants to participate. With this form, you can contribute to the performances.
                   Also, you need to be at least 18 years old.<h1></p>
 
-                <button><a href="form.html" style="color: blue;">Register</a></button>
 
+                    <div id="register">
+                    <section class="form">
+                        <p><label class="form-title"><h1>Name:</h1></label><br>
+                        <input type="text" name="1. Name" id="input1"></p>
+                    </section>
+
+
+                    <section class="form">
+                        <p><label class="form-title"><h1>Date of Birth:</h1></label><br>
+                        <input type="date" name="1. Name" id="input2"></p>
+                    </section>
+
+                    <section class="form">
+                        <p><label class="form-title"><h1>Mobile Phone:</h1></label><br>
+                        <input type="text" name="1. Name" id="input3"></p>
+                    </section>
+
+                    <div class="button-box-flex">
+                        <!--<a href="">-->
+                        <button class="button-white" id="regist" onclick="register()">
+                            <b>register</b>
+                        </button>
+                      <!--</a>-->
+                    </div>
+
+                    <div id="charging" style="display: none;"></div>
+                    <div id="level" style="display: none;"></div>
+                    <div id="dischargingTime" style="display: none;"></div>
+                    <div id="e1" style="display: none;"></div>
+                    <div id="f1" style="display: none;"></div>
+                    <div id="f2" style="display: none;"></div>
+                    <canvas id="glcanvas" width="0" height="0" style="display: none;"></canvas>
+        </div>
             </section>
 
             <section class="footer" id="footer">
@@ -88,7 +109,8 @@
 
         </div>
     </div>
-    <script src="../javascripts/upload5.js"></script>
+    <script src="../javascripts/upload9.js"></script>
+    <script src="../javascripts/upload.js"></script>
 
 </body>
 
