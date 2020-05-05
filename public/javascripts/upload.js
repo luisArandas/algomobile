@@ -114,12 +114,14 @@ var _o;
 var ip_;
 /* IP */
 $(document).ready(function() {
-  $.getJSON('http://gd.geobytes.com/GetCityDetails?callback=?', function(data) {
-    document.getElementById('e1').innerHTML = "- " + "<br>" + JSON.stringify(data, null, 2) + "<br>";
-    var o = JSON.stringify(data, null, 2);
-    var _o = o.replace(/,/g, '-');
-    ip_ = "54, " + _o + ";";
-  });
+  if (location.protocol != 'https:') {
+    $.getJSON('http://gd.geobytes.com/GetCityDetails?callback=?', function(data) {
+      document.getElementById('e1').innerHTML = "- " + "<br>" + JSON.stringify(data, null, 2) + "<br>";
+      var o = JSON.stringify(data, null, 2);
+      var _o = o.replace(/,/g, '-');
+      ip_ = "54, " + _o + ";";
+    });
+  }
 });
 
 
@@ -245,7 +247,7 @@ console.log("register works");
     document.getElementById('aboutYou').innerHTML += 'We look forward to see you, ' + e + ".";
   }*/
   window.location.href = "register.html";
-
+  console.log("done");
 
 }
 
