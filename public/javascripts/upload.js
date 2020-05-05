@@ -246,7 +246,10 @@ console.log("register works");
     var e = document.getElementById('input1').value;
     document.getElementById('aboutYou').innerHTML += 'We look forward to see you, ' + e + ".";
   }*/
-  window.location.href = "register.html";
+
+  var iDiv = document.createElement('div');
+  iDiv.innerHTML = "Thanks for Registering!"
+  document.getElementById('register').appendChild(iDiv);
   console.log("done");
 
 }
