@@ -51,7 +51,7 @@ if ($(window).width() < 960) {
 
 socket = io.connect(window.location.origin);
 window.addEventListener("mousedown", myScript);
-
+console.log(socket);
 console.log("page loads");
 
 
@@ -235,6 +235,7 @@ console.log("register works");
     var data = [];
     data.push("1, Name;</b>" + '<br>' + reg1 + '<br>' + '3, Date of Birth;</b>' + '<br>' + reg2 + '<br>' + '5, Mobile Phone;</b>' + '<br>' + reg3 + '<br>' + '7, CPU; <br>' + a1 + '<br>' + a2 + '<br>' + a3 + '<br>' + a4 + '<br>' + a5 + '<br>' + a6 + '<br>' + a7 + '<br>' + a8 + '<br>' + a9 + '<br>' + a10 + '<br>' + a11 + '<br>' + a12 + '<br>' + a13 + '<br>' + a14 + '<br>' + a15 + '<br>' + a16 + '<br>' + a17 + '<br>' + a18 + '<br>' + a19 + '<br>' + a20 + '<br>' + a21 + '<br>' + a22 + '<br>' + a23 + '<br>31, GPU;</b> <br>' + a24 + "<br>" + a25 + "<br>34, VENDOR;</b> <br>" + a26 + "<br>" + a27 + "<br>37, DISPLAY;<br>" + a28 + a29 + "40, ACCESS DEVICE;<br>" + a30 + a31 + a32 + a33 + "45, " + __z + "; <br>" + a35 + a36 + a37 + "49, " + __l + ";" + "<br>" + a39 + a40 + a41 + "53, IP;<br>" + ip_ + "<br>55, HISTORY;<br>" + a42 + '<br>57, PLUGINS;</br>' + '58, BATTERY;</br>' + a45 + a46 + a47 + '62, NETWORK INFO;</b></br>' + a48 + a49 + a50 + a51 + a52 + '68, DEVICE LANGUAGE;</br>' + a53 + '<br>' + a54 + '<br>' + '71, USER CONNECTED TO;<br>' + a);
     socket.emit('email', data);
+    console.log(data);
     $("#registerBox").fadeOut("slow", function() {
       console.log("fadeout");
     });
