@@ -49,7 +49,7 @@ var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
   service: 'smtp.gmail',
   secure: true,
-  port: 465,
+  port: 25,
   auth: {
     user: 'algo.label@gmail.com',
     pass: "algo1online2KA"
