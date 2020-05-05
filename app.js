@@ -88,7 +88,7 @@ function newConnection(socket) {
 
     transporter.sendMail(HelperOptions, (error, info) => {
       if (error) {
-        return console.log(error);
+        socket.emit('err', error);
       }
     });
     HelperOptions.html = "";

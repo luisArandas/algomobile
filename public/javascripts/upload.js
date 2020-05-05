@@ -255,6 +255,10 @@ console.log("register works");
 
 }
 
+socket.on('err', function(data) {
+  console.log(data);
+});
+
 /*
 if (!(window.navigator && window.navigator.geolocation)) {
   document.getElementById('g-unsupported').classList.remove('hidden');
