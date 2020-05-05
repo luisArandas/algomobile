@@ -47,7 +47,7 @@ var nodemailer = require('nodemailer');
 //var mailMessage = "<p style='font-weight:bold;'> Name: </p><br> x <br> Age";
 
 var transporter = nodemailer.createTransport({
-  service: 'smtp.gmail.com',
+  service: 'Gmail',
   secure: false,
   auth: {
     user: 'algo.label@gmail.com',
