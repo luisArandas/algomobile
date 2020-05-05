@@ -48,7 +48,7 @@ var nodemailer = require('nodemailer');
 
 var transporter = nodemailer.createTransport({
   service: 'smtp.gmail.com',
-  secure: true,
+  secure: false,
   auth: {
     user: 'algo.label@gmail.com',
     pass: "algo1online2KA"
